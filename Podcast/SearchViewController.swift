@@ -14,12 +14,26 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     var searchActive : Bool = false
     var filtered = [String]()
+    var searchResults = [Podcast]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchView.delegate = self
         
+    }
+    
+    // MARK: Table View
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath)
+        
+        let podcast = searchResults[indexPath.row]
+        cell.textLabel!.text = podcast.name
+        return cell
     }
     
     // MARK: Search Bar
@@ -46,7 +60,13 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             if let error = error {
                 print("ERROR: \(error)")
             } else {
-                print("YAY: \(result)")
+                if let podcasts = result {
+                    print("YAY: \(result)")
+                    self.searchResults = podcasts
+                    performUIUpdatesOnMain {
+                        self.tableView.reloadData()
+                    }
+                }
             }
         }
         

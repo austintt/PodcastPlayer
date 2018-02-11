@@ -10,7 +10,7 @@ import Foundation
 
 extension RequestManager {
     
-    func getSearch(term: String, competionHandlerForSearch: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func getSearch(term: String, competionHandlerForSearch: @escaping (_ results: [Podcast]?, _ error: NSError?) -> Void) {
         let params = [ParameterRequestKeys.term: term, ParameterRequestKeys.media: ParameterRequestValues.podcast] as [String:AnyObject]
         let method = Methods.search
         let url = iTunesUrlFromParameters(params, withPathExtension: method)
@@ -21,12 +21,12 @@ extension RequestManager {
             if let error = error {
                 competionHandlerForSearch(nil, error)
             } else {
-                print("SEARCH RESULTS: \(results)")
-                
-//                self.parseUserFromJson(results: results as! [String:AnyObject])
-//                print("Student Info: \(String(describing: results))")
-                
-                competionHandlerForSearch(results, nil)
+                if let results = results?["results"] as? [[String:AnyObject]] {
+                    let podcasts = Podcast.podcastsFromResults(results)
+                    competionHandlerForSearch(podcasts, nil)
+                } else {
+                    competionHandlerForSearch(nil, NSError(domain: "getSearch parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse search results"]))
+                }
             }
         })
     }
@@ -38,7 +38,7 @@ extension RequestManager {
         var components = URLComponents()
         components.scheme = RequestManager.Constants.iTunesApiScheme
         components.host = RequestManager.Constants.iTunesApiHost
-        
+        components.path = (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         
         // Add params

@@ -10,6 +10,8 @@
 		D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84B2030EF800031B6F1 /* RequestManager.swift */; };
 		D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84D2030F0230031B6F1 /* iTunesClient.swift */; };
 		D902B8502030F0A70031B6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84F2030F0A70031B6F1 /* Constants.swift */; };
+		D902B8532030FE200031B6F1 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8522030FE200031B6F1 /* Podcast.swift */; };
+		D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8742031046A0031B6F1 /* GCDBlackBox.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		D902B84B2030EF800031B6F1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		D902B84D2030F0230031B6F1 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
 		D902B84F2030F0A70031B6F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D902B8522030FE200031B6F1 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		D902B8742031046A0031B6F1 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		D902B8512030FE0C0031B6F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D902B8522030FE200031B6F1 /* Podcast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D97F5B972030EAC1004506B1 = {
 			isa = PBXGroup;
 			children = (
@@ -72,10 +84,12 @@
 		D97F5BA22030EAC1004506B1 /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
+				D902B8512030FE0C0031B6F1 /* Models */,
 				D902B84A2030EE990031B6F1 /* Network */,
 				D97F5BA32030EAC1004506B1 /* AppDelegate.swift */,
 				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
 				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
+				D902B8742031046A0031B6F1 /* GCDBlackBox.swift */,
 				D97F5BA72030EAC1004506B1 /* Main.storyboard */,
 				D97F5BAA2030EAC1004506B1 /* Assets.xcassets */,
 				D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */,
@@ -156,7 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
+				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,

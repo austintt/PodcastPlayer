@@ -39,6 +39,11 @@ extension RequestManager {
         // MARK: General
         static let StatusMessage = "status_message"
         static let StatusCode = "status_code"
+        
+        // MARK: Podcast
+        static let podcastName = "artistName"
+        static let artworkUrl = "artworkUrl600"
+        static let feedUrl = "feedUrl"
     }
     
     
