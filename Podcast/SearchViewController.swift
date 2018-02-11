@@ -18,9 +18,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        searchView.delegate = self
-        
+        searchView.delegate = self       
     }
     
     // MARK: Table View
