@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84B2030EF800031B6F1 /* RequestManager.swift */; };
+		D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84D2030F0230031B6F1 /* iTunesClient.swift */; };
+		D902B8502030F0A70031B6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84F2030F0A70031B6F1 /* Constants.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
-		D97F5BA62030EAC1004506B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* ViewController.swift */; };
+		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
+		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D902B84B2030EF800031B6F1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		D902B84D2030F0230031B6F1 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
+		D902B84F2030F0A70031B6F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D97F5BA52030EAC1004506B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		D97F5BA82030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D97F5BAA2030EAC1004506B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D902B84A2030EE990031B6F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D902B84F2030F0A70031B6F1 /* Constants.swift */,
+				D902B84B2030EF800031B6F1 /* RequestManager.swift */,
+				D902B84D2030F0230031B6F1 /* iTunesClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		D97F5B972030EAC1004506B1 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +72,10 @@
 		D97F5BA22030EAC1004506B1 /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
+				D902B84A2030EE990031B6F1 /* Network */,
 				D97F5BA32030EAC1004506B1 /* AppDelegate.swift */,
-				D97F5BA52030EAC1004506B1 /* ViewController.swift */,
+				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
+				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
 				D97F5BA72030EAC1004506B1 /* Main.storyboard */,
 				D97F5BAA2030EAC1004506B1 /* Assets.xcassets */,
 				D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */,
@@ -136,8 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97F5BA62030EAC1004506B1 /* ViewController.swift in Sources */,
+				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
+				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
+				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
+				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
+				D902B8502030F0A70031B6F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
