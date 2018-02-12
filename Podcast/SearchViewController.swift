@@ -18,7 +18,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchView.delegate = self       
+        searchView.delegate = self
     }
     
     // MARK: Table View
@@ -54,6 +54,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         RequestManager.sharedInstance().getSearch(term: searchText) { (result, error) in
+            self.searchResults = [Podcast]()
+            self.tableView.reloadData()
             
             if let error = error {
                 print("ERROR: \(error)")
