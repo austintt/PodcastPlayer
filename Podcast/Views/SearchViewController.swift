@@ -34,6 +34,15 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let podcast = searchResults[indexPath.row]
+        
+        let controller = storyboard!.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
+        controller.podcast = podcast
+        navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    
     // MARK: Search Bar
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
@@ -54,14 +63,19 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         RequestManager.sharedInstance().getSearch(term: searchText) { (result, error) in
-            self.searchResults = [Podcast]()
-            self.tableView.reloadData()
             
             if let error = error {
                 print("ERROR: \(error)")
             } else {
                 if let podcasts = result {
-                    print("YAY: \(result)")
+                    
+                    // Clear table
+                    self.searchResults = [Podcast]()
+                    performUIUpdatesOnMain {
+                        self.tableView.reloadData()
+                    }
+                    
+                    // Update Table
                     self.searchResults = podcasts
                     performUIUpdatesOnMain {
                         self.tableView.reloadData()

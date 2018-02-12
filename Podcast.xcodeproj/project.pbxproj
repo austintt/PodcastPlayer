@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842515802A7849A3E5A3AF52 /* Pods_Podcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B980C20832697C4A15EECF9 /* Pods_Podcast.framework */; };
 		D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84B2030EF800031B6F1 /* RequestManager.swift */; };
 		D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84D2030F0230031B6F1 /* iTunesClient.swift */; };
 		D902B8502030F0A70031B6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B84F2030F0A70031B6F1 /* Constants.swift */; };
 		D902B8532030FE200031B6F1 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8522030FE200031B6F1 /* Podcast.swift */; };
 		D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8742031046A0031B6F1 /* GCDBlackBox.swift */; };
+		D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -21,11 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DD72A2A33DCC7947EC63625 /* Pods-Podcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podcast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podcast/Pods-Podcast.debug.xcconfig"; sourceTree = "<group>"; };
+		3B980C20832697C4A15EECF9 /* Pods_Podcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Podcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F74D1F390F3CA028915B47 /* Pods-Podcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podcast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podcast/Pods-Podcast.release.xcconfig"; sourceTree = "<group>"; };
 		D902B84B2030EF800031B6F1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		D902B84D2030F0230031B6F1 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
 		D902B84F2030F0A70031B6F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D902B8522030FE200031B6F1 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		D902B8742031046A0031B6F1 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -41,12 +47,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842515802A7849A3E5A3AF52 /* Pods_Podcast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D160501AE6C9279AC91FDB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DD72A2A33DCC7947EC63625 /* Pods-Podcast.debug.xcconfig */,
+				53F74D1F390F3CA028915B47 /* Pods-Podcast.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F40EE872F267A36E1A177CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B980C20832697C4A15EECF9 /* Pods_Podcast.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D902B84A2030EE990031B6F1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +89,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D902B87620313AFB0031B6F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
+				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
+				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D97F5B972030EAC1004506B1 = {
 			isa = PBXGroup;
 			children = (
 				D97F5BA22030EAC1004506B1 /* Podcast */,
 				D97F5BA12030EAC1004506B1 /* Products */,
+				1D160501AE6C9279AC91FDB7 /* Pods */,
+				7F40EE872F267A36E1A177CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,12 +120,11 @@
 		D97F5BA22030EAC1004506B1 /* Podcast */ = {
 			isa = PBXGroup;
 			children = (
+				D97F5BA32030EAC1004506B1 /* AppDelegate.swift */,
+				D902B8742031046A0031B6F1 /* GCDBlackBox.swift */,
+				D902B87620313AFB0031B6F1 /* Views */,
 				D902B8512030FE0C0031B6F1 /* Models */,
 				D902B84A2030EE990031B6F1 /* Network */,
-				D97F5BA32030EAC1004506B1 /* AppDelegate.swift */,
-				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
-				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
-				D902B8742031046A0031B6F1 /* GCDBlackBox.swift */,
 				D97F5BA72030EAC1004506B1 /* Main.storyboard */,
 				D97F5BAA2030EAC1004506B1 /* Assets.xcassets */,
 				D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */,
@@ -105,9 +140,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D97F5BB22030EAC1004506B1 /* Build configuration list for PBXNativeTarget "Podcast" */;
 			buildPhases = (
+				540F26864BBFC41F6F1E9C44 /* [CP] Check Pods Manifest.lock */,
 				D97F5B9C2030EAC1004506B1 /* Sources */,
 				D97F5B9D2030EAC1004506B1 /* Frameworks */,
 				D97F5B9E2030EAC1004506B1 /* Resources */,
+				801E1B4FF2E1BC5D94AC5D95 /* [CP] Embed Pods Frameworks */,
+				3F9A7414D8267C97FC6FD17F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,6 +203,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F9A7414D8267C97FC6FD17F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		540F26864BBFC41F6F1E9C44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Podcast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		801E1B4FF2E1BC5D94AC5D95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D97F5B9C2030EAC1004506B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -174,6 +266,7 @@
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
+				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
@@ -312,6 +405,7 @@
 		};
 		D97F5BB32030EAC1004506B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DD72A2A33DCC7947EC63625 /* Pods-Podcast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -327,6 +421,7 @@
 		};
 		D97F5BB42030EAC1004506B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53F74D1F390F3CA028915B47 /* Pods-Podcast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

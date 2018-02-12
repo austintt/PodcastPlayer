@@ -10,6 +10,8 @@ import UIKit
 
 class SubscriptionView: UITableViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true

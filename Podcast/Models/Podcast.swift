@@ -14,7 +14,7 @@ struct Podcast {
     var feedUrl: String?
     
     init(dictionary: [String:AnyObject]) {
-        
+
         name = dictionary[RequestManager.JSONResponseKeys.podcastName] as! String
         artworkUrl = dictionary[RequestManager.JSONResponseKeys.artworkUrl] as? String
         feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String

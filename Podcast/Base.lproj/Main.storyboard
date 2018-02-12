@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -79,6 +80,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAm-z8-O8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1866" y="296"/>
+        </scene>
+        <!--Podcast Detail View-->
+        <scene sceneID="yaS-rj-9Te">
+            <objects>
+                <viewController storyboardIdentifier="PodcastDetailViewController" title="Podcast Detail View" id="Ksh-kb-g03" customClass="PodcastDetailViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hlo-H1-XGg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecE-5W-cgH">
+                                <rect key="frame" x="97" y="148" width="181" height="169"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58D-gC-gaC">
+                                <rect key="frame" x="166" y="358" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="58D-gC-gaC" firstAttribute="top" secondItem="ecE-5W-cgH" secondAttribute="bottom" constant="41" id="GHu-hW-NKs"/>
+                            <constraint firstItem="ecE-5W-cgH" firstAttribute="leading" secondItem="K9C-Y1-e7K" secondAttribute="leading" constant="97" id="Keg-oI-PTA"/>
+                            <constraint firstItem="58D-gC-gaC" firstAttribute="centerX" secondItem="hlo-H1-XGg" secondAttribute="centerX" id="M27-Uf-gdQ"/>
+                            <constraint firstItem="ecE-5W-cgH" firstAttribute="centerX" secondItem="58D-gC-gaC" secondAttribute="centerX" id="PSW-xn-6kh"/>
+                            <constraint firstItem="K9C-Y1-e7K" firstAttribute="bottom" secondItem="58D-gC-gaC" secondAttribute="bottom" constant="288" id="b6d-By-zML"/>
+                            <constraint firstItem="ecE-5W-cgH" firstAttribute="top" secondItem="K9C-Y1-e7K" secondAttribute="top" constant="128" id="c9N-g9-7fo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K9C-Y1-e7K"/>
+                    </view>
+                    <connections>
+                        <outlet property="coverImageView" destination="ecE-5W-cgH" id="rYl-T0-9Ui"/>
+                        <outlet property="nameLabel" destination="58D-gC-gaC" id="Zxf-Vl-F5u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFR-ji-DzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855.1999999999998" y="295.50224887556226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8MM-wy-zg1">
