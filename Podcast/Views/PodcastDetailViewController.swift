@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PodcastDetailViewController: UIViewController {
     
@@ -17,9 +18,10 @@ class PodcastDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.title = podcast.name
-        coverImageView.image = #imageLiteral(resourceName: "taz")
+        
+        coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl!), placeholderImage: #imageLiteral(resourceName: "taz"))
         nameLabel.text = podcast.name
         
     }
