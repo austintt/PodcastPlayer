@@ -7,17 +7,21 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Podcast {
-    var name: String
-    var artworkUrl: String?
-    var feedUrl: String?
+class Podcast: Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var artworkUrl: String = ""
+    @objc dynamic var feedUrl: String = ""
+    @objc dynamic var artworkImage: NSData = NSData()
+    @objc dynamic var isSubscribed: Bool = false
     
-    init(dictionary: [String:AnyObject]) {
-
-        name = dictionary[RequestManager.JSONResponseKeys.podcastName] as! String
-        artworkUrl = dictionary[RequestManager.JSONResponseKeys.artworkUrl] as? String
-        feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String
+    convenience init(dictionary: [String:AnyObject]) {
+        self.init()
+        name = dictionary[RequestManager.JSONResponseKeys.podcastName] as? String ?? ""
+        artworkUrl = dictionary[RequestManager.JSONResponseKeys.artworkUrl] as? String ?? ""
+        feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String ?? ""
+        artworkImage = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "taz"))!)
     }
     
     static func podcastsFromResults(_ results: [[String:AnyObject]]) -> [Podcast] {
