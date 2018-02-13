@@ -21,7 +21,7 @@ class Podcast: Object {
         name = dictionary[RequestManager.JSONResponseKeys.podcastName] as? String ?? ""
         artworkUrl = dictionary[RequestManager.JSONResponseKeys.artworkUrl] as? String ?? ""
         feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String ?? ""
-        artworkImage = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "taz"))!)
+        artworkImage = NSData()
     }
     
     static func podcastsFromResults(_ results: [[String:AnyObject]]) -> [Podcast] {
