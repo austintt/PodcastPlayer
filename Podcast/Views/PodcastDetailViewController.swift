@@ -14,7 +14,7 @@ class PodcastDetailViewController: UIViewController {
     @IBOutlet weak var subscriptionButton: UIButton!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    let db = DatabaseController()
+    let db = DatabaseController<Podcast>()
     
     var podcast: Podcast!
     
