@@ -22,7 +22,7 @@ class PodcastDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // See if we are already subscribed
-//        checkIfSubscribed()
+        checkIfSubscribed()
         
         setUpContent()
     }
@@ -31,29 +31,38 @@ class PodcastDetailViewController: UIViewController {
         self.title = podcast.name
         coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
         nameLabel.text = podcast.name
-        
-//        toggleSubscription()
+        setSubscriptionButtonText()
     }
     
-    func checkIfSubscribed() {
+    private func checkIfSubscribed() {
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
         
-        if let subscribedPodcast = results.first as? Podcast {
-            podcast = subscribedPodcast
+        if let subscribedPodcast = results.first {
+            podcast = Podcast(value: subscribedPodcast)
+            
         }
     }
     
-    func toggleSubscription() {
+    private func toggleSubscription() {
         if podcast.isSubscribed {
-            subscriptionButton.titleLabel?.text = "Unsubscribe"
+            
             podcast.isSubscribed = false
+            setSubscriptionButtonText()
             // TODO Delete from db
             db.save(podcast)
         } else {
-            subscriptionButton.titleLabel?.text = "Subscribe"
             podcast.isSubscribed = true
+            setSubscriptionButtonText()
             db.save(podcast)
+        }
+    }
+    
+    private func setSubscriptionButtonText() {
+        if podcast.isSubscribed {
+            subscriptionButton.setTitle("Unsubscribe", for: .normal)
+        } else {
+            subscriptionButton.setTitle("Subscribe", for: .normal)
         }
     }
     

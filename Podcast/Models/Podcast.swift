@@ -15,6 +15,7 @@ class Podcast: Object {
     @objc dynamic var feedUrl: String = ""
     @objc dynamic var artworkImage: NSData = NSData()
     @objc dynamic var isSubscribed: Bool = false
+    @objc dynamic var id = UUID().uuidString
     
     convenience init(dictionary: [String:AnyObject]) {
         self.init()
@@ -32,5 +33,9 @@ class Podcast: Object {
         }
         
         return podcasts
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
