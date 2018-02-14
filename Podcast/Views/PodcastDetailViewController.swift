@@ -13,7 +13,9 @@ class PodcastDetailViewController: UIViewController {
     
     @IBOutlet weak var subscriptionButton: UIButton!
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     let db = DatabaseController<Podcast>()
     
     var podcast: Podcast!
@@ -28,9 +30,9 @@ class PodcastDetailViewController: UIViewController {
     }
     
     func setUpContent() {
-        self.title = podcast.name
         coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
-        nameLabel.text = podcast.name
+        self.title = podcast.name
+        artistLabel.text = podcast.artist
         setSubscriptionButtonText()
     }
     
