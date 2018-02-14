@@ -40,7 +40,6 @@ class PodcastDetailViewController: UIViewController {
         
         if let subscribedPodcast = results.first {
             podcast = Podcast(value: subscribedPodcast)
-            
         }
     }
     

@@ -13,6 +13,7 @@ class Podcast: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var artworkUrl: String = ""
     @objc dynamic var feedUrl: String = ""
+    @objc dynamic var artist: String = ""
     @objc dynamic var artworkImage: NSData = NSData()
     @objc dynamic var isSubscribed: Bool = false
     @objc dynamic var id = UUID().uuidString
@@ -22,6 +23,7 @@ class Podcast: Object {
         name = dictionary[RequestManager.JSONResponseKeys.podcastName] as? String ?? ""
         artworkUrl = dictionary[RequestManager.JSONResponseKeys.artworkUrl] as? String ?? ""
         feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String ?? ""
+        artist = dictionary[RequestManager.JSONResponseKeys.artist] as? String ?? ""
         artworkImage = NSData()
     }
     

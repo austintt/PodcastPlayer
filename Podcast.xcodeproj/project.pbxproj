@@ -15,6 +15,8 @@
 		D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8742031046A0031B6F1 /* GCDBlackBox.swift */; };
 		D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */; };
 		D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E42CB20327995003B85EB /* RealmDBController.swift */; };
+		D949BE622033B683003D5989 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE612033B683003D5989 /* PodcastCell.swift */; };
+		D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE642033B77E003D5989 /* NSData+imageFormat.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		D902B8742031046A0031B6F1 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
 		D93E42CB20327995003B85EB /* RealmDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBController.swift; sourceTree = "<group>"; };
+		D949BE612033B683003D5989 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
+		D949BE642033B77E003D5989 /* NSData+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+imageFormat.swift"; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -98,8 +102,17 @@
 				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
 				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
 				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
+				D949BE612033B683003D5989 /* PodcastCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D949BE632033B75F003D5989 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D949BE642033B77E003D5989 /* NSData+imageFormat.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D97F5B972030EAC1004506B1 = {
@@ -128,6 +141,7 @@
 				D902B87620313AFB0031B6F1 /* Views */,
 				D902B8512030FE0C0031B6F1 /* Models */,
 				D902B84A2030EE990031B6F1 /* Network */,
+				D949BE632033B75F003D5989 /* Extensions */,
 				D97F5BA72030EAC1004506B1 /* Main.storyboard */,
 				D97F5BAA2030EAC1004506B1 /* Assets.xcassets */,
 				D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */,
@@ -270,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
+				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
@@ -277,6 +292,7 @@
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
+				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* Constants.swift in Sources */,
 			);

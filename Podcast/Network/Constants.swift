@@ -44,6 +44,7 @@ extension RequestManager {
         static let podcastName = "collectionName"
         static let artworkUrl = "artworkUrl600"
         static let feedUrl = "feedUrl"
+        static let artist = "artistName"
     }
     
     
