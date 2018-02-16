@@ -17,8 +17,19 @@ class SubscriptionView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        setUpView()
         getSubscriptionsFromDB()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadTableView()
+    }
+    
+    func setUpView() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)]
     }
     
     func getSubscriptionsFromDB() {
@@ -28,6 +39,8 @@ class SubscriptionView: UITableViewController {
         for result in results {
             podcasts.append(result)
         }
+        
+        podcasts = podcasts.sorted(by: { $0.name < $1.name })
         
         performUIUpdatesOnMain {
             self.tableView.reloadData()
@@ -56,13 +69,17 @@ class SubscriptionView: UITableViewController {
         controller.podcast = podcast
         navigationController!.pushViewController(controller, animated: true)
     }
+    
+    func reloadTableView() {
+        podcasts.removeAll()
+        getSubscriptionsFromDB()
+    }
 
     // MARK: DEBUG
     
     
     @IBAction func refreshTableView(_ sender: Any) {
-        podcasts.removeAll()
-        getSubscriptionsFromDB()
+        reloadTableView()
     }
     
     @IBAction func wipeDatabase(_ sender: Any) {
