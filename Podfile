@@ -8,5 +8,6 @@ target 'Podcast' do
   # Pods for Podcast
   pod 'SDWebImage', '~> 4.0'
   pod 'RealmSwift'
+  pod 'FeedKit', '~> 6.0'
 
 end

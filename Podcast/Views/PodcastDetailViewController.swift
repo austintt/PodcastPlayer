@@ -8,17 +8,20 @@
 
 import UIKit
 import SDWebImage
+import FeedKit
 
-class PodcastDetailViewController: UIViewController {
+class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subscriptionButton: UIButton!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
     
     let db = DatabaseController<Podcast>()
-    
     var podcast: Podcast!
+    var episodes = [Episode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ class PodcastDetailViewController: UIViewController {
         checkIfSubscribed()
         
         setUpContent()
+        
+        getEpisodes()
     }
     
     func setUpContent() {
@@ -34,6 +39,8 @@ class PodcastDetailViewController: UIViewController {
         self.title = podcast.name
         artistLabel.text = podcast.artist
         setSubscriptionButtonText()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func checkIfSubscribed() {
@@ -69,6 +76,42 @@ class PodcastDetailViewController: UIViewController {
     
     @IBAction func subscribeButtonPressed(_ sender: Any) {
         toggleSubscription()
+    }
+    
+    func getEpisodes() {
+        if let url = URL(string: podcast.feedUrl) {
+            if let parser = FeedParser(URL: url) {
+                // Parse asynchronously, not to block the UI.
+                parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+     
+                    if let feed = result.rssFeed {
+                        
+                        self.episodes = Episode.episodeFromFeed(feed: feed)
+                        print(self.episodes.count)
+                    }
+                    
+                    DispatchQueue.main.async {
+//                        self.descriptionTextView.text = feed.description
+                        self.tableView.reloadData()
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+    // MARK: Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return episodes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
+        
+        let episode = episodes[indexPath.row]
+        cell.textLabel!.text = episode.title
+        return cell
     }
     
 }

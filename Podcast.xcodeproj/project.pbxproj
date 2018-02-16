@@ -23,6 +23,8 @@
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
+		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
+		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				D902B84F2030F0A70031B6F1 /* Constants.swift */,
 				D902B84B2030EF800031B6F1 /* RequestManager.swift */,
 				D902B84D2030F0230031B6F1 /* iTunesClient.swift */,
+				D9D17A8F20367116005FD6F1 /* FeedManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			children = (
 				D902B8522030FE200031B6F1 /* Podcast.swift */,
 				D93E42CB20327995003B85EB /* RealmDBController.swift */,
+				D9D17A8C20366E37005FD6F1 /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,12 +267,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -290,9 +298,11 @@
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
+				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,
+				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* Constants.swift in Sources */,
 			);
