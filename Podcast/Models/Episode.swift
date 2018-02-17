@@ -7,18 +7,21 @@
 //
 
 import Foundation
+import RealmSwift
 import FeedKit
 
-class Episode {
-    var title: String
-    var link: String
-    var subtitle: String
-    var summary: String
-    var pubDate: Date
-    var playPosition: Int
-    var hasBeenPlayed: Bool
+class Episode: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var link: String = ""
+    @objc dynamic var subtitle: String = ""
+    @objc dynamic var summary: String = ""
+    @objc dynamic var pubDate: Date = Date()
+    @objc dynamic var playPosition: Int = 0
+    @objc dynamic var hasBeenPlayed: Bool = false
+    @objc dynamic var id = UUID().uuidString
     
-    init(item: RSSFeedItem) {
+    convenience init(item: RSSFeedItem) {
+        self.init()
         title = item.title ?? ""
         link = item.link ?? ""
         subtitle = item.iTunes?.iTunesSubtitle ?? ""
@@ -35,5 +38,9 @@ class Episode {
             episodes.append(Episode(item: item))
         }
         return episodes
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

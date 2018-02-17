@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L0j-UJ-pIy">
-                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="zrm-2S-sdo" userLabel="Podcast Info View">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
@@ -215,7 +215,7 @@
                             <constraint firstItem="L0j-UJ-pIy" firstAttribute="bottom" secondItem="hlo-H1-XGg" secondAttribute="bottom" id="3VA-BX-g7v"/>
                             <constraint firstItem="L0j-UJ-pIy" firstAttribute="leading" secondItem="K9C-Y1-e7K" secondAttribute="leading" id="Fmd-g5-eUY"/>
                             <constraint firstItem="L0j-UJ-pIy" firstAttribute="trailing" secondItem="K9C-Y1-e7K" secondAttribute="trailing" id="PmV-Xx-gYm"/>
-                            <constraint firstItem="L0j-UJ-pIy" firstAttribute="top" secondItem="K9C-Y1-e7K" secondAttribute="top" constant="20" id="dSU-a8-nfY"/>
+                            <constraint firstItem="L0j-UJ-pIy" firstAttribute="top" secondItem="K9C-Y1-e7K" secondAttribute="top" id="dSU-a8-nfY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9C-Y1-e7K"/>
                     </view>

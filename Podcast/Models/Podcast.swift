@@ -14,8 +14,10 @@ class Podcast: Object {
     @objc dynamic var artworkUrl: String = ""
     @objc dynamic var feedUrl: String = ""
     @objc dynamic var artist: String = ""
+    @objc dynamic var descriptionText: String = ""
     @objc dynamic var artworkImage: NSData = NSData()
     @objc dynamic var isSubscribed: Bool = false
+    let episodes = List<Episode>()
     @objc dynamic var id = UUID().uuidString
     
     convenience init(dictionary: [String:AnyObject]) {
@@ -25,6 +27,16 @@ class Podcast: Object {
         feedUrl = dictionary[RequestManager.JSONResponseKeys.feedUrl] as? String ?? ""
         artist = dictionary[RequestManager.JSONResponseKeys.artist] as? String ?? ""
         artworkImage = NSData()
+    }
+    
+    func createReconciliationMap() -> [String:Episode] {
+        var reconciliationMap = [String:Episode]()
+        if !episodes.isEmpty {
+            for episode in episodes {
+                reconciliationMap[episode.link] = episode
+            }
+        }
+        return reconciliationMap
     }
     
     static func podcastsFromResults(_ results: [[String:AnyObject]]) -> [Podcast] {

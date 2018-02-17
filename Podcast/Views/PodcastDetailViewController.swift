@@ -18,10 +18,9 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    
-    let db = DatabaseController<Podcast>()
     var podcast: Podcast!
-    var episodes = [Episode]()
+    var reconciliationMap = [String:Episode]()
+//    var episodes = [Episode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +30,14 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         setUpContent()
         
-        getEpisodes()
+//        getEpisodes()
     }
     
-    func setUpContent() {
+    override func viewDidAppear(_ animated: Bool) {
+        parseEpisodesFromFeed()
+    }
+    
+    private func setUpContent() {
         coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
         self.title = podcast.name
         artistLabel.text = podcast.artist
@@ -44,11 +47,13 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func checkIfSubscribed() {
+        let db = DatabaseController<Podcast>()
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
         
         if let subscribedPodcast = results.first {
             podcast = Podcast(value: subscribedPodcast)
+            reconciliationMap = podcast.createReconciliationMap()
         }
     }
     
@@ -58,11 +63,11 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             podcast.isSubscribed = false
             setSubscriptionButtonText()
             // TODO Delete from db
-            db.save(podcast)
+            savePodcast()
         } else {
             podcast.isSubscribed = true
             setSubscriptionButtonText()
-            db.save(podcast)
+            savePodcast()
         }
     }
     
@@ -78,40 +83,56 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         toggleSubscription()
     }
     
-    func getEpisodes() {
+    private func parseEpisodesFromFeed() {
         if let url = URL(string: podcast.feedUrl) {
             if let parser = FeedParser(URL: url) {
                 // Parse asynchronously, not to block the UI.
                 parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-     
+                    
                     if let feed = result.rssFeed {
-                        
-                        self.episodes = Episode.episodeFromFeed(feed: feed)
-                        print(self.episodes.count)
+                        self.podcast.descriptionText = feed.description!
+                        self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed))
                     }
                     
                     DispatchQueue.main.async {
-//                        self.descriptionTextView.text = feed.description
+                        self.descriptionTextView.text = self.podcast.descriptionText
                         self.tableView.reloadData()
                     }
                 }
                 
             }
         }
+    }
+    
+    private func reoncileEpisodes(_ feedEpisodes: [Episode]) {
+        for episode in feedEpisodes {
+            if reconciliationMap[episode.link] == nil {
+                podcast.episodes.append(episode)
+            }
+        }
         
+        if podcast.isSubscribed {
+            savePodcast()
+        }
     }
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        return podcast.episodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
         
-        let episode = episodes[indexPath.row]
+        let episode = podcast.episodes[indexPath.row]
         cell.textLabel!.text = episode.title
         return cell
+    }
+    
+    // MARK: DB
+    func savePodcast()  {
+        let db = DatabaseController<Podcast>()
+        db.save(podcast)
     }
     
 }
