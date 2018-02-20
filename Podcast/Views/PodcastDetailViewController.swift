@@ -20,6 +20,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     var podcast: Podcast!
     var reconciliationMap = [String:Episode]()
+    let db = DatabaseController<Podcast>()
 //    var episodes = [Episode]()
     
     override func viewDidLoad() {
@@ -37,6 +38,12 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         parseEpisodesFromFeed()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.podcast.isSubscribed {
+            self.savePodcast()
+        }
+    }
+    
     private func setUpContent() {
         coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
         self.title = podcast.name
@@ -47,7 +54,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func checkIfSubscribed() {
-        let db = DatabaseController<Podcast>()
+//        let db = DatabaseController<Podcast>()
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
         
@@ -99,7 +106,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
                         self.tableView.reloadData()
                     }
                 }
-                
             }
         }
     }
@@ -107,12 +113,9 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     private func reoncileEpisodes(_ feedEpisodes: [Episode]) {
         for episode in feedEpisodes {
             if reconciliationMap[episode.link] == nil {
-                podcast.episodes.append(episode)
+//                podcast.episodes.append(episode)
+                podcast.episodes.insert(episode, at: 0)
             }
-        }
-        
-        if podcast.isSubscribed {
-            savePodcast()
         }
     }
     
@@ -131,7 +134,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // MARK: DB
     func savePodcast()  {
-        let db = DatabaseController<Podcast>()
+//        let db = DatabaseController<Podcast>()
         db.save(podcast)
     }
     
