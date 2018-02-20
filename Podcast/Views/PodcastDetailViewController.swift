@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import FeedKit
+import RealmSwift
 
 class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +22,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     var podcast: Podcast!
     var reconciliationMap = [String:Episode]()
     let db = DatabaseController<Podcast>()
-//    var episodes = [Episode]()
+    var episodes = [Episode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         checkIfSubscribed()
         
         setUpContent()
-        
-//        getEpisodes()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,9 +38,9 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if self.podcast.isSubscribed {
-            self.savePodcast()
-        }
+//        if self.podcast.isSubscribed {
+//            db.save(podcast)
+//        }
     }
     
     private func setUpContent() {
@@ -54,12 +53,19 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func checkIfSubscribed() {
-//        let db = DatabaseController<Podcast>()
+        // Query db for podcast by feedURL
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
         
         if let subscribedPodcast = results.first {
-            podcast = Podcast(value: subscribedPodcast)
+            // Detatch podcast
+            podcast = subscribedPodcast.detatch()
+            
+            // Convert episodes to array (easier to sort later)
+            episodes = Array(podcast.episodes)
+            episodes.sort { ($0.pubDate) > ($1.pubDate) }
+            
+            // Create map used to reconcile episodes pulled in from feed
             reconciliationMap = podcast.createReconciliationMap()
         }
     }
@@ -70,11 +76,12 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             podcast.isSubscribed = false
             setSubscriptionButtonText()
             // TODO Delete from db
-            savePodcast()
+            db.save(podcast)
+
         } else {
             podcast.isSubscribed = true
             setSubscriptionButtonText()
-            savePodcast()
+            db.save(podcast)
         }
     }
     
@@ -98,7 +105,14 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
                     
                     if let feed = result.rssFeed {
                         self.podcast.descriptionText = feed.description!
+                        
+                        // Reconcile episodes from feed with those saved
                         self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed))
+                        
+                        // Save new episodes to podcast
+                        if self.podcast.isSubscribed {
+                            self.db.save(self.podcast)
+                        }
                     }
                     
                     DispatchQueue.main.async {
@@ -113,29 +127,23 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     private func reoncileEpisodes(_ feedEpisodes: [Episode]) {
         for episode in feedEpisodes {
             if reconciliationMap[episode.link] == nil {
-//                podcast.episodes.append(episode)
-                podcast.episodes.insert(episode, at: 0)
+                podcast.episodes.append(episode)
+                episodes.append(episode)
             }
         }
+        episodes.sort { ($0.pubDate) > ($1.pubDate) }
     }
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return podcast.episodes.count
+        return episodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
         
-        let episode = podcast.episodes[indexPath.row]
+        let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
         return cell
     }
-    
-    // MARK: DB
-    func savePodcast()  {
-//        let db = DatabaseController<Podcast>()
-        db.save(podcast)
-    }
-    
 }

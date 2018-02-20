@@ -17,7 +17,7 @@ class Podcast: Object {
     @objc dynamic var descriptionText: String = ""
     @objc dynamic var artworkImage: NSData = NSData()
     @objc dynamic var isSubscribed: Bool = false
-    let episodes = List<Episode>()
+    var episodes = List<Episode>()
     @objc dynamic var id = UUID().uuidString
     
     convenience init(dictionary: [String:AnyObject]) {
@@ -37,6 +37,22 @@ class Podcast: Object {
             }
         }
         return reconciliationMap
+    }
+    
+    func detatch() -> Podcast {
+        var detatchedEpisodes = List<Episode>()
+        let detatchedPodcast = Podcast(value: self)
+        
+        // Wipe out episodes in detatched podcast
+        detatchedPodcast.episodes.removeAll()
+        
+        // Detatch episodes and add to detatched podcast
+        for episode in episodes {
+            let detatchedEpisode = Episode(value: episode)
+            detatchedPodcast.episodes.append(detatchedEpisode)
+        }
+        
+        return detatchedPodcast
     }
     
     static func podcastsFromResults(_ results: [[String:AnyObject]]) -> [Podcast] {
