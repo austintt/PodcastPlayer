@@ -64,18 +64,16 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // MARK: Set up view
     
     private func setUpContent() {
-        print("SetUpContent")
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.coverImageView.sd_setImage(with: URL(string: self.podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
+        self.coverImageView.sd_setImage(with: URL(string: self.podcast.artworkUrl))
         self.title = self.podcast.name
         self.artistLabel.text = self.podcast.artist
         self.setSubscriptionButtonText()
     }
     
     func configureView() {
-        print("ConfigureView")
         // Subscribe button
         subscriptionButton.backgroundColor = .clear
         subscriptionButton.layer.borderWidth = 1
@@ -93,7 +91,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // MARK: Data manipulation
     
     private func checkIfSubscribed() {
-        print("CheckIfSubscribed")
         // Query db for podcast by feedURL
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
@@ -136,7 +133,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func parseEpisodesFromFeed() {
-        print("ParseEpisodeFromFeed")
         let xmlQueue = DispatchQueue(label: "com.tooley.podcast", attributes: DispatchQueue.Attributes.concurrent)
         let group = DispatchGroup()
         
