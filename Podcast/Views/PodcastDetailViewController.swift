@@ -30,14 +30,18 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureView()
+        
+        setUpContent()
+        
         // See if we are already subscribed
         checkIfSubscribed()
-        configureView()
-        setUpContent()
+        
+        parseEpisodesFromFeed()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        parseEpisodesFromFeed()
+        
     }
 
     @IBAction func subscribeButtonPressed(_ sender: Any) {
@@ -54,21 +58,24 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             sortEpisodes(ascending: true)
             
         }
+        tableView.reloadData()
     }
     
     // MARK: Set up view
     
     private func setUpContent() {
-        coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
-        self.title = podcast.name
-        artistLabel.text = podcast.artist
-        setSubscriptionButtonText()
+        print("SetUpContent")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.coverImageView.sd_setImage(with: URL(string: self.podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
+        self.title = self.podcast.name
+        self.artistLabel.text = self.podcast.artist
+        self.setSubscriptionButtonText()
     }
     
     func configureView() {
-        
+        print("ConfigureView")
         // Subscribe button
         subscriptionButton.backgroundColor = .clear
         subscriptionButton.layer.borderWidth = 1
@@ -86,6 +93,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // MARK: Data manipulation
     
     private func checkIfSubscribed() {
+        print("CheckIfSubscribed")
         // Query db for podcast by feedURL
         let predicate = NSPredicate(format: "feedUrl = %@", podcast.feedUrl)
         let results = db.query(predicate: predicate)
@@ -97,6 +105,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             // Convert episodes to array (easier to sort later)
             episodes = Array(podcast.episodes)
             sortEpisodes(ascending: false)
+            tableView.reloadData()
             
             // Create map used to reconcile episodes pulled in from feed
             reconciliationMap = podcast.createReconciliationMap()
@@ -127,28 +136,35 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func parseEpisodesFromFeed() {
-        if let url = URL(string: podcast.feedUrl) {
-            if let parser = FeedParser(URL: url) {
-                // Parse asynchronously, not to block the UI.
-                parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                    
+        print("ParseEpisodeFromFeed")
+        let xmlQueue = DispatchQueue(label: "com.tooley.podcast", attributes: DispatchQueue.Attributes.concurrent)
+        let group = DispatchGroup()
+        
+        // Fetch feed asynchronously
+        xmlQueue.async(group: group) {
+            if let url = URL(string: self.podcast.feedUrl) {
+                if let parser = FeedParser(URL: url) {
+                    let result = parser.parse()
                     if let feed = result.rssFeed {
                         self.podcast.descriptionText = feed.description!
-                        
+
                         // Reconcile episodes from feed with those saved
                         self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed))
-                        
+
                         // Save new episodes to podcast
                         if self.podcast.isSubscribed {
                             self.db.save(self.podcast)
                         }
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.descriptionTextView.text = self.podcast.descriptionText
-                        self.tableView.reloadData()
-                    }
                 }
+            }
+        }
+
+        // When done, update the UI
+        group.notify(queue: xmlQueue) {
+            performUIUpdatesOnMain {
+                self.descriptionTextView.text = self.podcast.descriptionText
+                self.tableView.reloadData()
             }
         }
     }
@@ -190,10 +206,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             episodes.sort { ($0.pubDate) < ($1.pubDate) }
         } else {
             episodes.sort { ($0.pubDate) > ($1.pubDate) }
-        }
-        
-        performUIUpdatesOnMain {
-            self.tableView.reloadData()
         }
     }
 }

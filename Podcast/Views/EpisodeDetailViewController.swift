@@ -25,6 +25,7 @@ class EpisodeDetailViewController: UIViewController {
     
     func setUpContent() {
         episodeArtwork.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
+        title = podcast.name
     }
     
     @IBAction func playPause(_ sender: Any) {
