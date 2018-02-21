@@ -12,7 +12,7 @@ extension RequestManager {
     
     
     // MARK: iTunes Search
-    struct Constants {
+    struct Url {
         static let iTunesApiScheme = "https"
         static let iTunesApiHost = "itunes.apple.com"
         static let query = "?"

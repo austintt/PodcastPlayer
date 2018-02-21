@@ -18,30 +18,45 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var episodesSegmentView: UISegmentedControl!
     
     var podcast: Podcast!
     var reconciliationMap = [String:Episode]()
     let db = DatabaseController<Podcast>()
     var episodes = [Episode]()
     
+    // MARK: View Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // See if we are already subscribed
         checkIfSubscribed()
-        
+        configureView()
         setUpContent()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         parseEpisodesFromFeed()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-//        if self.podcast.isSubscribed {
-//            db.save(podcast)
-//        }
+
+    @IBAction func subscribeButtonPressed(_ sender: Any) {
+        toggleSubscription()
     }
+    
+    @IBAction func changeEpisodesOrder(_ sender: UISegmentedControl) {
+        switch(sender.selectedSegmentIndex) {
+        case 0:
+            sortEpisodes(ascending: false)
+        case 1:
+            sortEpisodes(ascending: true)
+        default:
+            sortEpisodes(ascending: true)
+            
+        }
+    }
+    
+    // MARK: Set up view
     
     private func setUpContent() {
         coverImageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
@@ -51,6 +66,24 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    func configureView() {
+        
+        // Subscribe button
+        subscriptionButton.backgroundColor = .clear
+        subscriptionButton.layer.borderWidth = 1
+        subscriptionButton.layer.borderColor = Constants.shared.purple.cgColor
+        subscriptionButton.layer.cornerRadius = 8
+        subscriptionButton.tintColor = Constants.shared.purple
+        
+        // Order segment view
+        episodesSegmentView.tintColor = Constants.shared.purple
+        episodesSegmentView.layer.borderColor = Constants.shared.purple.cgColor
+        episodesSegmentView.layer.borderWidth = 1
+        episodesSegmentView.layer.cornerRadius = 0
+    }
+    
+    // MARK: Data manipulation
     
     private func checkIfSubscribed() {
         // Query db for podcast by feedURL
@@ -91,10 +124,6 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         } else {
             subscriptionButton.setTitle("Subscribe", for: .normal)
         }
-    }
-    
-    @IBAction func subscribeButtonPressed(_ sender: Any) {
-        toggleSubscription()
     }
     
     private func parseEpisodesFromFeed() {
@@ -145,5 +174,17 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
         return cell
+    }
+    
+    func sortEpisodes(ascending: Bool) {
+        if ascending {
+            episodes.sort { ($0.pubDate) < ($1.pubDate) }
+        } else {
+            episodes.sort { ($0.pubDate) > ($1.pubDate) }
+        }
+        
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+        }
     }
 }

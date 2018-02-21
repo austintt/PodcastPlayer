@@ -28,8 +28,8 @@ class SubscriptionView: UITableViewController {
     
     func setUpView() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)]
+        self.navigationController?.navigationBar.tintColor = Constants.shared.purple
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:Constants.shared.purple]
     }
     
     func getSubscriptionsFromDB() {

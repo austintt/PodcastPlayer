@@ -36,8 +36,8 @@ extension RequestManager {
         
         // Construct URL
         var components = URLComponents()
-        components.scheme = RequestManager.Constants.iTunesApiScheme
-        components.host = RequestManager.Constants.iTunesApiHost
+        components.scheme = RequestManager.Url.iTunesApiScheme
+        components.host = RequestManager.Url.iTunesApiHost
         components.path = (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         
