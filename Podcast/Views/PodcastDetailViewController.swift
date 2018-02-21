@@ -96,7 +96,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
             // Convert episodes to array (easier to sort later)
             episodes = Array(podcast.episodes)
-            episodes.sort { ($0.pubDate) > ($1.pubDate) }
+            sortEpisodes(ascending: false)
             
             // Create map used to reconcile episodes pulled in from feed
             reconciliationMap = podcast.createReconciliationMap()
@@ -160,7 +160,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 episodes.append(episode)
             }
         }
-        episodes.sort { ($0.pubDate) > ($1.pubDate) }
+        sortEpisodes(ascending: false)
     }
     
     // MARK: Table View
@@ -174,6 +174,15 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episode = episodes[indexPath.row]
+        
+        let controller = storyboard!.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as! EpisodeDetailViewController
+        controller.episode = episode
+        controller.podcast = podcast // TODO: Clean this up
+        navigationController!.pushViewController(controller, animated: true)
     }
     
     func sortEpisodes(ascending: Bool) {

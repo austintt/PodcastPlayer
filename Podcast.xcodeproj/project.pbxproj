@@ -18,6 +18,7 @@
 		D949BE622033B683003D5989 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE612033B683003D5989 /* PodcastCell.swift */; };
 		D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE642033B77E003D5989 /* NSData+imageFormat.swift */; };
 		D95D25DC203CFB75004F511C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DB203CFB75004F511C /* Constants.swift */; };
+		D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		D949BE612033B683003D5989 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		D949BE642033B77E003D5989 /* NSData+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+imageFormat.swift"; sourceTree = "<group>"; };
 		D95D25DB203CFB75004F511C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
 				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
+				D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
+				D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */,
 				D95D25DC203CFB75004F511C /* Constants.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
