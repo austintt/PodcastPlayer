@@ -37,6 +37,8 @@ class Episode: Object {
         for item in feed.items! {
             // For those shows that for some reason place the name of the
             // podcast at the start of the episode title
+            item.title = item.title!.replacingOccurrences(of: "\(feed.title!): ", with: "")
+            item.title = item.title!.replacingOccurrences(of: "\(feed.title!) ", with: "")
             item.title = item.title!.replacingOccurrences(of: feed.title!, with: "")
             episodes.append(Episode(item: item))
             

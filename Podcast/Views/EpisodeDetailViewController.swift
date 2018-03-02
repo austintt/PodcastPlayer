@@ -11,7 +11,6 @@ import UIKit
 class EpisodeDetailViewController: UIViewController {
     
     @IBOutlet weak var episodeArtwork: UIImageView!
-    @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     
