@@ -33,7 +33,7 @@ class SubscriptionView: UITableViewController {
     }
     
     func getSubscriptionsFromDB() {
-        let predicate = NSPredicate(format: "isSubscribed = %@", true as CVarArg)
+        let predicate = NSPredicate(format: "isSubscribed = %@", NSNumber(value: true))
         let results = db.query(predicate: predicate)
         
         for result in results {
