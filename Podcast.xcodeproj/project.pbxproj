@@ -20,6 +20,9 @@
 		D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE642033B77E003D5989 /* NSData+imageFormat.swift */; };
 		D95D25DC203CFB75004F511C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DB203CFB75004F511C /* Constants.swift */; };
 		D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */; };
+		D9693B81208255DC002737ED /* TypingThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9693B80208255DC002737ED /* TypingThrottler.swift */; };
+		D9693B832083FA5A002737ED /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9693B822083FA5A002737ED /* Downloader.swift */; };
+		D9693B852083FFBF002737ED /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9693B842083FFBF002737ED /* String+URL.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		D949BE642033B77E003D5989 /* NSData+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+imageFormat.swift"; sourceTree = "<group>"; };
 		D95D25DB203CFB75004F511C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		D9693B80208255DC002737ED /* TypingThrottler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingThrottler.swift; sourceTree = "<group>"; };
+		D9693B822083FA5A002737ED /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		D9693B842083FFBF002737ED /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 				D902B84B2030EF800031B6F1 /* RequestManager.swift */,
 				D902B84D2030F0230031B6F1 /* iTunesClient.swift */,
 				D9D17A8F20367116005FD6F1 /* FeedManager.swift */,
+				D9693B822083FA5A002737ED /* Downloader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				D949BE642033B77E003D5989 /* NSData+imageFormat.swift */,
+				D9693B842083FFBF002737ED /* String+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			children = (
 				D95D25DB203CFB75004F511C /* Constants.swift */,
 				D94543312048DC2600B8F585 /* MediaPlayer.swift */,
+				D9693B80208255DC002737ED /* TypingThrottler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -291,6 +301,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -308,15 +319,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9693B852083FFBF002737ED /* String+URL.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
 				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
 				D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */,
+				D9693B81208255DC002737ED /* TypingThrottler.swift in Sources */,
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
 				D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */,
 				D95D25DC203CFB75004F511C /* Constants.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
+				D9693B832083FA5A002737ED /* Downloader.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,

@@ -145,7 +145,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
                         self.podcast.descriptionText = feed.description!
 
                         // Reconcile episodes from feed with those saved
-                        self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed))
+                        self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed, podcast: self.podcast))
 
                         // Save new episodes to podcast
                         if self.podcast.isSubscribed {

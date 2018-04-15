@@ -20,12 +20,20 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpContent()
+        downloadEpisode()
     }
     
     func setUpContent() {
         episodeArtwork.sd_setImage(with: URL(string: podcast.artworkUrl))
         title = episode.title
         
+    }
+    
+    func downloadEpisode() {
+        if !episode.checkIfDownloaded() {
+            let downloader = Downloader()
+            downloader.getAndSaveEpisode(episode)
+        }
     }
     
     @IBAction func playPause(_ sender: Any) {

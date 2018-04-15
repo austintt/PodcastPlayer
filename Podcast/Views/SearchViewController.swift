@@ -84,6 +84,32 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             }
         }
         
+//        let throttler = TypingThrottler(interval: 0.4) { (text) in
+//            RequestManager.sharedInstance().getSearch(term: text) { (result, error) in
+//
+//                if let error = error {
+//                    print("ERROR: \(error)")
+//                } else {
+//                    if let podcasts = result {
+//
+//                        // Clear table
+//                        self.searchResults = [Podcast]()
+//                        performUIUpdatesOnMain {
+//                            self.tableView.reloadData()
+//                        }
+//
+//                        // Update Table
+//                        self.searchResults = podcasts
+//                        performUIUpdatesOnMain {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+//        throttler.handleTyping(with: searchText)
+
 //        filtered = data.filter({ (text) -> Bool in
 //            let tmp: NSString = text
 //            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
