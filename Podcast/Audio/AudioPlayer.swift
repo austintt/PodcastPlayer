@@ -41,10 +41,11 @@ class AudioPlayer {
     }
     
     func forward() {
+        debugPrint("Forward")
     }
     
     func back() {
-        
+        debugPrint("Back")
     }
     
     func isPlaying() -> Bool {
