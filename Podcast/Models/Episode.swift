@@ -62,7 +62,7 @@ class Episode: Object {
     }
     
     func generateFileName() -> String {
-        return "\(podcastName)-\(title)"
+        return "\(podcastName.replacingOccurrences(of: " ", with: "_"))-\(title.replacingOccurrences(of: " ", with: "_"))"
     }
     
     func checkIfDownloaded() -> Bool {
@@ -77,6 +77,7 @@ class Episode: Object {
                 isDownloaded = true
             } else {
                 print("FILE NOT AVAILABLE")
+                
                 isDownloaded = false
             }
         }

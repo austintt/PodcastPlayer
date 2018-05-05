@@ -32,22 +32,28 @@ class EpisodeDetailViewController: UIViewController {
     func playEpisode() {
         // Download the episode if we don't have it yet
         if !episode.checkIfDownloaded() {
-            downloadEpisode()
-        }
-        
-        // Play
-        AudioPlayer.shared.play(episode: episode)
-        
-    }
-    
-    func downloadEpisode() {
-        if !episode.checkIfDownloaded() {
             let downloader = Downloader()
-            downloader.getAndSaveEpisode(episode)
+            downloader.getAndSaveEpisode(episode) { (error) in
+                if let error = error {
+                    debugPrint("Error downloading \(error)")
+                } else {
+                    AudioPlayer.shared.play(episode: self.episode)
+                }
+            }
+        } else {
+            AudioPlayer.shared.play(episode: episode)
         }
+        
+        
+        
     }
     
     @IBAction func playPause(_ sender: Any) {
+        if AudioPlayer.shared.isPlaying() {
+             AudioPlayer.shared.pause()
+        } else {
+             AudioPlayer.shared.play(episode: nil)
+        }
     }
     
     @IBAction func skipPressed(_ sender: Any) {

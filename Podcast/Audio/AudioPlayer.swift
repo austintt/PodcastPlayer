@@ -15,29 +15,43 @@ class AudioPlayer {
     
     func play(episode: Episode?) {
         if let newEpisode = episode {
-            if let path = Bundle.main.path(forResource: newEpisode.generateFileName(), ofType: newEpisode.fileExtension) {
-                let url = URL(fileURLWithPath: path)
-                
-                do {
-                    audio = try AVAudioPlayer(contentsOf: url)
-                    audio?.play()
-                } catch {
-                    debugPrint("Couln't load the file :(")
-                }
+            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            documentsURL.appendPathComponent("\(newEpisode.generateFileName()).\(newEpisode.fileExtension)")
+            
+            let url = documentsURL
+            
+            do {
+                audio = try AVAudioPlayer(contentsOf: url)
+                guard let audio = audio else {return}
+                audio.prepareToPlay()
+                audio.play()
+                debugPrint("Play")
+            } catch {
+                debugPrint("Couln't load the file :(")
             }
+        } else {
+            debugPrint("Resume")
+            audio?.play()
         }
     }
     
     func pause() {
+        debugPrint("Pause")
         audio?.pause()
     }
     
     func forward() {
-        
     }
     
     func back() {
         
+    }
+    
+    func isPlaying() -> Bool {
+        if let audioState = audio?.isPlaying {
+            return audioState
+        }
+        return false
     }
     
     

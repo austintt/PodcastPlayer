@@ -11,7 +11,7 @@ import Alamofire
 
 class Downloader {
     
-    func getAndSaveEpisode(_ episode: Episode) {
+    func getAndSaveEpisode(_ episode: Episode, completionHandlerForSaveEpisode: @escaping (_ error: NSError?) -> Void) {
         if let episodeURL = episode.fileURL.toURL() {
             let audioFileName = String(episodeURL.lastPathComponent) as NSString
             
@@ -27,6 +27,7 @@ class Downloader {
             Alamofire.download(episode.fileURL, to: destination).response { response in
                 if response.destinationURL != nil {
                     print(response.destinationURL!)
+                    completionHandlerForSaveEpisode(nil)
                 }
             }
         }
