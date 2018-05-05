@@ -12,18 +12,15 @@ import Alamofire
 class Downloader {
     
     func getAndSaveEpisode(_ episode: Episode) {
-        //audioUrl should be of type URL
         if let episodeURL = episode.fileURL.toURL() {
             let audioFileName = String(episodeURL.lastPathComponent) as NSString
             
-            //path extension will consist of the type of file it is, m4a or mp4
             let pathExtension = audioFileName.pathExtension
             
             let destination: DownloadRequest.DownloadFileDestination = { _, _ in
                 var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 
-                // the name of the file here I kept is yourFileName with appended extension
-                documentsURL.appendPathComponent("\(episode.id).\(pathExtension)")
+                documentsURL.appendPathComponent("\(episode.generateFileName()).\(pathExtension)")
                 return (documentsURL, [.removePreviousFile])
             }
             

@@ -61,11 +61,15 @@ class Episode: Object {
         return "id"
     }
     
+    func generateFileName() -> String {
+        return "\(podcastName)-\(title)"
+    }
+    
     func checkIfDownloaded() -> Bool {
         var isDownloaded = false
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
-        if let pathComponent = url.appendingPathComponent("\(self.id).\(self.fileExtension)") {
+        if let pathComponent = url.appendingPathComponent("\(generateFileName()).\(self.fileExtension)") {
             let filePath = pathComponent.path
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: filePath) {

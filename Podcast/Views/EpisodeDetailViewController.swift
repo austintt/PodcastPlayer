@@ -20,12 +20,23 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpContent()
-        downloadEpisode()
+        playEpisode()
     }
     
     func setUpContent() {
         episodeArtwork.sd_setImage(with: URL(string: podcast.artworkUrl))
         title = episode.title
+        
+    }
+    
+    func playEpisode() {
+        // Download the episode if we don't have it yet
+        if !episode.checkIfDownloaded() {
+            downloadEpisode()
+        }
+        
+        // Play
+        AudioPlayer.shared.play(episode: episode)
         
     }
     
