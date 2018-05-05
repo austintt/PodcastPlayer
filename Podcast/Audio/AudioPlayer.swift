@@ -23,6 +23,7 @@ class AudioPlayer {
             do {
                 audio = try AVAudioPlayer(contentsOf: url)
                 guard let audio = audio else {return}
+                setupPlayer()
                 audio.prepareToPlay()
                 audio.play()
                 debugPrint("Play")
@@ -55,5 +56,17 @@ class AudioPlayer {
         return false
     }
     
+    func setupPlayer() {
+        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.allowAirPlay, .allowBluetooth])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [.allowAirPlay, .allowBluetooth])
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .interruptSpokenAudioAndMixWithOthers)
+            debugPrint("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            debugPrint("Session is Active")
+        } catch {
+            debugPrint(error)
+        }
+    }
     
 }
