@@ -20,7 +20,10 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpContent()
-        playEpisode()
+        if !AudioPlayer.shared.isPlaying() || AudioPlayer.shared.episode?.id != episode.id {
+            AudioPlayer.shared.stop()
+            playEpisode()
+        }
     }
     
     func setUpContent() {
@@ -37,11 +40,11 @@ class EpisodeDetailViewController: UIViewController {
                 if let error = error {
                     debugPrint("Error downloading \(error)")
                 } else {
-                    AudioPlayer.shared.play(episode: self.episode)
+                    AudioPlayer.shared.play(self.episode)
                 }
             }
         } else {
-            AudioPlayer.shared.play(episode: episode)
+            AudioPlayer.shared.play(self.episode)
         }
         
         
@@ -51,8 +54,10 @@ class EpisodeDetailViewController: UIViewController {
     @IBAction func playPause(_ sender: Any) {
         if AudioPlayer.shared.isPlaying() {
              AudioPlayer.shared.pause()
+            playPauseButton.setTitle("Pause", for: .normal)
         } else {
-             AudioPlayer.shared.play(episode: nil)
+             AudioPlayer.shared.play()
+            playPauseButton.setTitle("Play", for: .normal)
         }
     }
     

@@ -12,33 +12,50 @@ class AudioPlayer {
     
     static let shared = AudioPlayer()
     var audio: AVAudioPlayer?
+    var episode: Episode?
     
-    func play(episode: Episode?) {
-        if let newEpisode = episode {
+    func setEpisode(_ episode: Episode) {
+        self.episode = episode
+    }
+    
+    func play(_ newEpisode: Episode? = nil) {
+        // Hanlde a new episode if we have one
+        if let newEpisode = newEpisode {
+            setEpisode(newEpisode)
+            
+            // Grab file
             var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             documentsURL.appendPathComponent("\(newEpisode.generateFileName()).\(newEpisode.fileExtension)")
             
             let url = documentsURL
             
+            // Play
             do {
                 audio = try AVAudioPlayer(contentsOf: url)
                 guard let audio = audio else {return}
                 setupPlayer()
                 audio.prepareToPlay()
-                audio.play()
-                debugPrint("Play")
             } catch {
                 debugPrint("Couln't load the file :(")
             }
-        } else {
-            debugPrint("Resume")
-            audio?.play()
+        }
+        
+        // Grab file
+        if let currentEp = episode {
+            guard let audio = self.audio else {return}
+            
+            // Play
+            audio.play()
+            debugPrint("Play")
         }
     }
     
     func pause() {
+        guard let audio = self.audio else {return}
+        
         debugPrint("Pause")
-        audio?.pause()
+        audio.pause()
+    
     }
     
     func forward() {
@@ -47,6 +64,12 @@ class AudioPlayer {
     
     func back() {
         debugPrint("Back")
+    }
+    
+    func stop() {
+        guard let audio = self.audio else {return}
+        
+        audio.stop()
     }
     
     func isPlaying() -> Bool {
@@ -58,14 +81,12 @@ class AudioPlayer {
     
     func setupPlayer() {
         do {
-//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.allowAirPlay, .allowBluetooth])
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [.allowAirPlay, .allowBluetooth])
-//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .interruptSpokenAudioAndMixWithOthers)
             debugPrint("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
             debugPrint("Session is Active")
         } catch {
-            debugPrint(error)
+            debugPrint("Error setting up audio session \(error)")
         }
     }
     

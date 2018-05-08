@@ -90,7 +90,7 @@ class RequestManager: NSObject {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             func sendError(_ error: String) {
-                print(error)
+                debugPrint("Error on GET request: \(error)")
                 let userInfo = [NSLocalizedDescriptionKey : error]
                 completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
