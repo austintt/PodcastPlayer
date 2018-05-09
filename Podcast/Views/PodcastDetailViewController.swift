@@ -185,6 +185,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
+        
         return cell
     }
     

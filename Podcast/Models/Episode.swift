@@ -62,10 +62,13 @@ class Episode: Object {
     }
     
     func generateFileName() -> String {
+        // Maybe we'll switch back to this, but I'd rather trust our own UUIDs than naming schemes from 3rd party
 //        return "\(podcastName.replacingOccurrences(of: " ", with: "_"))-\(title.replacingOccurrences(of: " ", with: "_"))"
         return id
     }
     
+    // TODO: Being able to verify if an episode has been downloaded is great, but the epiosde object should also keep track of this state.
+    // When displaying whether or not an episode is downloaded in a long list of episodes, this is not optimal.
     func checkIfDownloaded() -> Bool {
         var isDownloaded = false
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
@@ -74,10 +77,10 @@ class Episode: Object {
             let filePath = pathComponent.path
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: filePath) {
-                print("FILE AVAILABLE")
+                debugPrint("FILE AVAILABLE")
                 isDownloaded = true
             } else {
-                print("FILE NOT AVAILABLE")
+                debugPrint("FILE NOT AVAILABLE")
                 
                 isDownloaded = false
             }
