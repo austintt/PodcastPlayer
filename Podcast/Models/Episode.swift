@@ -62,7 +62,8 @@ class Episode: Object {
     }
     
     func generateFileName() -> String {
-        return "\(podcastName.replacingOccurrences(of: " ", with: "_"))-\(title.replacingOccurrences(of: " ", with: "_"))"
+//        return "\(podcastName.replacingOccurrences(of: " ", with: "_"))-\(title.replacingOccurrences(of: " ", with: "_"))"
+        return id
     }
     
     func checkIfDownloaded() -> Bool {

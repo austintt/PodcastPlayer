@@ -2,7 +2,7 @@
 
 ![subscriptions](Assets/subscriptions.PNG)
 
-I made a simple podcast player in Swift. App can search iTunes' repository of podcasts, view available episodes in a podcast's feed, download, and play an episode.
+I'm making a simple podcast player in Swift. Currently, the app can search iTunes' repository of podcasts, view available episodes in a podcast's feed, download, and play an episode.
 
 ![subscriptions](Assets/feed.PNG)
 

@@ -30,6 +30,7 @@
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
+		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 			children = (
 				D949BE642033B77E003D5989 /* NSData+imageFormat.swift */,
 				D9693B842083FFBF002737ED /* String+URL.swift */,
+				D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,
+				D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */,
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,
