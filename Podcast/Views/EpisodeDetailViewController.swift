@@ -71,6 +71,7 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     @IBAction func skipPressed(_ sender: Any) {
+        AudioPlayer.shared.forward(by: 30)
     }
     
     @IBAction func backPressed(_ sender: Any) {
