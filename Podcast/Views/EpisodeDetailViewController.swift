@@ -75,6 +75,7 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     @IBAction func backPressed(_ sender: Any) {
+        AudioPlayer.shared.back(by: 30)
     }
     
     func toggleActivityIndicator() {

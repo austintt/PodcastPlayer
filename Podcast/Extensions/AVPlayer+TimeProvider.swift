@@ -23,4 +23,14 @@ extension AVPlayerItemTimeProvider {
     }
 }
 
+extension AVAudioPlayer {
+    func seek(_ by: Double) {
+        // add new time
+        let newTime = TimeInterval(self.currentTime + by)
+        
+        // seek
+        self.currentTime = newTime
+    }
+}
+
 extension AVPlayerItem: AVPlayerItemTimeProvider {}

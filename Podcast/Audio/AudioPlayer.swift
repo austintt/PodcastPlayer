@@ -60,25 +60,12 @@ class AudioPlayer {
     
     func forward(by: Double) {
         debugPrint("Forward")
-        
-        // get current time in seconds
-        if let currentTime = audio?.currentTime {
-            // add new time
-            let newTime = TimeInterval(currentTime + by)
-            
-            // seek
-            audio?.currentTime = newTime
-        }
+        audio?.seek(by)
     }
     
     func back(by: Double) {
         debugPrint("Back")
-        
-        // get current time in seconds
-        
-        // subtract new time
-        
-        // seek
+        audio?.seek(by * -1)
     }
     
     func stop() {
