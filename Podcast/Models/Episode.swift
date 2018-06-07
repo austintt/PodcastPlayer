@@ -20,7 +20,7 @@ class Episode: Object {
     @objc dynamic var summary: String = ""
     @objc dynamic var pubDate: Date = Date()
     @objc dynamic var fileExtension: String = ""
-    @objc dynamic var playPosition: Int = 0
+    @objc dynamic var playPosition: Double = 0
     @objc dynamic var hasBeenPlayed: Bool = false
     @objc dynamic var id = UUID().uuidString
     

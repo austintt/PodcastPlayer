@@ -288,9 +288,6 @@
                                             <action selector="skipPressed:" destination="93y-Qd-Vca" eventType="touchUpInside" id="Hwb-rp-JUB"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A6T-Xf-eMh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
-                                    </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-1Z-WP5">
                                         <rect key="frame" x="172" y="85" width="30" height="30"/>
                                         <state key="normal" title="Play"/>
@@ -302,18 +299,21 @@
                                         <rect key="frame" x="177" y="90" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-0l-yuR">
+                                        <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="kdO-OU-r52" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="2nv-jv-6N0"/>
-                                    <constraint firstAttribute="trailing" secondItem="A6T-Xf-eMh" secondAttribute="trailing" id="6Gm-Do-zoB"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="APr-Qj-R6R"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerX" secondItem="VEP-lt-P1W" secondAttribute="centerX" id="GIO-1w-khP"/>
+                                    <constraint firstItem="nmc-0l-yuR" firstAttribute="top" secondItem="VEP-lt-P1W" secondAttribute="top" id="OdT-iW-PRn"/>
+                                    <constraint firstAttribute="trailing" secondItem="nmc-0l-yuR" secondAttribute="trailing" id="Pcc-eM-9eb"/>
                                     <constraint firstItem="yFA-JY-cCt" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="RMO-rh-tGr"/>
-                                    <constraint firstItem="A6T-Xf-eMh" firstAttribute="top" secondItem="VEP-lt-P1W" secondAttribute="top" id="Waj-D0-Ckd"/>
-                                    <constraint firstItem="A6T-Xf-eMh" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" id="f09-W6-LLe"/>
                                     <constraint firstItem="yFA-JY-cCt" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" constant="8" id="f7r-if-evZ"/>
                                     <constraint firstAttribute="trailing" secondItem="kdO-OU-r52" secondAttribute="trailing" constant="8" id="h1U-03-MPc"/>
+                                    <constraint firstItem="nmc-0l-yuR" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" id="iDq-Vx-k7S"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -334,7 +334,7 @@
                         <outlet property="activityIndicator" destination="Tiy-mY-APm" id="XGI-rx-n5Y"/>
                         <outlet property="episodeArtwork" destination="oAD-1x-aY2" id="824-lD-yMD"/>
                         <outlet property="playPauseButton" destination="a8C-1Z-WP5" id="Yh1-RB-qbk"/>
-                        <outlet property="progressView" destination="A6T-Xf-eMh" id="avB-Hq-ebE"/>
+                        <outlet property="progressView" destination="nmc-0l-yuR" id="Mkv-mD-7ZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8N-q7-v3a" userLabel="First Responder" sceneMemberID="firstResponder"/>

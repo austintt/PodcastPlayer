@@ -13,6 +13,10 @@ class AudioPlayer {
     static let shared = AudioPlayer()
     var audio: AVAudioPlayer?
     var episode: Episode?
+    var timer: Timer?
+    var decibelThreshold: Float = -40
+    var samplingRate = 0.05
+    var secondsOfIncreasedPlayback = 0.0
     
     func setEpisode(_ episode: Episode) {
         self.episode = episode
@@ -35,6 +39,7 @@ class AudioPlayer {
                 guard let audio = audio else {return}
                 setupPlayer()
                 audio.prepareToPlay()
+    
             } catch {
                 debugPrint("Couln't load the file :(")
             }
@@ -47,6 +52,9 @@ class AudioPlayer {
             // Play
             audio.play()
             debugPrint("Play")
+            
+            // Timer to keep track of progress
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(udateProgress), userInfo: nil, repeats: true)
         }
     }
     
@@ -55,23 +63,26 @@ class AudioPlayer {
         
         debugPrint("Pause")
         audio.pause()
-    
+        timer?.invalidate()
     }
     
     func forward(by: Double) {
+        guard let audio = self.audio else {return}
         debugPrint("Forward")
-        audio?.seek(by)
+        audio.seek(by)
     }
     
     func back(by: Double) {
+        guard let audio = self.audio else {return}
         debugPrint("Back")
-        audio?.seek(by * -1)
+        audio.seek(by * -1)
     }
     
     func stop() {
         guard let audio = self.audio else {return}
-        
+        debugPrint("Stop")
         audio.stop()
+        timer?.invalidate()
     }
     
     func isPlaying() -> Bool {
@@ -82,6 +93,9 @@ class AudioPlayer {
     }
     
     func setupPlayer() {
+        audio?.isMeteringEnabled = true
+        audio?.enableRate = true
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [.allowAirPlay, .allowBluetooth])
             debugPrint("Playback OK")
@@ -91,5 +105,14 @@ class AudioPlayer {
             debugPrint("Error setting up audio session \(error)")
         }
     }
+    
+    @objc private func udateProgress() {
+        if let audio = audio, let episode = episode {
+            episode.playPosition = audio.currentTime
+            debugPrint("Progress: \(audio.currentTime)")
+        }
+    }
+    
+    // https://blog.breaker.audio/how-we-skip-silences-in-podcasts-with-avaudioplayer-69232b57850a
     
 }
