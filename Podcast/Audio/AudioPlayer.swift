@@ -11,6 +11,7 @@ import AVFoundation
 class AudioPlayer {
     
     static let shared = AudioPlayer()
+    let db = DatabaseController<Episode>()
     var audio: AVAudioPlayer?
     var episode: Episode?
     var timer: Timer?
@@ -19,7 +20,8 @@ class AudioPlayer {
     var secondsOfIncreasedPlayback = 0.0
     
     func setEpisode(_ episode: Episode) {
-        self.episode = episode
+        
+        self.episode = episode.detatch()
     }
     
     func play(_ newEpisode: Episode? = nil) {
@@ -33,7 +35,7 @@ class AudioPlayer {
             
             let url = documentsURL
             
-            // Play
+            // Get ready to play
             do {
                 audio = try AVAudioPlayer(contentsOf: url)
                 guard let audio = audio else {return}
@@ -45,11 +47,15 @@ class AudioPlayer {
             }
         }
         
-        // Grab file
         if let currentEp = episode {
             guard let audio = self.audio else {return}
             
             // Play
+            // TODO: For some reason I can't just play at 0 with playAtTime, figure it out.
+            // We also appear to be skipping 10 seonds on resume
+            if currentEp.playPosition > 0 {
+                audio.play(atTime: TimeInterval(currentEp.playPosition))
+            }
             audio.play()
             debugPrint("Play")
             
@@ -109,6 +115,7 @@ class AudioPlayer {
     @objc private func udateProgress() {
         if let audio = audio, let episode = episode {
             episode.playPosition = audio.currentTime
+            self.db.save(episode)
             debugPrint("Progress: \(audio.currentTime)")
         }
     }

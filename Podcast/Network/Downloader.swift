@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class Downloader {
+    let db = DatabaseController<Episode>()
     
     func getAndSaveEpisode(_ episode: Episode, completionHandlerForSaveEpisode: @escaping (_ error: NSError?) -> Void) {
         if let episodeURL = episode.fileURL.toURL() {
@@ -27,6 +28,10 @@ class Downloader {
             Alamofire.download(episode.fileURL, to: destination).response { response in
                 if response.destinationURL != nil {
                     print(response.destinationURL!)
+                    
+                    // Update our episode
+                    episode.isDownloaded = true
+                    self.db.save(episode.detatch())
                     completionHandlerForSaveEpisode(nil)
                 }
             }

@@ -22,6 +22,7 @@ class Episode: Object {
     @objc dynamic var fileExtension: String = ""
     @objc dynamic var playPosition: Double = 0
     @objc dynamic var hasBeenPlayed: Bool = false
+    @objc dynamic var isDownloaded: Bool = false
     @objc dynamic var id = UUID().uuidString
     
     convenience init(item: RSSFeedItem, podcast: Podcast) {
@@ -42,6 +43,22 @@ class Episode: Object {
         }
     }
     
+//    override init(episode: Episode) {
+//        podcastName= episode.podcastName
+//        podcastID = ""
+//        title = ""
+//        link = ""
+//        fileURL = ""
+//        subtitle = ""
+//        summary = ""
+//        pubDate = Date()
+//        fileExtension = ""
+//        playPosition = 0
+//        hasBeenPlayed = false
+//        isDownloaded = false
+//        id = UUID().uuidString
+//    }
+    
     static func episodeFromFeed(feed: RSSFeed, podcast: Podcast) -> [Episode]{
         var episodes = [Episode]()
         
@@ -61,6 +78,10 @@ class Episode: Object {
         return "id"
     }
     
+    func detatch() -> Episode {
+        return Episode(value: self)
+    }
+    
     func generateFileName() -> String {
         // Maybe we'll switch back to this, but I'd rather trust our own UUIDs than naming schemes from 3rd party
 //        return "\(podcastName.replacingOccurrences(of: " ", with: "_"))-\(title.replacingOccurrences(of: " ", with: "_"))"
@@ -70,7 +91,7 @@ class Episode: Object {
     // TODO: Being able to verify if an episode has been downloaded is great, but the epiosde object should also keep track of this state.
     // When displaying whether or not an episode is downloaded in a long list of episodes, this is not optimal.
     func checkIfDownloaded() -> Bool {
-        var isDownloaded = false
+        isDownloaded = false
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
         if let pathComponent = url.appendingPathComponent("\(generateFileName()).\(self.fileExtension)") {
