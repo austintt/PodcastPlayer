@@ -14,6 +14,8 @@
 		D902B8532030FE200031B6F1 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8522030FE200031B6F1 /* Podcast.swift */; };
 		D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B8742031046A0031B6F1 /* GCDBlackBox.swift */; };
 		D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */; };
+		D908546D20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */; };
+		D908546F20D09DE100EDD3B2 /* SubscriptionPillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */; };
 		D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E42CB20327995003B85EB /* RealmDBController.swift */; };
 		D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94543312048DC2600B8F585 /* MediaPlayer.swift */; };
 		D949BE622033B683003D5989 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE612033B683003D5989 /* PodcastCell.swift */; };
@@ -72,6 +74,8 @@
 		D902B8522030FE200031B6F1 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		D902B8742031046A0031B6F1 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
+		D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastColumnFlowLayout.swift; sourceTree = "<group>"; };
+		D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPillCell.swift; sourceTree = "<group>"; };
 		D93E42CB20327995003B85EB /* RealmDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBController.swift; sourceTree = "<group>"; };
 		D94543312048DC2600B8F585 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		D949BE612033B683003D5989 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		D902B87620313AFB0031B6F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D908546B20D09A6800EDD3B2 /* Podcast Collection Views */,
 				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
 				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
 				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
@@ -167,6 +172,15 @@
 				D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D908546B20D09A6800EDD3B2 /* Podcast Collection Views */ = {
+			isa = PBXGroup;
+			children = (
+				D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */,
+				D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */,
+			);
+			path = "Podcast Collection Views";
 			sourceTree = "<group>";
 		};
 		D949BE632033B75F003D5989 /* Extensions */ = {
@@ -436,6 +450,7 @@
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
+				D908546F20D09DE100EDD3B2 /* SubscriptionPillCell.swift in Sources */,
 				D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */,
 				D95D25DC203CFB75004F511C /* Constants.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
@@ -445,6 +460,7 @@
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,
+				D908546D20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift in Sources */,
 				D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */,
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,

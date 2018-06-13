@@ -10,13 +10,15 @@ import UIKit
 import RealmSwift
 import SDWebImage
 
-class SubscriptionView: UITableViewController {
+class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var podcasts = [Podcast]()
     let db = DatabaseController<Podcast>()
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpCollectionView()
         setUpView()
         getSubscriptionsFromDB()
     }
@@ -43,36 +45,71 @@ class SubscriptionView: UITableViewController {
         podcasts = podcasts.sorted(by: { $0.name < $1.name })
         
         performUIUpdatesOnMain {
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
     // MARK: Table View
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return podcasts.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "podcastSubscriptionCell", for: indexPath) as! PodcastCell
-        let podcast = podcasts[indexPath.row]
-        
-        cell.nameLabel.text = podcast.name
-        cell.artistLabel.text = podcast.artist
-        cell.artworkView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let podcast = podcasts[indexPath.row]
-        
-        let controller = storyboard!.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
-        controller.podcast = podcast
-        navigationController!.pushViewController(controller, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return podcasts.count
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "podcastSubscriptionCell", for: indexPath) as! PodcastCell
+//        let podcast = podcasts[indexPath.row]
+//
+//        cell.nameLabel.text = podcast.name
+//        cell.artistLabel.text = podcast.artist
+//        cell.artworkView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let podcast = podcasts[indexPath.row]
+//
+//        let controller = storyboard!.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
+//        controller.podcast = podcast
+//        navigationController!.pushViewController(controller, animated: true)
+//    }
     
     func reloadTableView() {
         podcasts.removeAll()
         getSubscriptionsFromDB()
+    }
+    
+    // MARK: Collection View
+    
+    func setUpCollectionView() {
+//        let flowLayout = PodcastColumnFlowLayout()
+//        collectionView.collectionViewLayout = flowLayout
+//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        collectionView.backgroundColor = .white
+//        collectionView.alwaysBounceVertical = true
+        // add to subview
+        
+       // collectionView.register(PodcastCollectionCell, with )
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return podcasts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subscriptionPillCell", for: indexPath) as! SubscriptionPillCell
+        let podcast = podcasts[indexPath.row]
+        
+        // Update content
+        cell.updateContent(podcast: podcast)
+        
+        // Update view
+        if !cell.hasBeenConstructed {
+            cell.constructCell()
+        }
+        
+        return cell
     }
 
     // MARK: DEBUG
@@ -88,7 +125,7 @@ class SubscriptionView: UITableViewController {
             realm.deleteAll()
             podcasts.removeAll()
             performUIUpdatesOnMain {
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
             }
             print("Realm database deleted.")
         }
