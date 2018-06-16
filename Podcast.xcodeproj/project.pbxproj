@@ -168,9 +168,8 @@
 		D902B87620313AFB0031B6F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D908546B20D09A6800EDD3B2 /* Podcast Collection Views */,
-				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
-				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
+				D999B5AD20D5CB8D00E20076 /* SearchView */,
+				D908546B20D09A6800EDD3B2 /* SubscriptionView */,
 				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
 				D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */,
@@ -178,15 +177,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D908546B20D09A6800EDD3B2 /* Podcast Collection Views */ = {
+		D908546B20D09A6800EDD3B2 /* SubscriptionView */ = {
 			isa = PBXGroup;
 			children = (
+				D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */,
 				D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */,
 				D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */,
 				D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */,
 				D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */,
 			);
-			path = "Podcast Collection Views";
+			path = SubscriptionView;
 			sourceTree = "<group>";
 		};
 		D949BE632033B75F003D5989 /* Extensions */ = {
@@ -264,6 +264,14 @@
 				D97F5BAF2030EAC1004506B1 /* Info.plist */,
 			);
 			path = Podcast;
+			sourceTree = "<group>";
+		};
+		D999B5AD20D5CB8D00E20076 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D97F5BB52030EC34004506B1 /* SearchViewController.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

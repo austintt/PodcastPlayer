@@ -249,13 +249,50 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultCell" id="J8u-oc-3PE">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="90" id="J8u-oc-3PE" customClass="PodcastCell" customModule="Podcast" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J8u-oc-3PE" id="Ttx-Wo-jGf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZE6-gZ-aSg">
+                                            <rect key="frame" x="0.0" y="0.0" width="89.5" height="89.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ZE6-gZ-aSg" secondAttribute="height" multiplier="1:1" id="A7g-jB-HGR"/>
+                                                <constraint firstAttribute="height" constant="89.5" id="vne-lZ-GKK"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkA-jZ-hMd">
+                                            <rect key="frame" x="97" y="34.5" width="262" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atv-L9-IFs">
+                                            <rect key="frame" x="97" y="55" width="262" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.4060318845" green="0.4060318845" blue="0.4060318845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="atv-L9-IFs" firstAttribute="leading" secondItem="ZE6-gZ-aSg" secondAttribute="trailing" constant="7.5" id="EUd-KJ-2Jo"/>
+                                        <constraint firstItem="OkA-jZ-hMd" firstAttribute="centerY" secondItem="Ttx-Wo-jGf" secondAttribute="centerY" id="Knd-rQ-mW0"/>
+                                        <constraint firstAttribute="trailing" secondItem="OkA-jZ-hMd" secondAttribute="trailing" constant="16" id="VSQ-ns-nsx"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZE6-gZ-aSg" secondAttribute="bottom" id="e8V-51-oMh"/>
+                                        <constraint firstAttribute="trailing" secondItem="atv-L9-IFs" secondAttribute="trailing" constant="16" id="gef-NG-DM9"/>
+                                        <constraint firstItem="OkA-jZ-hMd" firstAttribute="leading" secondItem="ZE6-gZ-aSg" secondAttribute="trailing" constant="7.5" id="lRQ-aK-tPC"/>
+                                        <constraint firstItem="ZE6-gZ-aSg" firstAttribute="top" secondItem="Ttx-Wo-jGf" secondAttribute="top" id="n8h-3I-5GJ"/>
+                                        <constraint firstItem="ZE6-gZ-aSg" firstAttribute="leading" secondItem="Ttx-Wo-jGf" secondAttribute="leading" id="rR8-v9-bYT"/>
+                                        <constraint firstItem="atv-L9-IFs" firstAttribute="top" secondItem="OkA-jZ-hMd" secondAttribute="bottom" id="vuk-aJ-v11"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="artistLabel" destination="atv-L9-IFs" id="liL-VN-BMc"/>
+                                    <outlet property="artworkView" destination="ZE6-gZ-aSg" id="bTI-VI-7Mf"/>
+                                    <outlet property="nameLabel" destination="OkA-jZ-hMd" id="ZWZ-2f-pPY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -269,7 +306,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAm-z8-O8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="296"/>
+            <point key="canvasLocation" x="1864.8" y="295.50224887556226"/>
         </scene>
         <!--Podcast Detail View-->
         <scene sceneID="yaS-rj-9Te">

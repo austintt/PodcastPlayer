@@ -27,10 +27,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! PodcastCell
         
         let podcast = searchResults[indexPath.row]
-        cell.textLabel!.text = podcast.name
+//        cell.textLabel!.text = podcast.name
+        cell.nameLabel.text = podcast.name
+        cell.artistLabel.text = podcast.artist
+        cell.artworkView.sd_imageTransition = .fade
+        cell.artworkView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
         return cell
     }
     
