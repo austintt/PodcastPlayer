@@ -19,6 +19,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchView.delegate = self
+        searchView.becomeFirstResponder()
     }
     
     // MARK: Table View
@@ -30,22 +31,21 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! PodcastCell
         
         let podcast = searchResults[indexPath.row]
-//        cell.textLabel!.text = podcast.name
+        
         cell.nameLabel.text = podcast.name
         cell.artistLabel.text = podcast.artist
         cell.artworkView.sd_imageTransition = .fade
-        cell.artworkView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
+        cell.artworkView.sd_setImage(with: URL(string: podcast.artworkUrl))
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let podcast = searchResults[indexPath.row]
-        
+        dismissKeyboard()
         let controller = storyboard!.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
         controller.podcast = podcast
         navigationController!.pushViewController(controller, animated: true)
     }
-    
     
     // MARK: Search Bar
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -100,5 +100,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         
         // Delay until done typing
         self.perform(#selector(self.fetchResults(_:)), with: self.searchView, afterDelay: 0.4)
+    }
+    
+    func dismissKeyboard() {
+        searchView.resignFirstResponder()
     }
 }
