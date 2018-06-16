@@ -243,14 +243,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="h20-aU-sLk">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Podcast" id="h20-aU-sLk">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="search"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="90" id="J8u-oc-3PE" customClass="PodcastCell" customModule="Podcast" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J8u-oc-3PE" id="Ttx-Wo-jGf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
