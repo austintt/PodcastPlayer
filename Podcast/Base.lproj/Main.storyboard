@@ -440,18 +440,40 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-0l-yuR">
                                         <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
                                     </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCT-tk-5qR">
+                                        <rect key="frame" x="8" y="38" width="46" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="Xkl-pk-jde"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-sU-FX9" userLabel="Time Remaining Label">
+                                        <rect key="frame" x="287" y="38" width="80" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="mD4-1t-JTJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="kdO-OU-r52" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="2nv-jv-6N0"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="APr-Qj-R6R"/>
+                                    <constraint firstItem="f4e-sU-FX9" firstAttribute="top" secondItem="nmc-0l-yuR" secondAttribute="bottom" constant="8" id="BEL-7e-JZr"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerX" secondItem="VEP-lt-P1W" secondAttribute="centerX" id="GIO-1w-khP"/>
+                                    <constraint firstAttribute="trailing" secondItem="f4e-sU-FX9" secondAttribute="trailing" constant="8" id="IOU-Ab-s3Q"/>
                                     <constraint firstItem="nmc-0l-yuR" firstAttribute="top" secondItem="VEP-lt-P1W" secondAttribute="top" id="OdT-iW-PRn"/>
                                     <constraint firstAttribute="trailing" secondItem="nmc-0l-yuR" secondAttribute="trailing" id="Pcc-eM-9eb"/>
                                     <constraint firstItem="yFA-JY-cCt" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="RMO-rh-tGr"/>
+                                    <constraint firstItem="FCT-tk-5qR" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" constant="8" id="ebw-4P-ji9"/>
                                     <constraint firstItem="yFA-JY-cCt" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" constant="8" id="f7r-if-evZ"/>
                                     <constraint firstAttribute="trailing" secondItem="kdO-OU-r52" secondAttribute="trailing" constant="8" id="h1U-03-MPc"/>
                                     <constraint firstItem="nmc-0l-yuR" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" id="iDq-Vx-k7S"/>
+                                    <constraint firstItem="FCT-tk-5qR" firstAttribute="top" secondItem="nmc-0l-yuR" secondAttribute="bottom" constant="8" id="pQ0-lM-cn2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -473,6 +495,8 @@
                         <outlet property="episodeArtwork" destination="oAD-1x-aY2" id="824-lD-yMD"/>
                         <outlet property="playPauseButton" destination="a8C-1Z-WP5" id="Yh1-RB-qbk"/>
                         <outlet property="progressView" destination="nmc-0l-yuR" id="Mkv-mD-7ZI"/>
+                        <outlet property="timeProgressLabel" destination="FCT-tk-5qR" id="O1v-q6-Sij"/>
+                        <outlet property="timeRemainingLabel" destination="f4e-sU-FX9" id="fi6-Ta-Obc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8N-q7-v3a" userLabel="First Responder" sceneMemberID="firstResponder"/>

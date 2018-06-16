@@ -14,6 +14,8 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var progressView: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var timeProgressLabel: UILabel!
+    @IBOutlet weak var timeRemainingLabel: UILabel!
     
     var episode: Episode!
     var podcast: Podcast!
@@ -21,6 +23,8 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpContent()
+        registerNotifications()
+        
         if !AudioPlayer.shared.isPlaying() || AudioPlayer.shared.episode?.id != episode.id {
             AudioPlayer.shared.stop()
             playEpisode()
@@ -40,6 +44,11 @@ class EpisodeDetailViewController: UIViewController {
         
         // Player buttons
         playPauseButton.setTitle("Pause", for: .normal)
+    }
+    
+    
+    func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(audioPlayerPlaybackTimeChanged(_:)), name: .audioPlayerPlaybackTimeChanged, object: AudioPlayer.shared)
     }
     
     func playEpisode() {
@@ -62,7 +71,7 @@ class EpisodeDetailViewController: UIViewController {
     
     @IBAction func playPause(_ sender: Any) {
         if AudioPlayer.shared.isPlaying() {
-             AudioPlayer.shared.pause()
+            AudioPlayer.shared.pause()
             playPauseButton.setTitle("Play", for: .normal)
         } else {
              AudioPlayer.shared.play()
@@ -85,6 +94,16 @@ class EpisodeDetailViewController: UIViewController {
         } else {
             playPauseButton.isHidden = true
             activityIndicator.startAnimating()
+        }
+    }
+    
+    @objc private func audioPlayerPlaybackTimeChanged(_ notification: Notification) {
+        let secondsElapsed = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsElapsedUserInfoKey]! as! Double
+        let secondsRemaining = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsRemainingUserInfoKey]! as! Double
+
+        performUIUpdatesOnMain {
+            self.timeProgressLabel.text = "\(secondsElapsed.rounded())"
+            self.timeRemainingLabel.text = "-\(secondsRemaining.rounded())"
         }
     }
     

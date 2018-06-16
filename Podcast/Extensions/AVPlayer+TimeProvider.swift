@@ -8,21 +8,6 @@
 
 import AVFoundation
 
-protocol AVPlayerItemTimeProvider {
-    func currentTime() -> CMTime
-    var duration: CMTime { get }
-}
-
-extension AVPlayerItemTimeProvider {
-    var timeElapsed: Double {
-        return self.currentTime().seconds
-    }
-    
-    var timeRemaining: Double {
-        return self.duration.seconds - self.timeElapsed
-    }
-}
-
 extension AVAudioPlayer {
     func seek(_ by: Double) {
         // add new time
@@ -31,6 +16,12 @@ extension AVAudioPlayer {
         // seek
         self.currentTime = newTime
     }
+    
+    var timeElapsed: Double {
+        return self.currentTime as Double
+    }
+    
+    var timeRemaining: Double {
+        return self.duration - self.currentTime as Double
+    }
 }
-
-extension AVPlayerItem: AVPlayerItemTimeProvider {}
