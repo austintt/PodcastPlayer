@@ -71,6 +71,10 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.title = self.podcast.name
         self.artistLabel.text = self.podcast.artist
         self.setSubscriptionButtonText()
+        
+        if !podcast.descriptionText.isEmpty {
+            descriptionTextView.text = podcast.descriptionText
+        }
     }
     
     func configureView() {
@@ -187,9 +191,9 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         cell.textLabel!.text = episode.title
         
         if episode.isDownloaded {
-            cell.textLabel?.backgroundColor = .blue
+            cell.accessoryType = .checkmark
         } else {
-            cell.textLabel?.backgroundColor = .white
+            cell.accessoryType = .none
         }
         
         return cell
@@ -202,6 +206,26 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         controller.episode = episode
         controller.podcast = podcast // TODO: Clean this up
         navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // if the file has been downloaded
+        if episodes[indexPath.row].isDownloaded {
+            return true
+        }
+        
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            // Delete file
+            episodes[indexPath.row].deleteAudioFile()
+            
+            // Update UI
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
     }
     
     func sortEpisodes(ascending: Bool) {

@@ -108,4 +108,20 @@ class Episode: Object {
         }
         return isDownloaded
     }
+    
+    func deleteAudioFile() {
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let url = NSURL(fileURLWithPath: path)
+        if let pathComponent = url.appendingPathComponent("\(generateFileName()).\(self.fileExtension)") {
+            let filePath = pathComponent.path
+            let fileManager = FileManager.default
+            do {
+                try fileManager.removeItem(atPath: filePath)
+                isDownloaded = false
+                debugPrint("Deleted file")
+            } catch let error as Error {
+                debugPrint("Error deleting file: \(error.localizedDescription)")
+            }
+        }
+    }
 }
