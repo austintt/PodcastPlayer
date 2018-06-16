@@ -1,5 +1,5 @@
 //
-//  PodcastCollectionCell.swift
+//  SubscriptionArtCell.swift
 //  Podcast
 //
 //  Created by Austin Tooley on 6/12/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubscriptionPillCell: UICollectionViewCell {
+class SubscriptionArtCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -24,23 +24,14 @@ class SubscriptionPillCell: UICollectionViewCell {
     }
     
     func constructCell() {
-        self.layer.cornerRadius = cornerRadius
-        self.backgroundColor = Constants.shared.purple
-        createShadow()
+        imageView.layer.cornerRadius = cornerRadius
+        imageView.clipsToBounds = true
         hasBeenConstructed = true
     }
     
     private func createShadow() {
         if !hasBeenConstructed {
-            imageView.layer.shadowColor = UIColor.black.cgColor
-            imageView.layer.shadowOpacity = 1
-            imageView.layer.shadowOffset = CGSize.zero
-            imageView.layer.shadowRadius = 10
-            imageView.layer.shadowPath = UIBezierPath(rect: imageView.bounds).cgPath
+            
         }
-    }
-    
-    func changeColor() {
-        
     }
 }

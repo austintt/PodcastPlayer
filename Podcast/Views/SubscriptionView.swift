@@ -15,6 +15,7 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
     var podcasts = [Podcast]()
     let db = DatabaseController<Podcast>()
     @IBOutlet weak var collectionView: UICollectionView!
+    var usePillCells = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +81,8 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
     // MARK: Collection View
     
     func setUpCollectionView() {
-//        let flowLayout = PodcastColumnFlowLayout()
-//        collectionView.collectionViewLayout = flowLayout
+        let flowLayout = PodcastColumnFlowLayout()
+        collectionView.collectionViewLayout = flowLayout
 //        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        collectionView.backgroundColor = .white
 //        collectionView.alwaysBounceVertical = true
@@ -98,7 +99,7 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subscriptionPillCell", for: indexPath) as! SubscriptionPillCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subscriptionArtCell", for: indexPath) as! SubscriptionArtCell
         let podcast = podcasts[indexPath.row]
         
         // Update content
@@ -110,6 +111,14 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let podcast = podcasts[indexPath.row]
+
+        let controller = storyboard!.instantiateViewController(withIdentifier: "PodcastDetailViewController") as! PodcastDetailViewController
+        controller.podcast = podcast
+        navigationController!.pushViewController(controller, animated: true)
     }
 
     // MARK: DEBUG
@@ -129,6 +138,9 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
             }
             print("Realm database deleted.")
         }
+    }
+    @IBAction func changeCellType(_ sender: Any) {
+        usePillCells.toggle()
     }
 }
 

@@ -35,6 +35,8 @@
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
+		D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */; };
+		D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
@@ -98,6 +100,8 @@
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionArtCell.swift; sourceTree = "<group>"; };
+		D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBaseCell.swift; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */,
 				D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */,
+				D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */,
+				D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */,
 			);
 			path = "Podcast Collection Views";
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				D9693B852083FFBF002737ED /* String+URL.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
 				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
+				D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */,
 				D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */,
 				D9693B81208255DC002737ED /* TypingThrottler.swift in Sources */,
 				D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */,
@@ -464,6 +471,7 @@
 				D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */,
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
+				D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,
 				D956EB9C209E2DEA00DCA0C7 /* AudioPlayer.swift in Sources */,
 			);

@@ -55,8 +55,9 @@ class AudioPlayer {
             // We also appear to be skipping 10 seonds on resume
             if currentEp.playPosition > 0 {
                 audio.play(atTime: TimeInterval(currentEp.playPosition))
+            }else {
+                audio.play()
             }
-            audio.play()
             debugPrint("Play")
             
             // Timer to keep track of progress

@@ -186,6 +186,12 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
         
+        if episode.isDownloaded {
+            cell.textLabel?.backgroundColor = .blue
+        } else {
+            cell.textLabel?.backgroundColor = .white
+        }
+        
         return cell
     }
     
