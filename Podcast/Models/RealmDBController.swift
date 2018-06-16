@@ -36,6 +36,7 @@ struct DatabaseController<RealmObject: Object> {
             let success: ()? = try? realm.write {
                 // Create or update a record in this realm from an object in a different realm
                 realm.create(RealmObject.self, value: model, update: shouldUpdate)
+                debugPrint("Saved")
             }
             
             DispatchQueue.main.async {

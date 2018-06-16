@@ -33,7 +33,7 @@ class AudioPlayer {
     
     func setEpisode(_ episode: Episode) {
         
-        self.episode = episode.detatch()
+        self.episode = episode
     }
     
     // Hanlde a new episode if we have one
@@ -58,7 +58,24 @@ class AudioPlayer {
             debugPrint("Couln't load the file :(")
         }
     
-        play()
+        resumeEpisode()
+    }
+    
+    func resumeEpisode() {
+        if let currentEp = episode {
+            guard let audio = self.player else {
+                debugPrint("ERROR: Trying to play but player hasn't been instantiated")
+                return
+            }
+            
+            // Seek to position
+            if currentEp.playPosition > 0 {
+                forward(by: currentEp.playPosition)
+            }
+            
+            // Play
+            play()
+        }
     }
     
     func play() {
@@ -70,7 +87,6 @@ class AudioPlayer {
             
             // Play
             audio.play()
-            debugPrint("Play")
             
             // Notify
             NotificationCenter.default.post(name: .audioPlayerWillStartPlaying, object: self, userInfo: [AudioPlayerEpisodeUserInfoKey: currentEp])
@@ -137,14 +153,16 @@ class AudioPlayer {
     
     @objc private func udateProgress() {
         if let audio = player, let episode = episode {
+            
+            // Save updated tiem to episode
             episode.playPosition = audio.currentTime
-//            self.db.save(episode)
+            self.db.save(episode.detatch())
+            
             // Notify
             NotificationCenter.default.post(name: .audioPlayerPlaybackTimeChanged, object: self, userInfo: [
                 AudioPlayerSecondsElapsedUserInfoKey: audio.timeElapsed,
                 AudioPlayerSecondsRemainingUserInfoKey: audio.timeRemaining
             ])
-            debugPrint("Progress: \(audio.currentTime)")
         }
     }
     
