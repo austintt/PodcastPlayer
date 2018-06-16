@@ -43,6 +43,10 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     @IBAction func subscribeButtonPressed(_ sender: Any) {
         toggleSubscription()
@@ -220,8 +224,12 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
+            var episode = episodes[indexPath.row]
+            let episodeDB = DatabaseController<Episode>()
+            
             // Delete file
-            episodes[indexPath.row].deleteAudioFile()
+            episode.deleteAudioFile()
+            episodeDB.save(episode.detatch())
             
             // Update UI
             tableView.reloadRows(at: [indexPath], with: .fade)

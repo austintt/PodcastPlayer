@@ -118,6 +118,8 @@ class Episode: Object {
             do {
                 try fileManager.removeItem(atPath: filePath)
                 isDownloaded = false
+                playPosition = 0
+                hasBeenPlayed = false
                 debugPrint("Deleted file")
             } catch let error as Error {
                 debugPrint("Error deleting file: \(error.localizedDescription)")
