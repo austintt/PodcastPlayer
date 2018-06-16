@@ -60,9 +60,13 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         searchActive = false;
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    @objc fileprivate func fetchResults(_ searchBar: UISearchBar) {
         
-        RequestManager.sharedInstance().getSearch(term: searchText) { (result, error) in
+        guard let query = searchBar.text else {
+            return
+        }
+        
+        RequestManager.sharedInstance().getSearch(term: query) { (result, error) in
             
             if let error = error {
                 print("ERROR: \(error)")
@@ -74,7 +78,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                     performUIUpdatesOnMain {
                         self.tableView.reloadData()
                     }
-                    
+                
                     // Update Table
                     self.searchResults = podcasts
                     performUIUpdatesOnMain {
@@ -83,43 +87,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 }
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-//        let throttler = TypingThrottler(interval: 0.4) { (text) in
-//            RequestManager.sharedInstance().getSearch(term: text) { (result, error) in
-//
-//                if let error = error {
-//                    print("ERROR: \(error)")
-//                } else {
-//                    if let podcasts = result {
-//
-//                        // Clear table
-//                        self.searchResults = [Podcast]()
-//                        performUIUpdatesOnMain {
-//                            self.tableView.reloadData()
-//                        }
-//
-//                        // Update Table
-//                        self.searchResults = podcasts
-//                        performUIUpdatesOnMain {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        // Cancel previous operation
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.fetchResults(_:)), object: self.searchView)
         
-//        throttler.handleTyping(with: searchText)
-
-//        filtered = data.filter({ (text) -> Bool in
-//            let tmp: NSString = text
-//            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-//            return range.location != NSNotFound
-//        })
-//        if(filtered.count == 0){
-//            searchActive = false;
-//        } else {
-//            searchActive = true;
-//        }
-//        self.tableView.reloadData()
+        // Delay until done typing
+        self.perform(#selector(self.fetchResults(_:)), with: self.searchView, afterDelay: 0.4)
     }
 }
