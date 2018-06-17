@@ -243,7 +243,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Podcast" id="h20-aU-sLk">
+                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" placeholder="Podcast" id="h20-aU-sLk">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="search"/>
@@ -608,7 +608,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH4-f2-ajo">
-                                <rect key="frame" x="4" y="4" width="74" height="74"/>
+                                <rect key="frame" x="8" y="8" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wH4-f2-ajo" secondAttribute="height" multiplier="80:80" id="boU-ud-c5U"/>
                                 </constraints>
@@ -624,11 +624,12 @@
                         <color key="backgroundColor" red="0.91594622459999997" green="0.91594622459999997" blue="0.91594622459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wH4-f2-ajo" secondAttribute="bottom" constant="2" id="0MU-K6-nkm"/>
-                            <constraint firstItem="wH4-f2-ajo" firstAttribute="top" secondItem="rtO-Nn-Dwk" secondAttribute="top" constant="4" id="7E0-uN-RNi"/>
-                            <constraint firstItem="wH4-f2-ajo" firstAttribute="leading" secondItem="rtO-Nn-Dwk" secondAttribute="leading" constant="4" id="p7G-TS-xkV"/>
+                            <constraint firstItem="wH4-f2-ajo" firstAttribute="top" secondItem="rtO-Nn-Dwk" secondAttribute="top" constant="8" id="7E0-uN-RNi"/>
+                            <constraint firstItem="wH4-f2-ajo" firstAttribute="leading" secondItem="rtO-Nn-Dwk" secondAttribute="leading" constant="8" id="p7G-TS-xkV"/>
                             <constraint firstItem="qck-le-H6B" firstAttribute="centerX" secondItem="rtO-Nn-Dwk" secondAttribute="centerX" id="tTu-YW-Vvg"/>
                             <constraint firstItem="qck-le-H6B" firstAttribute="centerY" secondItem="rtO-Nn-Dwk" secondAttribute="centerY" id="yB0-G2-kmn"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mfq-Gw-5wO"/>
                     </view>
                     <connections>
                         <outlet property="artImageView" destination="wH4-f2-ajo" id="gCX-AM-nnw"/>
@@ -637,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pt-jl-D6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207.19999999999999" y="990.85457271364328"/>
+            <point key="canvasLocation" x="-770" y="981"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jJT-y6-5R0">
@@ -647,6 +648,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="38W-ii-3JJ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0y-Ca-Ejb" userLabel="First Responder" sceneMemberID="firstResponder"/>
