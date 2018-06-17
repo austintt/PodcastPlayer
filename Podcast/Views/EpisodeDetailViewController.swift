@@ -122,16 +122,20 @@ class EpisodeDetailViewController: UIViewController {
         let skippedSeconds = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsSkippedKey]! as! Double
         
         performUIUpdatesOnMain {
-            self.timeProgressLabel.text = "\(secondsElapsed.rounded())"
-            self.timeRemainingLabel.text = "-\(secondsRemaining.rounded())"
+            self.timeProgressLabel.text = "\(secondsElapsed.rounded().timeStringWithHours())"
+            self.timeRemainingLabel.text = "-\(secondsRemaining.rounded().timeStringWithHours())"
         }
         
         if skippedSeconds > 0 {
-            performUIUpdatesOnMain {
-                self.secondsSkippedLabel.text = "\(skippedSeconds.timeString()) skipped"
+            if skippedSeconds < 60 {
+                performUIUpdatesOnMain {
+                    self.secondsSkippedLabel.text = "\(String(format: "%.2f", skippedSeconds)) seconds skipped"
+                }
+            } else {
+                performUIUpdatesOnMain {
+                    self.secondsSkippedLabel.text = "\(skippedSeconds.timeString()) skipped"
+                }
             }
         }
-        
     }
-    
 }

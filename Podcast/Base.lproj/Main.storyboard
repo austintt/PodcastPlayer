@@ -478,9 +478,9 @@
                                         <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCT-tk-5qR">
-                                        <rect key="frame" x="8" y="38" width="46" height="21"/>
+                                        <rect key="frame" x="8" y="38" width="80" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="Xkl-pk-jde"/>
+                                            <constraint firstAttribute="width" constant="80" id="Xkl-pk-jde"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -496,9 +496,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-fb-G1m" userLabel="skipped ">
-                                        <rect key="frame" x="128.5" y="166" width="118" height="15"/>
+                                        <rect key="frame" x="98.5" y="169" width="178" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="118" id="Ti5-DM-KGS"/>
+                                            <constraint firstAttribute="width" constant="178" id="RCC-97-HJW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -510,7 +510,7 @@
                                     <constraint firstItem="kdO-OU-r52" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="2nv-jv-6N0"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="APr-Qj-R6R"/>
                                     <constraint firstItem="f4e-sU-FX9" firstAttribute="top" secondItem="nmc-0l-yuR" secondAttribute="bottom" constant="8" id="BEL-7e-JZr"/>
-                                    <constraint firstAttribute="bottom" secondItem="NMg-fb-G1m" secondAttribute="bottom" constant="19" id="Be3-IF-q5b"/>
+                                    <constraint firstAttribute="bottom" secondItem="NMg-fb-G1m" secondAttribute="bottom" constant="16" id="D80-p6-jkq"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerX" secondItem="VEP-lt-P1W" secondAttribute="centerX" id="GIO-1w-khP"/>
                                     <constraint firstAttribute="trailing" secondItem="f4e-sU-FX9" secondAttribute="trailing" constant="8" id="IOU-Ab-s3Q"/>
                                     <constraint firstItem="nmc-0l-yuR" firstAttribute="top" secondItem="VEP-lt-P1W" secondAttribute="top" id="OdT-iW-PRn"/>
