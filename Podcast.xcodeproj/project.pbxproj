@@ -37,6 +37,7 @@
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
 		D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */; };
 		D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */; };
+		D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
@@ -102,6 +103,7 @@
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionArtCell.swift; sourceTree = "<group>"; };
 		D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBaseCell.swift; sourceTree = "<group>"; };
+		D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarPlayerViewController.swift; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
 				D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */,
+				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			files = (
 				D9693B852083FFBF002737ED /* String+URL.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
+				D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */,
 				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
 				D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */,
 				D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */,

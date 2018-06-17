@@ -44,6 +44,8 @@ class EpisodeDetailViewController: UIViewController {
         
         // Player buttons
         playPauseButton.setTitle("Pause", for: .normal)
+        
+        // Hide mini player
     }
     
     
