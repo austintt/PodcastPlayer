@@ -13,7 +13,7 @@ class SubscriptionArtCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     private var shadowLayer: CAShapeLayer?
-    private var cornerRadius: CGFloat = 8.0
+    private var cornerRadius: CGFloat = Constants.shared.cornerRadius
     private var fillColor: UIColor = .green
     var hasBeenConstructed = false
     

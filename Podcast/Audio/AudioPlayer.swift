@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import MediaPlayer
 
 extension Notification.Name {
     static let audioPlayerWillStartPlaying = Notification.Name("audioPlayerWillStartPlaying")
@@ -165,6 +166,8 @@ class AudioPlayer {
             ])
         }
     }
+    
+    // MARK: Now Playing
     
     // https://blog.breaker.audio/how-we-skip-silences-in-podcasts-with-avaudioplayer-69232b57850a
     

@@ -38,6 +38,8 @@
 		D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */; };
 		D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */; };
 		D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */; };
+		D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B020D5E4C600E20076 /* CALayer+Border.swift */; };
+		D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B220D5E65400E20076 /* ImageView+Style.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
@@ -104,6 +106,8 @@
 		D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionArtCell.swift; sourceTree = "<group>"; };
 		D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBaseCell.swift; sourceTree = "<group>"; };
 		D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarPlayerViewController.swift; sourceTree = "<group>"; };
+		D999B5B020D5E4C600E20076 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
+		D999B5B220D5E65400E20076 /* ImageView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Style.swift"; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				D949BE642033B77E003D5989 /* NSData+imageFormat.swift */,
 				D9693B842083FFBF002737ED /* String+URL.swift */,
 				D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */,
+				D999B5B020D5E4C600E20076 /* CALayer+Border.swift */,
+				D999B5B220D5E65400E20076 /* ImageView+Style.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -472,10 +478,12 @@
 				D908546F20D09DE100EDD3B2 /* SubscriptionPillCell.swift in Sources */,
 				D95D25DE203D055D004F511C /* EpisodeDetailViewController.swift in Sources */,
 				D95D25DC203CFB75004F511C /* Constants.swift in Sources */,
+				D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D9693B832083FA5A002737ED /* Downloader.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
+				D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,

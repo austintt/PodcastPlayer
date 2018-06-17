@@ -564,7 +564,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.91594622459999997" green="0.91594622459999997" blue="0.91594622459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rcz-uI-ZvB" firstAttribute="leading" secondItem="9N9-zP-8YZ" secondAttribute="leading" id="02g-49-BaA"/>
                             <constraint firstItem="rcz-uI-ZvB" firstAttribute="trailing" secondItem="9N9-zP-8YZ" secondAttribute="trailing" id="2vm-gA-hAv"/>
@@ -621,7 +621,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.91594622459999997" green="0.91594622459999997" blue="0.91594622459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wH4-f2-ajo" secondAttribute="bottom" constant="2" id="0MU-K6-nkm"/>
                             <constraint firstItem="wH4-f2-ajo" firstAttribute="top" secondItem="rtO-Nn-Dwk" secondAttribute="top" constant="4" id="7E0-uN-RNi"/>

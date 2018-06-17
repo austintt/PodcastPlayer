@@ -18,7 +18,14 @@ class MiniBarPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpView()
+        
         registerForNotifications()
+    }
+    
+    func setUpView() {
+        view.layer.addBorder(edge: .top, color: Constants.shared.purple, thickness: 1)
+        artImageView.roundedCorners()
     }
     
     func registerForNotifications() {
