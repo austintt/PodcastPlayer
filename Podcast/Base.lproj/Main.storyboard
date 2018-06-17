@@ -540,10 +540,10 @@
             </objects>
             <point key="canvasLocation" x="3336.8000000000002" y="286.50674662668666"/>
         </scene>
-        <!--View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="rgt-FK-7mM">
             <objects>
-                <viewController id="IfK-6V-tzU" sceneMemberID="viewController">
+                <viewController id="IfK-6V-tzU" customClass="ContainerViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F2V-CH-ypl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,25 +557,30 @@
                                     <segue destination="mBq-zk-X9h" kind="embed" id="anJ-Dp-M5P"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l3-U2-EEm">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l3-U2-EEm" userLabel="Content Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                                 <connections>
                                     <segue destination="gYv-EB-BE8" kind="embed" id="Sld-tG-bT7"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="0.91594622459999997" green="0.91594622459999997" blue="0.91594622459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rcz-uI-ZvB" firstAttribute="leading" secondItem="9N9-zP-8YZ" secondAttribute="leading" id="02g-49-BaA"/>
                             <constraint firstItem="rcz-uI-ZvB" firstAttribute="trailing" secondItem="9N9-zP-8YZ" secondAttribute="trailing" id="2vm-gA-hAv"/>
                             <constraint firstItem="2l3-U2-EEm" firstAttribute="leading" secondItem="9N9-zP-8YZ" secondAttribute="leading" id="Cxg-0G-9Sp"/>
                             <constraint firstItem="2l3-U2-EEm" firstAttribute="top" secondItem="F2V-CH-ypl" secondAttribute="top" id="OhR-Ao-c9h"/>
-                            <constraint firstItem="rcz-uI-ZvB" firstAttribute="bottom" secondItem="9N9-zP-8YZ" secondAttribute="bottom" id="WJb-QF-Igz"/>
+                            <constraint firstItem="rcz-uI-ZvB" firstAttribute="bottom" secondItem="F2V-CH-ypl" secondAttribute="bottom" id="WJb-QF-Igz"/>
                             <constraint firstItem="2l3-U2-EEm" firstAttribute="trailing" secondItem="9N9-zP-8YZ" secondAttribute="trailing" id="sxP-bu-ByY"/>
                             <constraint firstItem="rcz-uI-ZvB" firstAttribute="top" secondItem="2l3-U2-EEm" secondAttribute="bottom" id="xhe-eW-6QV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9N9-zP-8YZ"/>
                     </view>
+                    <connections>
+                        <outlet property="miniBarBottomConstraint" destination="WJb-QF-Igz" id="VRi-PE-GMY"/>
+                        <outlet property="miniBarContainerView" destination="rcz-uI-ZvB" id="JdW-6W-igB"/>
+                        <outlet property="miniBarHeightConstraint" destination="tko-P7-TOl" id="AN7-J8-1hi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEq-bC-TLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

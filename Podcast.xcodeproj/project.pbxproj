@@ -40,6 +40,7 @@
 		D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */; };
 		D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B020D5E4C600E20076 /* CALayer+Border.swift */; };
 		D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B220D5E65400E20076 /* ImageView+Style.swift */; };
+		D999B5B520D6AE3100E20076 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B420D6AE3100E20076 /* ContainerViewController.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
@@ -108,6 +109,7 @@
 		D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarPlayerViewController.swift; sourceTree = "<group>"; };
 		D999B5B020D5E4C600E20076 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		D999B5B220D5E65400E20076 /* ImageView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Style.swift"; sourceTree = "<group>"; };
+		D999B5B420D6AE3100E20076 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
 				D95D25DD203D055D004F511C /* EpisodeDetailViewController.swift */,
 				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
+				D999B5B420D6AE3100E20076 /* ContainerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,
 				D949BE622033B683003D5989 /* PodcastCell.swift in Sources */,
+				D999B5B520D6AE3100E20076 /* ContainerViewController.swift in Sources */,
 				D908546D20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift in Sources */,
 				D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */,
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,

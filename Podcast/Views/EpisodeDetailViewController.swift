@@ -8,6 +8,11 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let episodeDetailViewLoaded = Notification.Name("episodeDetailViewLoaded")
+    static let episodeDetailViewWillDisappear = Notification.Name("episodeDetailViewWillDisappear")
+}
+
 class EpisodeDetailViewController: UIViewController {
     
     @IBOutlet weak var episodeArtwork: UIImageView!
@@ -31,6 +36,12 @@ class EpisodeDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        NotificationCenter.default.post(name: .episodeDetailViewWillDisappear, object: self, userInfo: nil)
+    }
+    
     func setUpContent() {
         
         // Podcast details
@@ -50,6 +61,10 @@ class EpisodeDetailViewController: UIViewController {
     
     
     func registerNotifications() {
+        // Notify
+        NotificationCenter.default.post(name: .episodeDetailViewLoaded, object: self, userInfo: nil)
+        
+        // Register
         NotificationCenter.default.addObserver(self, selector: #selector(audioPlayerPlaybackTimeChanged(_:)), name: .audioPlayerPlaybackTimeChanged, object: AudioPlayer.shared)
     }
     
