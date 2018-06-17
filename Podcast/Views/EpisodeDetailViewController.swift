@@ -21,6 +21,7 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var timeProgressLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
+    @IBOutlet weak var secondsSkippedLabel: UILabel!
     
     var episode: Episode!
     var podcast: Podcast!
@@ -47,6 +48,7 @@ class EpisodeDetailViewController: UIViewController {
         // Podcast details
         episodeArtwork.sd_setImage(with: URL(string: podcast.artworkUrl))
         title = episode.title
+        secondsSkippedLabel.text = ""
         
         // Activity Indicator
         activityIndicator.hidesWhenStopped = true
@@ -117,11 +119,19 @@ class EpisodeDetailViewController: UIViewController {
     @objc private func audioPlayerPlaybackTimeChanged(_ notification: Notification) {
         let secondsElapsed = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsElapsedUserInfoKey]! as! Double
         let secondsRemaining = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsRemainingUserInfoKey]! as! Double
-
+        let skippedSeconds = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsSkippedKey]! as! Double
+        
         performUIUpdatesOnMain {
             self.timeProgressLabel.text = "\(secondsElapsed.rounded())"
             self.timeRemainingLabel.text = "-\(secondsRemaining.rounded())"
         }
+        
+        if skippedSeconds > 0 {
+            performUIUpdatesOnMain {
+                self.secondsSkippedLabel.text = "\(skippedSeconds.timeString()) skipped"
+            }
+        }
+        
     }
     
 }

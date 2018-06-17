@@ -20,21 +20,32 @@ extension Notification.Name {
 
 class AudioPlayer {
     
+    // Player
     static let shared = AudioPlayer()
     let db = DatabaseController<Episode>()
     var player: AVAudioPlayer? 
     var episode: Episode?
     var timer: Timer?
-    var decibelThreshold: Float = -40
-    var samplingRate = 0.05
+    
+    // Audio Manipulation
+    var shouldSkipSilences = false
+    var playerTimeObserver: Timer?
+    var decibelThreshold: Float = -35
+    var defaultPlaybackRate: Float = 1.0
+    var sampleRate = 0.05
     var secondsOfIncreasedPlayback = 0.0
+    var skippedSeconds = 0.0
+    
+    // Keys
     let AudioPlayerEpisodeUserInfoKey = "AudioPlayerEpisodeUserInfoKey"
     let AudioPlayerSecondsElapsedUserInfoKey = "AudioPlayerSecondsElapsedUserInfoKey"
     let AudioPlayerSecondsRemainingUserInfoKey = "AudioPlayerSecondsRemainingUserInfoKey"
+    let AudioPlayerSecondsSkippedKey = "AudioPlayerSecondsSkippedKey"
     
     func setEpisode(_ episode: Episode) {
         
         self.episode = episode
+        skippedSeconds = episode.secondsSkipped
     }
     
     // Hanlde a new episode if we have one
@@ -76,6 +87,7 @@ class AudioPlayer {
             
             // Play
             play()
+            toggleSkipSilence()
         }
     }
     
@@ -152,23 +164,48 @@ class AudioPlayer {
         return nil
     }
     
+    func toggleSkipSilence() {
+        if shouldSkipSilences {
+            playerTimeObserver?.invalidate()
+            shouldSkipSilences = false
+        } else {
+            // Timer for skip silence
+            playerTimeObserver = Timer.scheduledTimer(timeInterval: sampleRate, target: self, selector: #selector(findSilences), userInfo: nil, repeats: true)
+            shouldSkipSilences = true
+        }
+    }
+    
     @objc private func udateProgress() {
         if let audio = player, let episode = episode {
             
             // Save updated tiem to episode
             episode.playPosition = audio.currentTime
+            episode.secondsSkipped = skippedSeconds
             self.db.save(episode.detatch())
             
             // Notify
             NotificationCenter.default.post(name: .audioPlayerPlaybackTimeChanged, object: self, userInfo: [
                 AudioPlayerSecondsElapsedUserInfoKey: audio.timeElapsed,
-                AudioPlayerSecondsRemainingUserInfoKey: audio.timeRemaining
+                AudioPlayerSecondsRemainingUserInfoKey: audio.timeRemaining,
+                AudioPlayerSecondsSkippedKey: skippedSeconds
             ])
         }
     }
     
-    // MARK: Now Playing
-    
     // https://blog.breaker.audio/how-we-skip-silences-in-podcasts-with-avaudioplayer-69232b57850a
+    @objc private func findSilences() {
+        guard player?.isPlaying == true else { return }
+        player?.updateMeters()
+        if let averagePower = player?.averagePower(forChannel: 0),
+            averagePower < decibelThreshold {
+            player?.rate = 3
+            skippedSeconds += sampleRate - (sampleRate / 3)
+            debugPrint("Skipped: \(skippedSeconds) seconds")
+        } else {
+            player?.rate = defaultPlaybackRate
+        }
+    }
+    
+    // MARK: Now Playing
     
 }

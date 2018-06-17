@@ -25,17 +25,14 @@ class ContainerViewController: UIViewController {
     }
     
     @objc func hideMiniBar(_ notification: Notification) {
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
-//            self.miniBarContainerView.frame.origin.y = self.miniBarContainerView.frame.height * -1
-//            self.miniBarHeightConstraint.constant = 0
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.miniBarBottomConstraint.constant = self.miniBarHeightConstraint.constant
             self.view.layoutIfNeeded()
         })
     }
     
     @objc func showMiniBar(_ notification: Notification) {
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
-//            self.miniBarHeightConstraint.constant = 80
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.miniBarBottomConstraint.constant = 0
             self.view.layoutIfNeeded()
         })

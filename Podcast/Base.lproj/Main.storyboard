@@ -495,12 +495,22 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-fb-G1m" userLabel="skipped ">
+                                        <rect key="frame" x="128.5" y="166" width="118" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="118" id="Ti5-DM-KGS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="kdO-OU-r52" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="2nv-jv-6N0"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerY" secondItem="VEP-lt-P1W" secondAttribute="centerY" id="APr-Qj-R6R"/>
                                     <constraint firstItem="f4e-sU-FX9" firstAttribute="top" secondItem="nmc-0l-yuR" secondAttribute="bottom" constant="8" id="BEL-7e-JZr"/>
+                                    <constraint firstAttribute="bottom" secondItem="NMg-fb-G1m" secondAttribute="bottom" constant="19" id="Be3-IF-q5b"/>
                                     <constraint firstItem="a8C-1Z-WP5" firstAttribute="centerX" secondItem="VEP-lt-P1W" secondAttribute="centerX" id="GIO-1w-khP"/>
                                     <constraint firstAttribute="trailing" secondItem="f4e-sU-FX9" secondAttribute="trailing" constant="8" id="IOU-Ab-s3Q"/>
                                     <constraint firstItem="nmc-0l-yuR" firstAttribute="top" secondItem="VEP-lt-P1W" secondAttribute="top" id="OdT-iW-PRn"/>
@@ -511,6 +521,7 @@
                                     <constraint firstAttribute="trailing" secondItem="kdO-OU-r52" secondAttribute="trailing" constant="8" id="h1U-03-MPc"/>
                                     <constraint firstItem="nmc-0l-yuR" firstAttribute="leading" secondItem="VEP-lt-P1W" secondAttribute="leading" id="iDq-Vx-k7S"/>
                                     <constraint firstItem="FCT-tk-5qR" firstAttribute="top" secondItem="nmc-0l-yuR" secondAttribute="bottom" constant="8" id="pQ0-lM-cn2"/>
+                                    <constraint firstItem="NMg-fb-G1m" firstAttribute="centerX" secondItem="VEP-lt-P1W" secondAttribute="centerX" id="sP4-wY-Xq8"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -532,6 +543,7 @@
                         <outlet property="episodeArtwork" destination="oAD-1x-aY2" id="824-lD-yMD"/>
                         <outlet property="playPauseButton" destination="a8C-1Z-WP5" id="Yh1-RB-qbk"/>
                         <outlet property="progressView" destination="nmc-0l-yuR" id="Mkv-mD-7ZI"/>
+                        <outlet property="secondsSkippedLabel" destination="NMg-fb-G1m" id="IDw-y3-0i2"/>
                         <outlet property="timeProgressLabel" destination="FCT-tk-5qR" id="O1v-q6-Sij"/>
                         <outlet property="timeRemainingLabel" destination="f4e-sU-FX9" id="fi6-Ta-Obc"/>
                     </connections>

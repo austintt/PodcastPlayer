@@ -23,6 +23,7 @@ class Episode: Object {
     @objc dynamic var playPosition: Double = 0
     @objc dynamic var hasBeenPlayed: Bool = false
     @objc dynamic var isDownloaded: Bool = false
+    @objc dynamic var secondsSkipped: Double = 0.0
     @objc dynamic var id = UUID().uuidString
     
     convenience init(item: RSSFeedItem, podcast: Podcast) {
