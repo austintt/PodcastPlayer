@@ -12,8 +12,7 @@ class MiniBarPlayerViewController: UIViewController {
 
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var artImageView: UIImageView!
-    
-    let db = DatabaseController<Podcast>()
+    var episode: Episode?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +31,22 @@ class MiniBarPlayerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayerInfo(_:)), name: .audioPlayerWillStartPlaying, object: AudioPlayer.shared)
     }
     
-    fileprivate func setArtwork(_ episode: Episode) {
-        if !episode.podcastArtUrl.isEmpty {
+    fileprivate func setArtwork() {
+        if let episode = self.episode {
             artImageView.sd_imageTransition = .fade
             artImageView.sd_setImage(with: URL(string: episode.podcastArtUrl))
+        
+            // Gesture to open player
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(_:)))
+            artImageView.addGestureRecognizer(tapGestureRecognizer)
         }
     }
     
     @objc func updatePlayerInfo(_ notification: Notification) {
-        let episode = notification.userInfo![AudioPlayer.shared.AudioPlayerEpisodeUserInfoKey]! as! Episode
+        episode = notification.userInfo![AudioPlayer.shared.AudioPlayerEpisodeUserInfoKey]! as! Episode
         
         // Get artwork from podcast
-        setArtwork(episode)
+        setArtwork()
         
         playPauseButton.setTitle("Pause", for: .normal)
 
@@ -57,5 +60,19 @@ class MiniBarPlayerViewController: UIViewController {
             AudioPlayer.shared.play()
             playPauseButton.setTitle("Pause", for: .normal)
         }
+    }
+    
+    @objc private func imageTapped(_ sender: AnyObject) {
+        print("Minibar art tapped")
+        openBigPlayer()
+    }
+    
+    private func openBigPlayer() {
+        
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as? PlayerViewController, let episode = self.episode {
+            controller.episode = episode
+            self.present(controller, animated: true, completion: nil)
+        }
+        
     }
 }

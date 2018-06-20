@@ -13,7 +13,7 @@ extension Notification.Name {
     static let episodeDetailViewWillDisappear = Notification.Name("episodeDetailViewWillDisappear")
 }
 
-class EpisodeDetailViewController: UIViewController {
+class PlayerViewController: UIViewController {
     
     @IBOutlet weak var episodeArtwork: UIImageView!
     @IBOutlet weak var playPauseButton: UIButton!
@@ -24,7 +24,6 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var secondsSkippedLabel: UILabel!
     
     var episode: Episode!
-    var podcast: Podcast!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +45,7 @@ class EpisodeDetailViewController: UIViewController {
     func setUpContent() {
         
         // Podcast details
-        episodeArtwork.sd_setImage(with: URL(string: podcast.artworkUrl))
+        episodeArtwork.sd_setImage(with: URL(string: episode.podcastArtUrl))
         title = episode.title
         secondsSkippedLabel.text = ""
         
@@ -138,4 +137,9 @@ class EpisodeDetailViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -20,8 +20,8 @@ class ContainerViewController: UIViewController {
     }
     
     func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(hideMiniBar(_:)), name: .episodeDetailViewLoaded, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showMiniBar(_:)), name: .episodeDetailViewWillDisappear, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(hideMiniBar(_:)), name: .episodeDetailViewLoaded, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(showMiniBar(_:)), name: .episodeDetailViewWillDisappear, object: nil)
     }
     
     @objc func hideMiniBar(_ notification: Notification) {

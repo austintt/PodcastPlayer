@@ -206,10 +206,11 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = episodes[indexPath.row]
         
-        let controller = storyboard!.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as! EpisodeDetailViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as! PlayerViewController
         controller.episode = episode
-        controller.podcast = podcast // TODO: Clean this up
-        navigationController!.pushViewController(controller, animated: true)
+
+//        navigationController!.pushViewController(controller, animated: true)
+        navigationController!.present(controller, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
