@@ -99,11 +99,11 @@
             <objects>
                 <viewController title="Podcasts" id="OmC-6d-dAa" customClass="SubscriptionView" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQj-1T-OKQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMs-N8-Hma">
-                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="umJ-JX-7QL">
                                     <size key="itemSize" width="334" height="115"/>
@@ -240,7 +240,7 @@
             <objects>
                 <tableViewController title="Search" id="mHg-QX-Yqb" customClass="SearchViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jaa-rF-Ycz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" placeholder="Podcast" id="h20-aU-sLk">
@@ -561,16 +561,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-uI-ZvB">
-                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="582" width="375" height="85"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="tko-P7-TOl"/>
+                                    <constraint firstAttribute="height" constant="85" id="tko-P7-TOl"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="mBq-zk-X9h" kind="embed" id="anJ-Dp-M5P"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l3-U2-EEm" userLabel="Content Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                                 <connections>
                                     <segue destination="gYv-EB-BE8" kind="embed" id="Sld-tG-bT7"/>
                                 </connections>
@@ -621,17 +621,17 @@
             <objects>
                 <viewController id="mBq-zk-X9h" customClass="MiniBarPlayerViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtO-Nn-Dwk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH4-f2-ajo">
-                                <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                <rect key="frame" x="17" y="8" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wH4-f2-ajo" secondAttribute="height" multiplier="80:80" id="boU-ud-c5U"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qck-le-H6B">
-                                <rect key="frame" x="172.5" y="25" width="30" height="30"/>
+                                <rect key="frame" x="172.5" y="27.5" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="togglePlayState:" destination="mBq-zk-X9h" eventType="touchUpInside" id="TXx-AW-KBg"/>
@@ -640,9 +640,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91594622459999997" green="0.91594622459999997" blue="0.91594622459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="wH4-f2-ajo" secondAttribute="bottom" constant="2" id="0MU-K6-nkm"/>
+                            <constraint firstAttribute="bottom" secondItem="wH4-f2-ajo" secondAttribute="bottom" constant="17" id="0MU-K6-nkm"/>
                             <constraint firstItem="wH4-f2-ajo" firstAttribute="top" secondItem="rtO-Nn-Dwk" secondAttribute="top" constant="8" id="7E0-uN-RNi"/>
-                            <constraint firstItem="wH4-f2-ajo" firstAttribute="leading" secondItem="rtO-Nn-Dwk" secondAttribute="leading" constant="8" id="p7G-TS-xkV"/>
+                            <constraint firstItem="wH4-f2-ajo" firstAttribute="leading" secondItem="Mfq-Gw-5wO" secondAttribute="leading" constant="17" id="p7G-TS-xkV"/>
                             <constraint firstItem="qck-le-H6B" firstAttribute="centerX" secondItem="rtO-Nn-Dwk" secondAttribute="centerX" id="tTu-YW-Vvg"/>
                             <constraint firstItem="qck-le-H6B" firstAttribute="centerY" secondItem="rtO-Nn-Dwk" secondAttribute="centerY" id="yB0-G2-kmn"/>
                         </constraints>
