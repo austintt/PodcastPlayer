@@ -32,13 +32,10 @@ class MiniBarPlayerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayerInfo(_:)), name: .audioPlayerWillStartPlaying, object: AudioPlayer.shared)
     }
     
-    fileprivate func setArtFromParentPodcast(_ episode: Episode) {
-        let predicate = NSPredicate(format: "id = %@", episode.podcastID)
-        let results = db.query(predicate: predicate)
-        
-        if let podcast = results.first {
+    fileprivate func setArtwork(_ episode: Episode) {
+        if !episode.podcastArtUrl.isEmpty {
             artImageView.sd_imageTransition = .fade
-            artImageView.sd_setImage(with: URL(string: podcast.artworkUrl))
+            artImageView.sd_setImage(with: URL(string: episode.podcastArtUrl))
         }
     }
     
@@ -46,7 +43,7 @@ class MiniBarPlayerViewController: UIViewController {
         let episode = notification.userInfo![AudioPlayer.shared.AudioPlayerEpisodeUserInfoKey]! as! Episode
         
         // Get artwork from podcast
-        setArtFromParentPodcast(episode)
+        setArtwork(episode)
         
         playPauseButton.setTitle("Pause", for: .normal)
 
