@@ -29,6 +29,7 @@
 		D96F63EA20C6C4AF00EC21BF /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F63E920C6C4AF00EC21BF /* ActionViewController.swift */; };
 		D96F63ED20C6C4AF00EC21BF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96F63EB20C6C4AF00EC21BF /* MainInterface.storyboard */; };
 		D96F63F120C6C4AF00EC21BF /* TestAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D96F63E720C6C4AF00EC21BF /* TestAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D97D1925211601BD00B3C393 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97D1924211601BD00B3C393 /* Date+String.swift */; };
 		D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA32030EAC1004506B1 /* AppDelegate.swift */; };
 		D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */; };
 		D97F5BA92030EAC1004506B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BA72030EAC1004506B1 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B220D5E65400E20076 /* ImageView+Style.swift */; };
 		D999B5B520D6AE3100E20076 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B420D6AE3100E20076 /* ContainerViewController.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
+		D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,7 @@
 		D96F63E920C6C4AF00EC21BF /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		D96F63EC20C6C4AF00EC21BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D96F63EE20C6C4AF00EC21BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97D1924211601BD00B3C393 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		D97F5BA02030EAC1004506B1 /* Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F5BA32030EAC1004506B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F5BA52030EAC1004506B1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		D999B5B220D5E65400E20076 /* ImageView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Style.swift"; sourceTree = "<group>"; };
 		D999B5B420D6AE3100E20076 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
+		D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresentationViewController.swift; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,12 +181,13 @@
 			isa = PBXGroup;
 			children = (
 				D999B5AD20D5CB8D00E20076 /* SearchView */,
+				D97D19262116029900B3C393 /* PodcastDetailView */,
 				D908546B20D09A6800EDD3B2 /* SubscriptionView */,
-				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
 				D95D25DD203D055D004F511C /* PlayerViewController.swift */,
 				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
 				D999B5B420D6AE3100E20076 /* ContainerViewController.swift */,
+				D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */,
 				D999B5B020D5E4C600E20076 /* CALayer+Border.swift */,
 				D999B5B220D5E65400E20076 /* ImageView+Style.swift */,
+				D97D1924211601BD00B3C393 /* Date+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +243,14 @@
 				D96F63EE20C6C4AF00EC21BF /* Info.plist */,
 			);
 			path = TestAction;
+			sourceTree = "<group>";
+		};
+		D97D19262116029900B3C393 /* PodcastDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */,
+			);
+			path = PodcastDetailView;
 			sourceTree = "<group>";
 		};
 		D97F5B972030EAC1004506B1 = {
@@ -454,6 +468,7 @@
 			files = (
 				D9693B852083FFBF002737ED /* String+URL.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
+				D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */,
 				D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */,
 				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
 				D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */,
@@ -463,6 +478,7 @@
 				D902B8532030FE200031B6F1 /* Podcast.swift in Sources */,
 				D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */,
 				D908546F20D09DE100EDD3B2 /* SubscriptionPillCell.swift in Sources */,
+				D97D1925211601BD00B3C393 /* Date+String.swift in Sources */,
 				D95D25DE203D055D004F511C /* PlayerViewController.swift in Sources */,
 				D95D25DC203CFB75004F511C /* Constants.swift in Sources */,
 				D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */,

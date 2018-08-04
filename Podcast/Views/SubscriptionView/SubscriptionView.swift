@@ -140,7 +140,7 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
         }
     }
     @IBAction func changeCellType(_ sender: Any) {
-        usePillCells.toggle()
+//        usePillCells.toggle()
     }
 }
 

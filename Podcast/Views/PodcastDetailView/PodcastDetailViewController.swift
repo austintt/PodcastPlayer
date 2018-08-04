@@ -168,7 +168,10 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         group.notify(queue: xmlQueue) {
             performUIUpdatesOnMain {
                 self.descriptionTextView.text = self.podcast.descriptionText
-                self.tableView.reloadData()
+                UIView.transition(with: self.tableView,
+                                  duration: 0.25,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.tableView.reloadData() })
             }
         }
     }
@@ -193,6 +196,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         let episode = episodes[indexPath.row]
         cell.textLabel!.text = episode.title
+        cell.detailTextLabel?.text = "\(episode.pubDate.toMediumString()) - \(episode.duration.timeStringWithHours())"
         
         if episode.isDownloaded {
             cell.accessoryType = .checkmark

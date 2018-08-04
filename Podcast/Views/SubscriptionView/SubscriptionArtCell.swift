@@ -18,6 +18,7 @@ class SubscriptionArtCell: UICollectionViewCell {
     var hasBeenConstructed = false
     
     func updateContent(podcast: Podcast) {
+        imageView.sd_imageTransition = .fade
         imageView.sd_setImage(with: URL(string: podcast.artworkUrl), placeholderImage: #imageLiteral(resourceName: "taz"))
         titleLabel.text = podcast.name
         subtitleLabel.text = podcast.artist

@@ -13,6 +13,7 @@ class MiniBarPlayerViewController: UIViewController {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var artImageView: UIImageView!
     var episode: Episode?
+    let playerPresentationViewController = PlayerPresentationViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,18 @@ class MiniBarPlayerViewController: UIViewController {
     @objc private func imageTapped(_ sender: AnyObject) {
         print("Minibar art tapped")
         openBigPlayer()
+//        performSegue(withIdentifier: "playerDetailSegue", sender: self)
     }
+    
+    
+//    // MARK: Transition
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "playerDetailSegue", let destiniation = segue.destination as? PlayerViewController, let episode = self.episode {
+//            destiniation.episode = episode
+////            let miniBarFrame = self.view.frame
+//            playerPresentationViewController.miniPlayerFrame = self.view.frame
+//        }
+//    }
     
     private func openBigPlayer() {
         
@@ -73,6 +85,22 @@ class MiniBarPlayerViewController: UIViewController {
             controller.episode = episode
             self.present(controller, animated: true, completion: nil)
         }
-        
     }
 }
+
+// MARK: Transition Extensions
+
+///*****
+// * Transition Delegates refer a view controller to where it can find a transition. Everytime an object asks `ViewController`
+// * which transition to perform, return the desired presentation controller.
+// *****/
+//extension MiniBarPlayerViewController : UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return playerPresentationViewController
+//    }
+//
+//    // TODO: Create a CardDismissalViewController
+//    //    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//    //        return cardDismissalViewController
+//    //    }
+//}

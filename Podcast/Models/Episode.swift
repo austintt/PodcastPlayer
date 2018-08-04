@@ -25,6 +25,7 @@ class Episode: Object {
     @objc dynamic var isDownloaded: Bool = false
     @objc dynamic var secondsSkipped: Double = 0.0
     @objc dynamic var podcastArtUrl = ""
+    @objc dynamic var duration: Double = 0
     @objc dynamic var id = UUID().uuidString
     
     convenience init(item: RSSFeedItem, podcast: Podcast) {
@@ -40,6 +41,7 @@ class Episode: Object {
         playPosition = 0
         hasBeenPlayed = false
         podcastArtUrl = podcast.artworkUrl
+        duration = item.iTunes?.iTunesDuration ?? 0
         
         if let fileType = fileURL.toURL()?.pathExtension {
             fileExtension = fileType
