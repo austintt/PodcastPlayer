@@ -148,9 +148,11 @@ class AudioPlayer {
         player?.enableRate = true
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [.allowAirPlay, .allowBluetooth])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [])
             debugPrint("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
+            registerForRemoteCommands()
+            setupNowPlaying()
             debugPrint("Session is Active")
         } catch {
             debugPrint("Error setting up audio session \(error)")

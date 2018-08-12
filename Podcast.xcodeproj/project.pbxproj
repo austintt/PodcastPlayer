@@ -46,6 +46,7 @@
 		D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
+		D9DACF552120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DACF542120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresentationViewController.swift; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		D9DACF542120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteCommandCenter+AudioPlayer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				D956EB9B209E2DEA00DCA0C7 /* AudioPlayer.swift */,
+				D9DACF542120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				D908546D20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift in Sources */,
 				D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */,
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
+				D9DACF552120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
 				D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,

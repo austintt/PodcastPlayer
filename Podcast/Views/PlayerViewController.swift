@@ -98,11 +98,11 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func skipPressed(_ sender: Any) {
-        AudioPlayer.shared.forward(by: 30)
+        AudioPlayer.shared.forward(by: Constants.shared.skipDuration)
     }
     
     @IBAction func backPressed(_ sender: Any) {
-        AudioPlayer.shared.back(by: 30)
+        AudioPlayer.shared.back(by: Constants.shared.skipDuration)
     }
     
     func toggleActivityIndicator() {

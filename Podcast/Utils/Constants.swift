@@ -15,4 +15,7 @@ struct Constants {
     let purple = UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)
     
     let cornerRadius = CGFloat(8)
+    
+    // Player
+    let skipDuration: Double = 30
 }
