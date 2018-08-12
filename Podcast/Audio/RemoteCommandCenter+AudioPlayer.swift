@@ -16,6 +16,8 @@ extension AudioPlayer {
         let commandCenter = MPRemoteCommandCenter.shared()
         
         // Set up buttons
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.pauseCommand.isEnabled = true
         commandCenter.skipForwardCommand.isEnabled = true
         commandCenter.skipBackwardCommand.isEnabled = true
         commandCenter.skipForwardCommand.preferredIntervals = [30]

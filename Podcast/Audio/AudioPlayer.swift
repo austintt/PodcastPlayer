@@ -100,7 +100,7 @@ class AudioPlayer {
             
             // Play
             audio.play()
-            updateCommandCenter()
+            setupNowPlaying()
             
             // Notify
             NotificationCenter.default.post(name: .audioPlayerWillStartPlaying, object: self, userInfo: [AudioPlayerEpisodeUserInfoKey: currentEp])
@@ -201,8 +201,7 @@ class AudioPlayer {
     
     private func updateCommandCenter() {
         if let player = self.player {
-//            MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPNowPlayingInfoPropertyElapsedPlaybackTime: player.currentTime]
-            setupNowPlaying()
+            MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
         }
     }
     
