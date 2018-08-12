@@ -100,6 +100,7 @@ class AudioPlayer {
             
             // Play
             audio.play()
+            updateCommandCenter()
             
             // Notify
             NotificationCenter.default.post(name: .audioPlayerWillStartPlaying, object: self, userInfo: [AudioPlayerEpisodeUserInfoKey: currentEp])
@@ -114,6 +115,7 @@ class AudioPlayer {
         
         debugPrint("Pause")
         audio.pause()
+        updateCommandCenter()
         timer?.invalidate()
     }
     
@@ -121,12 +123,14 @@ class AudioPlayer {
         guard let audio = self.player else {return}
         debugPrint("Forward")
         audio.seek(by)
+        updateCommandCenter()
     }
     
     func back(by: Double) {
         guard let audio = self.player else {return}
         debugPrint("Back")
         audio.seek(by * -1)
+        updateCommandCenter()
     }
     
     func stop() {
@@ -134,6 +138,7 @@ class AudioPlayer {
         debugPrint("Stop")
         audio.stop()
         timer?.invalidate()
+        updateCommandCenter()
     }
     
     func isPlaying() -> Bool {
@@ -191,6 +196,13 @@ class AudioPlayer {
                 AudioPlayerSecondsRemainingUserInfoKey: audio.timeRemaining,
                 AudioPlayerSecondsSkippedKey: skippedSeconds
             ])
+        }
+    }
+    
+    private func updateCommandCenter() {
+        if let player = self.player {
+//            MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPNowPlayingInfoPropertyElapsedPlaybackTime: player.currentTime]
+            setupNowPlaying()
         }
     }
     

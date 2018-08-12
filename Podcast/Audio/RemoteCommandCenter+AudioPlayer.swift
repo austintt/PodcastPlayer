@@ -79,7 +79,6 @@ extension AudioPlayer {
             // meta data
             nowPlayingInfo[MPMediaItemPropertyTitle] = episode.title
             nowPlayingInfo[MPMediaItemPropertyArtist] = episode.podcastName
-//            nowPlayingInfo[MPMediaItemPropertyPodcastTitle] = episode.podcastName
             nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = episode.duration
             nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate
