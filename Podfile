@@ -7,7 +7,7 @@ target 'Podcast' do
 
   # Pods for Podcast
   pod 'SDWebImage', '~> 4.0'
-  pod 'RealmSwift', '~> 3.7.2'
+  pod 'RealmSwift', '~> 3.7.6'
   pod 'FeedKit', '~> 8.0'
   pod 'Alamofire', '~> 4.7'
 
