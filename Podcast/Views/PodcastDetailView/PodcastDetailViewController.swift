@@ -147,18 +147,17 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         // Fetch feed asynchronously
         xmlQueue.async(group: group) {
             if let url = URL(string: self.podcast.feedUrl) {
-                if let parser = FeedParser(URL: url) {
-                    let result = parser.parse()
-                    if let feed = result.rssFeed {
-                        self.podcast.descriptionText = feed.description!
+                let parser = FeedParser(URL: url)
+                let result = parser.parse()
+                if let feed = result.rssFeed {
+                    self.podcast.descriptionText = feed.description!
 
-                        // Reconcile episodes from feed with those saved
-                        self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed, podcast: self.podcast))
+                    // Reconcile episodes from feed with those saved
+                    self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed, podcast: self.podcast))
 
-                        // Save new episodes to podcast
-                        if self.podcast.isSubscribed {
-                            self.db.save(self.podcast)
-                        }
+                    // Save new episodes to podcast
+                    if self.podcast.isSubscribed {
+                        self.db.save(self.podcast)
                     }
                 }
             }

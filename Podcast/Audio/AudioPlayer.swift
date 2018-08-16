@@ -115,7 +115,7 @@ class AudioPlayer {
         
         debugPrint("Pause")
         audio.pause()
-        updateCommandCenter()
+        setupNowPlaying()
         timer?.invalidate()
     }
     
@@ -196,6 +196,7 @@ class AudioPlayer {
                 AudioPlayerSecondsRemainingUserInfoKey: audio.timeRemaining,
                 AudioPlayerSecondsSkippedKey: skippedSeconds
             ])
+            updateCommandCenter()
         }
     }
     
