@@ -9,6 +9,6 @@ target 'Podcast' do
   pod 'SDWebImage', '~> 4.0'
   pod 'RealmSwift', '~> 3.7.6'
   pod 'FeedKit', '~> 8.0'
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire', '~> 4.7.3'
 
 end
