@@ -6,7 +6,7 @@ target 'Podcast' do
   use_frameworks!
 
   # Pods for Podcast
-  pod 'SDWebImage', '~> 4.0'
+  pod 'SDWebImage', '~> 4.4.2'
   pod 'RealmSwift', '~> 3.7.6'
   pod 'FeedKit', '~> 8.0'
   pod 'Alamofire', '~> 4.7.3'
