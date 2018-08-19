@@ -18,7 +18,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var episodeArtwork: UIImageView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var progressView: UISlider!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator = UIActivityIndicatorView()
     @IBOutlet weak var timeProgressLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var secondsSkippedLabel: UILabel!
@@ -58,7 +58,7 @@ class PlayerViewController: UIViewController {
         activityIndicator.color = Constants.shared.purple
         
         // Player buttons
-        playPauseButton.setTitle("Pause", for: .normal)
+        playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         
         // Hide mini player
     }
@@ -104,9 +104,10 @@ class PlayerViewController: UIViewController {
         if AudioPlayer.shared.isPlaying() {
             AudioPlayer.shared.pause()
             playPauseButton.setTitle("Play", for: .normal)
+            playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         } else {
              AudioPlayer.shared.play()
-            playPauseButton.setTitle("Pause", for: .normal)
+            playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         }
     }
     
