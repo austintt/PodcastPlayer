@@ -22,12 +22,14 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var timeProgressLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var secondsSkippedLabel: UILabel!
-    
+    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var episodeTitleLabel: UILabel!
     var episode: Episode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpContent()
+        setUpStyle()
         registerNotifications()
         
         if !AudioPlayer.shared.isPlaying() || AudioPlayer.shared.episode?.id != episode.id {
@@ -46,7 +48,8 @@ class PlayerViewController: UIViewController {
         
         // Podcast details
         episodeArtwork.sd_setImage(with: URL(string: episode.podcastArtUrl))
-        title = episode.title
+        episodeTitleLabel.text = episode.title
+        podcastNameLabel.text = episode.podcastName
         secondsSkippedLabel.text = ""
         
         // Activity Indicator
@@ -59,6 +62,16 @@ class PlayerViewController: UIViewController {
         
         // Hide mini player
     }
+    
+    func setUpStyle() {
+        episodeArtwork.layer.cornerRadius = Constants.shared.cornerRadius
+        episodeArtwork.clipsToBounds = true
+        episodeArtwork.layer.masksToBounds = true
+        
+        // shadow
+        
+    }
+    
     
     
     func registerNotifications() {

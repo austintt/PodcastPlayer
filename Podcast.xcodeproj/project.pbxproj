@@ -36,6 +36,7 @@
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
+		D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98276E52125059400CF044C /* LargeTitleWrapping.swift */; };
 		D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */; };
 		D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */; };
 		D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */; };
@@ -108,6 +109,7 @@
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D98276E52125059400CF044C /* LargeTitleWrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleWrapping.swift; sourceTree = "<group>"; };
 		D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionArtCell.swift; sourceTree = "<group>"; };
 		D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBaseCell.swift; sourceTree = "<group>"; };
 		D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarPlayerViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				D999B5B020D5E4C600E20076 /* CALayer+Border.swift */,
 				D999B5B220D5E65400E20076 /* ImageView+Style.swift */,
 				D97D1924211601BD00B3C393 /* Date+String.swift */,
+				D98276E52125059400CF044C /* LargeTitleWrapping.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */,
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D9693B832083FA5A002737ED /* Downloader.swift in Sources */,
+				D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
 				D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */,
