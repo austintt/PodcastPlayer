@@ -24,7 +24,11 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var secondsSkippedLabel: UILabel!
     @IBOutlet weak var podcastNameLabel: UILabel!
     @IBOutlet weak var episodeTitleLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    
     var episode: Episode!
+    let pauseImage: UIImage = #imageLiteral(resourceName: "pause").withRenderingMode(.alwaysTemplate)
+    let playImage: UIImage = #imageLiteral(resourceName: "play").withRenderingMode(.alwaysTemplate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,18 +59,28 @@ class PlayerViewController: UIViewController {
         // Activity Indicator
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
-        activityIndicator.color = Constants.shared.purple
+        
         
         // Player buttons
-        playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+        playPauseButton.setImage(pauseImage, for: .normal)
         
         // Hide mini player
     }
     
     func setUpStyle() {
+        
+        // Art
         episodeArtwork.layer.cornerRadius = Constants.shared.cornerRadius
         episodeArtwork.clipsToBounds = true
         episodeArtwork.layer.masksToBounds = true
+        
+        // Buttons
+        closeButton.imageView?.contentMode = .scaleAspectFit
+        closeButton.tintColor = Constants.shared.purple
+        playPauseButton.imageView?.tintColor = UIColor.purple
+        
+        // Information
+        activityIndicator.color = Constants.shared.purple
         
         // shadow
         
@@ -104,10 +118,10 @@ class PlayerViewController: UIViewController {
         if AudioPlayer.shared.isPlaying() {
             AudioPlayer.shared.pause()
             playPauseButton.setTitle("Play", for: .normal)
-            playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+            playPauseButton.setImage(playImage, for: .normal)
         } else {
              AudioPlayer.shared.play()
-            playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            playPauseButton.setImage(pauseImage, for: .normal)
         }
     }
     

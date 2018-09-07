@@ -12,7 +12,7 @@ struct Constants {
     static let shared = Constants()
     
     // Colors
-    let purple = UIColor(red: 72/255, green: 52/255, blue: 212/255, alpha: 1)
+    let purple = UIColor(rgb: 0x5F27CD)
     
     let cornerRadius = CGFloat(8)
     

@@ -18,7 +18,7 @@ extension Notification.Name {
     static let audioPlayerPlaybackTimeChanged = Notification.Name("audioPlayerPlaybackTimeChanged")
 }
 
-class AudioPlayer {
+class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     
     // Player
     static let shared = AudioPlayer()
@@ -106,7 +106,7 @@ class AudioPlayer {
             NotificationCenter.default.post(name: .audioPlayerWillStartPlaying, object: self, userInfo: [AudioPlayerEpisodeUserInfoKey: currentEp])
             
             // Timer to keep track of progress
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(udateProgress), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
         }
     }
     
@@ -148,7 +148,13 @@ class AudioPlayer {
         return false
     }
     
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        debugPrint("Episode \(episode?.title) finished playing")
+        stop()
+    }
+    
     func setupPlayer() {
+        player?.delegate = self
         player?.isMeteringEnabled = true
         player?.enableRate = true
         
@@ -182,7 +188,7 @@ class AudioPlayer {
         }
     }
     
-    @objc private func udateProgress() {
+    @objc private func updateProgress() {
         if let audio = player, let episode = episode {
             
             // Save updated tiem to episode

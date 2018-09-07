@@ -32,7 +32,9 @@ class SubscriptionView: UIViewController, UICollectionViewDelegate, UICollection
     func setUpView() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = Constants.shared.purple
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:Constants.shared.purple]
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Constants.shared.purple]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Constants.shared.purple]
     }
     
     func getSubscriptionsFromDB() {
