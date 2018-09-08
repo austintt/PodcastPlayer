@@ -96,7 +96,7 @@
         <!--Player Swipe View Controller-->
         <scene sceneID="Zw7-c3-e2q">
             <objects>
-                <viewController restorationIdentifier="PlayerSwipeViewController" storyboardIdentifier="PlayerSwipeViewController" id="NHn-g7-QhV" customClass="PlayerSwipeViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PlayerSwipeViewController" storyboardIdentifier="PlayerSwipeViewController" modalPresentationStyle="overFullScreen" id="NHn-g7-QhV" customClass="PlayerSwipeViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7W-ut-G2L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,6 +179,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="w6T-ku-Y4F" firstAttribute="leading" secondItem="TJQ-eH-G5A" secondAttribute="leading" id="3TU-hK-m0z"/>
                             <constraint firstItem="w6T-ku-Y4F" firstAttribute="top" secondItem="TJQ-eH-G5A" secondAttribute="top" constant="80" id="4kq-R7-e3p"/>
@@ -189,6 +190,9 @@
                             <constraint firstItem="w6T-ku-Y4F" firstAttribute="trailing" secondItem="TJQ-eH-G5A" secondAttribute="trailing" id="q3w-7X-eRQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TJQ-eH-G5A"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7Ck-61-Y8b" appends="YES" id="ODF-rS-3Fc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="gao-AD-Fmd" id="PoJ-RL-aJO"/>
@@ -198,6 +202,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7h-ak-nhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7Ck-61-Y8b">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="NHn-g7-QhV" id="wMi-qR-LAb"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-90" y="1396"/>
         </scene>

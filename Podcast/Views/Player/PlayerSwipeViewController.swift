@@ -15,6 +15,7 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
     let player = PlayerViewController()
     var pages = [UIView]()
     var hasScrolled = false
+    var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var episodeTitleLabel: UILabel!
@@ -90,6 +91,25 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func swipeToDismiss(_ sender: UIPanGestureRecognizer) {
+        let touchPoint = sender.location(in: self.view?.window)
+        
+        if sender.state == UIGestureRecognizerState.began {
+            initialTouchPoint = touchPoint
+        } else if sender.state == UIGestureRecognizerState.changed {
+            if touchPoint.y - initialTouchPoint.y > 0 {
+                self.view.frame = CGRect(x: 0, y: touchPoint.y - initialTouchPoint.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            }
+        } else if sender.state == UIGestureRecognizerState.ended || sender.state == UIGestureRecognizerState.cancelled {
+            if touchPoint.y - initialTouchPoint.y > 100 {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+                })
+            }
+        }
+    }
     
     // MARK: Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
