@@ -1,5 +1,5 @@
 //
-//  EpisodeDetailViewController.swift
+//  PlayerViewController
 //  Podcast
 //
 //  Created by Austin Tooley on 2/20/18.

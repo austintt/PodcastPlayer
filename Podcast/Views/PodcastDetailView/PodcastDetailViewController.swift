@@ -93,6 +93,11 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         episodesSegmentView.layer.borderColor = Constants.shared.purple.cgColor
         episodesSegmentView.layer.borderWidth = 1
         episodesSegmentView.layer.cornerRadius = 0
+        
+        // Art
+        coverImageView.layer.cornerRadius = Constants.shared.cornerRadius
+        coverImageView.clipsToBounds = true
+        coverImageView.layer.masksToBounds = true
     }
     
     // MARK: Data manipulation
@@ -208,7 +213,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = episodes[indexPath.row]
         
-        let controller = storyboard!.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as! PlayerViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
         controller.episode = episode
 
 //        navigationController!.pushViewController(controller, animated: true)

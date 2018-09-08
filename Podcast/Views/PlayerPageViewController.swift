@@ -12,8 +12,7 @@ class PlayerPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "PlayerSesstingsController"),
-            self.getViewController(withIdentifier: "EpisodeDetailViewController")
+            self.getViewController(withIdentifier: "PlayerViewController"),
         ]
     }()
     

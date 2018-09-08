@@ -81,7 +81,7 @@ class MiniBarPlayerViewController: UIViewController {
     
     private func openBigPlayer() {
         
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as? PlayerViewController, let episode = self.episode {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController, let episode = self.episode {
             controller.episode = episode
             self.present(controller, animated: true, completion: nil)
         }

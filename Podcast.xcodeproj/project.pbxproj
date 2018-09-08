@@ -190,15 +190,12 @@
 		D902B87620313AFB0031B6F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */,
+				D9395A4521441C6200614206 /* Player */,
 				D999B5AD20D5CB8D00E20076 /* SearchView */,
 				D97D19262116029900B3C393 /* PodcastDetailView */,
 				D908546B20D09A6800EDD3B2 /* SubscriptionView */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
-				D95D25DD203D055D004F511C /* PlayerViewController.swift */,
-				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
-				D999B5B420D6AE3100E20076 /* ContainerViewController.swift */,
-				D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */,
-				D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +210,17 @@
 				D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */,
 			);
 			path = SubscriptionView;
+			sourceTree = "<group>";
+		};
+		D9395A4521441C6200614206 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */,
+				D999B5B420D6AE3100E20076 /* ContainerViewController.swift */,
+				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
+				D95D25DD203D055D004F511C /* PlayerViewController.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		D949BE632033B75F003D5989 /* Extensions */ = {
