@@ -47,6 +47,7 @@
 		D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B020D5E4C600E20076 /* CALayer+Border.swift */; };
 		D999B5B320D5E65400E20076 /* ImageView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B220D5E65400E20076 /* ImageView+Style.swift */; };
 		D999B5B520D6AE3100E20076 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5B420D6AE3100E20076 /* ContainerViewController.swift */; };
+		D99A5B652144594E00D5B1F6 /* UIButton+ImageTint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99A5B642144594E00D5B1F6 /* UIButton+ImageTint.swift */; };
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9B36CBE212A33E100F009E2 /* PlayerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */; };
 		D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */; };
@@ -125,6 +126,7 @@
 		D999B5B020D5E4C600E20076 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		D999B5B220D5E65400E20076 /* ImageView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Style.swift"; sourceTree = "<group>"; };
 		D999B5B420D6AE3100E20076 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		D99A5B642144594E00D5B1F6 /* UIButton+ImageTint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ImageTint.swift"; sourceTree = "<group>"; };
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPageViewController.swift; sourceTree = "<group>"; };
 		D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresentationViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				D97D1924211601BD00B3C393 /* Date+String.swift */,
 				D98276E52125059400CF044C /* LargeTitleWrapping.swift */,
 				D969D25C21432E7600258CE5 /* UIColor+Hex.swift */,
+				D99A5B642144594E00D5B1F6 /* UIButton+ImageTint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				D9395A47214430CF00614206 /* PlayerSwipeViewController.swift in Sources */,
 				D969D25D21432E7600258CE5 /* UIColor+Hex.swift in Sources */,
 				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
+				D99A5B652144594E00D5B1F6 /* UIButton+ImageTint.swift in Sources */,
 				D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */,
 				D97F5BA42030EAC1004506B1 /* AppDelegate.swift in Sources */,
 				D902B84E2030F0240031B6F1 /* iTunesClient.swift in Sources */,

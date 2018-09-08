@@ -26,6 +26,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var episodeTitleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var skipBackButton: UIButton!
+    @IBOutlet weak var skipForwardButton: UIButton!
     
     var episode: Episode!
     let pauseImage: UIImage = #imageLiteral(resourceName: "pause").withRenderingMode(.alwaysTemplate)
@@ -82,9 +84,9 @@ class PlayerViewController: UIViewController {
         episodeArtwork.layer.masksToBounds = true
         
         // Buttons
-        closeButton.imageView?.contentMode = .scaleAspectFit
-        closeButton.tintColor = Constants.shared.purple
-        playPauseButton.imageView?.tintColor = UIColor.purple
+        playPauseButton.imageView?.tintColor = Constants.shared.purple
+        skipBackButton.tintImage(color: Constants.shared.purple)
+        skipForwardButton.tintImage(color: Constants.shared.purple)
         
         // Information
         activityIndicator.color = Constants.shared.purple

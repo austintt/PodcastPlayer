@@ -39,7 +39,10 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func setUpStyle() {
-        closeButton.imageView?.contentMode = .scaleAspectFit
+        
+        // Buttons
+        closeButton.tintImage(color: Constants.shared.purple)
+        
     }
     
     func setUpCollectionView() {

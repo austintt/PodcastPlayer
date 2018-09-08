@@ -752,6 +752,8 @@
                         <outlet property="podcastNameLabel" destination="i8I-kF-X05" id="Mp9-o0-rTA"/>
                         <outlet property="progressView" destination="nmc-0l-yuR" id="Mkv-mD-7ZI"/>
                         <outlet property="secondsSkippedLabel" destination="NMg-fb-G1m" id="IDw-y3-0i2"/>
+                        <outlet property="skipBackButton" destination="yFA-JY-cCt" id="tK0-7j-GUZ"/>
+                        <outlet property="skipForwardButton" destination="kdO-OU-r52" id="keS-NP-G4y"/>
                         <outlet property="timeProgressLabel" destination="FCT-tk-5qR" id="O1v-q6-Sij"/>
                         <outlet property="timeRemainingLabel" destination="f4e-sU-FX9" id="fi6-Ta-Obc"/>
                     </connections>
