@@ -91,6 +91,7 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         dismiss(animated: true, completion: nil)
     }
     
+    // https://medium.com/@qbo/dismiss-viewcontrollers-presented-modally-using-swipe-down-923cfa9d22f4
     @IBAction func swipeToDismiss(_ sender: UIPanGestureRecognizer) {
         let touchPoint = sender.location(in: self.view?.window)
         

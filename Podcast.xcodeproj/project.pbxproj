@@ -41,6 +41,8 @@
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
 		D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98276E52125059400CF044C /* LargeTitleWrapping.swift */; };
+		D994082E2144607D007A2A73 /* PlayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */; };
+		D9940830214465A9007A2A73 /* UIButton+OutlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994082F214465A9007A2A73 /* UIButton+OutlineStyle.swift */; };
 		D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */; };
 		D999B5AC20D5853F00E20076 /* SubscriptionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */; };
 		D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */; };
@@ -120,6 +122,8 @@
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D98276E52125059400CF044C /* LargeTitleWrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleWrapping.swift; sourceTree = "<group>"; };
+		D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSettingsViewController.swift; sourceTree = "<group>"; };
+		D994082F214465A9007A2A73 /* UIButton+OutlineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+OutlineStyle.swift"; sourceTree = "<group>"; };
 		D999B5A920D584F900E20076 /* SubscriptionArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionArtCell.swift; sourceTree = "<group>"; };
 		D999B5AB20D5853F00E20076 /* SubscriptionBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBaseCell.swift; sourceTree = "<group>"; };
 		D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarPlayerViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				D95D25DD203D055D004F511C /* PlayerViewController.swift */,
 				D9395A46214430CF00614206 /* PlayerSwipeViewController.swift */,
 				D9395A482144481A00614206 /* PlayerViewCell.swift */,
+				D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				D98276E52125059400CF044C /* LargeTitleWrapping.swift */,
 				D969D25C21432E7600258CE5 /* UIColor+Hex.swift */,
 				D99A5B642144594E00D5B1F6 /* UIButton+ImageTint.swift */,
+				D994082F214465A9007A2A73 /* UIButton+OutlineStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				D97F5BA62030EAC1004506B1 /* SubscriptionView.swift in Sources */,
 				D9693B832083FA5A002737ED /* Downloader.swift in Sources */,
 				D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */,
+				D9940830214465A9007A2A73 /* UIButton+OutlineStyle.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
 				D9395A47214430CF00614206 /* PlayerSwipeViewController.swift in Sources */,
 				D969D25D21432E7600258CE5 /* UIColor+Hex.swift in Sources */,
@@ -556,6 +563,7 @@
 				D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,
 				D956EB9C209E2DEA00DCA0C7 /* AudioPlayer.swift in Sources */,
+				D994082E2144607D007A2A73 /* PlayerSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
