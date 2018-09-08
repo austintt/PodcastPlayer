@@ -16,6 +16,8 @@
 		D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */; };
 		D908546D20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */; };
 		D908546F20D09DE100EDD3B2 /* SubscriptionPillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */; };
+		D9395A47214430CF00614206 /* PlayerSwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9395A46214430CF00614206 /* PlayerSwipeViewController.swift */; };
+		D9395A492144481A00614206 /* PlayerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9395A482144481A00614206 /* PlayerViewCell.swift */; };
 		D93E42CC20327995003B85EB /* RealmDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E42CB20327995003B85EB /* RealmDBController.swift */; };
 		D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94543312048DC2600B8F585 /* MediaPlayer.swift */; };
 		D949BE622033B683003D5989 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE612033B683003D5989 /* PodcastCell.swift */; };
@@ -89,6 +91,8 @@
 		D902B87720313B1F0031B6F1 /* PodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailViewController.swift; sourceTree = "<group>"; };
 		D908546C20D09A8E00EDD3B2 /* PodcastColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastColumnFlowLayout.swift; sourceTree = "<group>"; };
 		D908546E20D09DE100EDD3B2 /* SubscriptionPillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPillCell.swift; sourceTree = "<group>"; };
+		D9395A46214430CF00614206 /* PlayerSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSwipeViewController.swift; sourceTree = "<group>"; };
+		D9395A482144481A00614206 /* PlayerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewCell.swift; sourceTree = "<group>"; };
 		D93E42CB20327995003B85EB /* RealmDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBController.swift; sourceTree = "<group>"; };
 		D94543312048DC2600B8F585 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		D949BE612033B683003D5989 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				D999B5B420D6AE3100E20076 /* ContainerViewController.swift */,
 				D999B5AE20D5DCEA00E20076 /* MiniBarPlayerViewController.swift */,
 				D95D25DD203D055D004F511C /* PlayerViewController.swift */,
+				D9395A46214430CF00614206 /* PlayerSwipeViewController.swift */,
+				D9395A482144481A00614206 /* PlayerViewCell.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9693B852083FFBF002737ED /* String+URL.swift in Sources */,
+				D9395A492144481A00614206 /* PlayerViewCell.swift in Sources */,
 				D969D25F2143313200258CE5 /* AudioPlayer+AVAudioPlayerDelegate.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
 				D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */,
@@ -529,6 +536,7 @@
 				D9693B832083FA5A002737ED /* Downloader.swift in Sources */,
 				D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */,
 				D902B87820313B1F0031B6F1 /* PodcastDetailViewController.swift in Sources */,
+				D9395A47214430CF00614206 /* PlayerSwipeViewController.swift in Sources */,
 				D969D25D21432E7600258CE5 /* UIColor+Hex.swift in Sources */,
 				D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */,
 				D999B5B120D5E4C600E20076 /* CALayer+Border.swift in Sources */,

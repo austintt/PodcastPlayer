@@ -50,21 +50,24 @@ class PlayerViewController: UIViewController {
     
     func setUpContent() {
         
-        // Podcast details
-        episodeArtwork.sd_setImage(with: URL(string: episode.podcastArtUrl))
-        episodeTitleLabel.text = episode.title
-        podcastNameLabel.text = episode.podcastName
-        secondsSkippedLabel.text = ""
+        if let episode = episode {
+            // Podcast details
+            episodeArtwork.sd_setImage(with: URL(string: episode.podcastArtUrl))
+            episodeTitleLabel.text = episode.title
+            podcastNameLabel.text = episode.podcastName
+            secondsSkippedLabel.text = ""
+            
+            // Activity Indicator
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.stopAnimating()
+            
+            
+            // Player buttons
+            playPauseButton.setImage(pauseImage, for: .normal)
+            
+            // Hide mini player
+        }
         
-        // Activity Indicator
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.stopAnimating()
-        
-        
-        // Player buttons
-        playPauseButton.setImage(pauseImage, for: .normal)
-        
-        // Hide mini player
     }
     
     func setUpStyle() {
@@ -98,20 +101,23 @@ class PlayerViewController: UIViewController {
     
     func playEpisode() {
         // Download the episode if we don't have it yet
-        if !episode.checkIfDownloaded() {
-            let downloader = Downloader()
-            toggleActivityIndicator()
-            downloader.getAndSaveEpisode(episode) { (error) in
-                if let error = error {
-                    debugPrint("Error downloading \(error)")
-                } else {
-                    AudioPlayer.shared.play(self.episode)
+        if let episode = episode {
+            if !episode.checkIfDownloaded() {
+                let downloader = Downloader()
+                toggleActivityIndicator()
+                downloader.getAndSaveEpisode(episode) { (error) in
+                    if let error = error {
+                        debugPrint("Error downloading \(error)")
+                    } else {
+                        AudioPlayer.shared.play(self.episode)
+                    }
+                    self.toggleActivityIndicator()
                 }
-                self.toggleActivityIndicator()
+            } else {
+                AudioPlayer.shared.play(self.episode)
             }
-        } else {
-            AudioPlayer.shared.play(self.episode)
         }
+        
     }
     
     @IBAction func playPause(_ sender: Any) {

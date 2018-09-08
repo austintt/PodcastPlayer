@@ -93,6 +93,97 @@
             </objects>
             <point key="canvasLocation" x="991" y="200"/>
         </scene>
+        <!--Player Swipe View Controller-->
+        <scene sceneID="Zw7-c3-e2q">
+            <objects>
+                <viewController restorationIdentifier="PlayerSwipeViewController" storyboardIdentifier="PlayerSwipeViewController" id="NHn-g7-QhV" customClass="PlayerSwipeViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w7W-ut-G2L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-ku-Y4F">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TZC-Ef-MTu">
+                                    <size key="itemSize" width="375" height="569"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lhk-1h-b8p" customClass="PlayerViewCell" customModule="Podcast" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="569"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="569"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ce-V3-8Mu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="569"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="9Ce-V3-8Mu" firstAttribute="top" secondItem="Lhk-1h-b8p" secondAttribute="top" id="0ze-ZV-Vou"/>
+                                            <constraint firstItem="9Ce-V3-8Mu" firstAttribute="leading" secondItem="Lhk-1h-b8p" secondAttribute="leading" id="97s-nC-LMd"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Ce-V3-8Mu" secondAttribute="trailing" id="Ov8-wv-mIh"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Ce-V3-8Mu" secondAttribute="bottom" id="eO7-Lf-N6N"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="containerView" destination="9Ce-V3-8Mu" id="mUX-an-aRn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w6T-ku-Y4F" firstAttribute="leading" secondItem="TJQ-eH-G5A" secondAttribute="leading" id="3TU-hK-m0z"/>
+                            <constraint firstItem="w6T-ku-Y4F" firstAttribute="top" secondItem="TJQ-eH-G5A" secondAttribute="top" constant="80" id="4kq-R7-e3p"/>
+                            <constraint firstItem="w6T-ku-Y4F" firstAttribute="bottom" secondItem="w7W-ut-G2L" secondAttribute="bottom" id="h6K-IA-bgN"/>
+                            <constraint firstItem="w6T-ku-Y4F" firstAttribute="trailing" secondItem="TJQ-eH-G5A" secondAttribute="trailing" id="q3w-7X-eRQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TJQ-eH-G5A"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="w6T-ku-Y4F" id="bi6-IZ-DQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7h-ak-nhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="1489.2053973013494"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YAV-Rk-ssX">
+            <objects>
+                <viewController restorationIdentifier="PlayerSettingsView" storyboardIdentifier="PlayerSettingsView" id="IhJ-QU-vRv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nul-01-WIR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="o2n-uP-Yyf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZu-Hj-95c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-709" y="2131"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EEW-3K-erP">
+            <objects>
+                <viewController restorationIdentifier="PlayerNotesView" storyboardIdentifier="PlayerNotesView" id="mOs-LN-hKT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M3s-bQ-H2y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99680021601885105" green="0.62922986475208575" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5O7-VY-j73"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQv-CC-kOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="2215"/>
+        </scene>
         <!--Podcasts-->
         <scene sceneID="hAW-eB-HL9">
             <objects>
@@ -359,7 +450,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMu-w9-J3U">
-                                            <rect key="frame" x="187" y="36" width="172" height="142.5"/>
+                                            <rect key="frame" x="187" y="36.5" width="172" height="142.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -620,14 +711,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8N-q7-v3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-775" y="1396"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="ZUu-a2-zgP">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="KZ8-5H-m57" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mr6-AW-sGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="79" y="1395"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="rgt-FK-7mM">

@@ -213,7 +213,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = episodes[indexPath.row]
         
-        let controller = storyboard!.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "PlayerSwipeViewController") as! PlayerSwipeViewController
         controller.episode = episode
 
 //        navigationController!.pushViewController(controller, animated: true)
