@@ -17,21 +17,29 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
     var hasScrolled = false
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var episodeTitleLabel: UILabel!
+    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpStyle()
         setUpCollectionView()
         setUpPages()
-        
+        setUpContent()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if !hasScrolled  {
+        if !hasScrolled && !pages.isEmpty {
             hasScrolled = true
             self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.right, animated: false)
         }
+    }
+    
+    func setUpStyle() {
+        closeButton.imageView?.contentMode = .scaleAspectFit
     }
     
     func setUpCollectionView() {
@@ -67,6 +75,18 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         addChildViewController(notesController)
         pages.append(notesController.view)
     }
+    
+    func setUpContent() {
+        if let episode = episode {
+            episodeTitleLabel.text = episode.title
+            podcastNameLabel.text = episode.podcastName
+        }
+    }
+    
+    @IBAction func dismissButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

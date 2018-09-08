@@ -25,6 +25,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var podcastNameLabel: UILabel!
     @IBOutlet weak var episodeTitleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var infoView: UIView!
     
     var episode: Episode!
     let pauseImage: UIImage = #imageLiteral(resourceName: "pause").withRenderingMode(.alwaysTemplate)
@@ -64,6 +65,9 @@ class PlayerViewController: UIViewController {
             
             // Player buttons
             playPauseButton.setImage(pauseImage, for: .normal)
+            
+            // Hide info view
+            infoView.isHidden = true
             
             // Hide mini player
         }
