@@ -21,4 +21,7 @@ struct Constants {
     
     // Player
     let skipDuration: Double = 30
+    
+    // Spacing
+    let padding: CGFloat = 15
 }

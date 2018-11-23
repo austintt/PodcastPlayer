@@ -10,7 +10,6 @@ import UIKit
 
 /// Check out [A Tour of UICollectionView](https://developer.apple.com/videos/play/wwdc2018/225/)
 class PodcastColumnFlowLayout: UICollectionViewFlowLayout {
-    
     override func prepare() {
         super.prepare()
         
@@ -21,7 +20,7 @@ class PodcastColumnFlowLayout: UICollectionViewFlowLayout {
 //        let maxNumColumns = Int(availableWidth / minColumnWidth)
 //        let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         self.itemSize = CGSize(width: 165, height: 202)
-        self.sectionInset = UIEdgeInsets(top: self.minimumInteritemSpacing, left: self.minimumInteritemSpacing, bottom: 0.0, right: self.minimumInteritemSpacing) // so we have some space at the top
+        self.sectionInset = UIEdgeInsets(top: self.minimumInteritemSpacing, left: Constants.shared.padding, bottom: 90, right: Constants.shared.padding) // so we have some space at the top
         self.sectionInsetReference = .fromSafeArea // Safe inside safe area
     }
 }

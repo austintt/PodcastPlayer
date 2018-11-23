@@ -12,8 +12,13 @@ class MiniBarPlayerViewController: UIViewController {
 
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var artImageView: UIImageView!
+    @IBOutlet weak var podcastLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     var episode: Episode?
     let playerPresentationViewController = PlayerPresentationViewController()
+    let pauseImage: UIImage = #imageLiteral(resourceName: "pause").withRenderingMode(.alwaysTemplate)
+    let playImage: UIImage = #imageLiteral(resourceName: "play").withRenderingMode(.alwaysTemplate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,9 @@ class MiniBarPlayerViewController: UIViewController {
     func setUpView() {
         self.view.layer.cornerRadius = Constants.shared.cornerRadius
         artImageView.roundedCorners()
+        playPauseButton.imageView?.tintColor = Constants.shared.purple
+        podcastLabel.text = ""
+        titleLabel.text = ""
     }
     
     func registerForNotifications() {
@@ -49,17 +57,21 @@ class MiniBarPlayerViewController: UIViewController {
         // Get artwork from podcast
         setArtwork()
         
+        podcastLabel.text = episode?.podcastName
+        titleLabel.text = episode?.title
+        titleLabel.sizeToFit()
+        
         playPauseButton.setTitle("Pause", for: .normal)
-
+        playPauseButton.setImage(pauseImage, for: .normal)
     }
     
     @IBAction func togglePlayState(_ sender: Any?) {
         if AudioPlayer.shared.isPlaying() {
             AudioPlayer.shared.pause()
-            playPauseButton.setTitle("Play", for: .normal)
+            playPauseButton.setImage(playImage, for: .normal)
         } else {
             AudioPlayer.shared.play()
-            playPauseButton.setTitle("Pause", for: .normal)
+            playPauseButton.setImage(pauseImage, for: .normal)
         }
     }
     
