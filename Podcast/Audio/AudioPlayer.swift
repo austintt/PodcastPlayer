@@ -87,7 +87,6 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
             
             // Play
             play()
-            toggleSkipSilence()
         }
     }
     

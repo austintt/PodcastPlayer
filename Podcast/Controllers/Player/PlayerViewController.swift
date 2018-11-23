@@ -22,10 +22,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var timeProgressLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var secondsSkippedLabel: UILabel!
-    @IBOutlet weak var podcastNameLabel: UILabel!
-    @IBOutlet weak var episodeTitleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var infoView: UIView!
+
+
     @IBOutlet weak var skipBackButton: UIButton!
     @IBOutlet weak var skipForwardButton: UIButton!
     
@@ -56,8 +54,6 @@ class PlayerViewController: UIViewController {
         if let episode = episode {
             // Podcast details
             episodeArtwork.sd_setImage(with: URL(string: episode.podcastArtUrl))
-            episodeTitleLabel.text = episode.title
-            podcastNameLabel.text = episode.podcastName
             secondsSkippedLabel.text = ""
             
             // Activity Indicator
@@ -69,7 +65,9 @@ class PlayerViewController: UIViewController {
             playPauseButton.setImage(pauseImage, for: .normal)
             
             // Hide info view
-            infoView.isHidden = true
+            
+            timeRemainingLabel.alpha = 0
+            timeProgressLabel.alpha = 0
             
             // Hide mini player
         }
@@ -159,6 +157,14 @@ class PlayerViewController: UIViewController {
         let secondsElapsed = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsElapsedUserInfoKey]! as! Double
         let secondsRemaining = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsRemainingUserInfoKey]! as! Double
         let skippedSeconds = notification.userInfo![AudioPlayer.shared.AudioPlayerSecondsSkippedKey]! as! Double
+        
+        // Fade in the time labels
+        if timeProgressLabel.text == "00:00" {
+            UIView.animate(withDuration: 0.25) {
+                self.timeProgressLabel.alpha = 1
+                self.timeRemainingLabel.alpha = 1
+            }
+        }
         
         performUIUpdatesOnMain {
             self.timeProgressLabel.text = "\(secondsElapsed.rounded().timeStringWithHours())"

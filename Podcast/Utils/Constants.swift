@@ -14,6 +14,8 @@ struct Constants {
     // Colors
     let purple = UIColor(rgb: 0x5F27CD)
     let blue = UIColor(rgb: 0x0294DE)
+    let yellow = UIColor(rgb: 0xFAB708)
+    let red = UIColor(rgb: 0xE12A26)
     
     let cornerRadius = CGFloat(8)
     

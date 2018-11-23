@@ -25,16 +25,16 @@ class PlayerSettingsViewController: UIViewController {
     }
     
     func setUpStyle() {
-        setButtonStyle(skipSilenceButton)
-    }
-    
-    func setButtonStyle(_ button: UIButton) {
         if AudioPlayer.shared.shouldSkipSilences {
             skipSilenceButton.setFilledInStyle(color: Constants.shared.blue)
         } else {
             skipSilenceButton.setOutlineStyle(color: Constants.shared.blue)
-        }        
+        }
+        
+        playbackRateButton.setOutlineStyle(color: Constants.shared.yellow)
+        enhanceAudioButton.setOutlineStyle(color: Constants.shared.red)
     }
+
     
     @IBAction func toggleSkipSilence(_ sender: Any) {
         if AudioPlayer.shared.shouldSkipSilences {

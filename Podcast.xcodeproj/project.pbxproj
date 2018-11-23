@@ -197,7 +197,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D902B87620313AFB0031B6F1 /* Views */ = {
+		D902B87620313AFB0031B6F1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */,
@@ -207,7 +207,7 @@
 				D908546B20D09A6800EDD3B2 /* SubscriptionView */,
 				D949BE612033B683003D5989 /* PodcastCell.swift */,
 			);
-			path = Views;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D908546B20D09A6800EDD3B2 /* SubscriptionView */ = {
@@ -317,7 +317,7 @@
 				D956EB9A209E2DD900DCA0C7 /* Audio */,
 				D97F5BA32030EAC1004506B1 /* AppDelegate.swift */,
 				D902B8742031046A0031B6F1 /* GCDBlackBox.swift */,
-				D902B87620313AFB0031B6F1 /* Views */,
+				D902B87620313AFB0031B6F1 /* Controllers */,
 				D902B8512030FE0C0031B6F1 /* Models */,
 				D902B84A2030EE990031B6F1 /* Network */,
 				D949BE632033B75F003D5989 /* Extensions */,

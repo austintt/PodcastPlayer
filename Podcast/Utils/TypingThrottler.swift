@@ -33,29 +33,3 @@ final class TypingThrottler {
         }
     }
 }
-
-//        let throttler = TypingThrottler(interval: 0.4) { (text) in
-//            RequestManager.sharedInstance().getSearch(term: text) { (result, error) in
-//
-//                if let error = error {
-//                    print("ERROR: \(error)")
-//                } else {
-//                    if let podcasts = result {
-//
-//                        // Clear table
-//                        self.searchResults = [Podcast]()
-//                        performUIUpdatesOnMain {
-//                            self.tableView.reloadData()
-//                        }
-//
-//                        // Update Table
-//                        self.searchResults = podcasts
-//                        performUIUpdatesOnMain {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//
-//        throttler.handleTyping(with: searchText)

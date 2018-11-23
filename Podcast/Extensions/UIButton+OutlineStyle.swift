@@ -12,11 +12,12 @@ extension UIButton {
     
     func setOutlineStyle(color: UIColor) {
         self.backgroundColor = .clear
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 2
         self.layer.borderColor = color.cgColor
         self.layer.cornerRadius = 8
         self.tintColor = color
         self.setTitleColor(color, for: .normal)
+        self.titleLabel?.textAlignment = .center
     }
     
     func setFilledInStyle(color: UIColor) {
@@ -26,6 +27,7 @@ extension UIButton {
         self.layer.cornerRadius = 8
         self.tintColor = .white
         self.setTitleColor(.white, for: .normal)
+        self.titleLabel?.textAlignment = .center
     }
 }
 
