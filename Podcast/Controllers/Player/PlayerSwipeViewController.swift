@@ -75,9 +75,10 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         // notes controlls
-        let notesController = storyboard!.instantiateViewController(withIdentifier: "PlayerNotesView")
+        let notesController = storyboard!.instantiateViewController(withIdentifier: "PlayerNotesView") as! PlayerNotesViewController
         addChildViewController(notesController)
         pages.append(notesController.view)
+        notesController.loadEpisodeShowNotes()
     }
     
     func setUpContent() {

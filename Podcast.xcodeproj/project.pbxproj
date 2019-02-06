@@ -22,6 +22,7 @@
 		D94543322048DC2600B8F585 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94543312048DC2600B8F585 /* MediaPlayer.swift */; };
 		D949BE622033B683003D5989 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE612033B683003D5989 /* PodcastCell.swift */; };
 		D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D949BE642033B77E003D5989 /* NSData+imageFormat.swift */; };
+		D954B583220B868100F5B9BE /* PlayerNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954B582220B868100F5B9BE /* PlayerNotesViewController.swift */; };
 		D956EB9C209E2DEA00DCA0C7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D956EB9B209E2DEA00DCA0C7 /* AudioPlayer.swift */; };
 		D95D25DC203CFB75004F511C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DB203CFB75004F511C /* Constants.swift */; };
 		D95D25DE203D055D004F511C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D25DD203D055D004F511C /* PlayerViewController.swift */; };
@@ -53,6 +54,7 @@
 		D9A3993620A1216C00766127 /* AVPlayer+TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */; };
 		D9B36CBE212A33E100F009E2 /* PlayerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */; };
 		D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */; };
+		D9BC1ED9220B8D2C00365851 /* NotesStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BC1ED8220B8D2C00365851 /* NotesStyle.swift */; };
 		D9D17A8D20366E37005FD6F1 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8C20366E37005FD6F1 /* Episode.swift */; };
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
 		D9D9090A21A8807100CB5535 /* UIView+Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9090921A8807100CB5535 /* UIView+Shadows.swift */; };
@@ -101,6 +103,7 @@
 		D94543312048DC2600B8F585 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		D949BE612033B683003D5989 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		D949BE642033B77E003D5989 /* NSData+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+imageFormat.swift"; sourceTree = "<group>"; };
+		D954B582220B868100F5B9BE /* PlayerNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNotesViewController.swift; sourceTree = "<group>"; };
 		D956EB9B209E2DEA00DCA0C7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		D95D25DB203CFB75004F511C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D95D25DD203D055D004F511C /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		D9A3993520A1216C00766127 /* AVPlayer+TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimeProvider.swift"; sourceTree = "<group>"; };
 		D9B36CBD212A33E100F009E2 /* PlayerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPageViewController.swift; sourceTree = "<group>"; };
 		D9BAABB52103AC3700AA3ACD /* PlayerPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresentationViewController.swift; sourceTree = "<group>"; };
+		D9BC1ED8220B8D2C00365851 /* NotesStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesStyle.swift; sourceTree = "<group>"; };
 		D9D17A8C20366E37005FD6F1 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		D9D9090921A8807100CB5535 /* UIView+Shadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadows.swift"; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				D9395A46214430CF00614206 /* PlayerSwipeViewController.swift */,
 				D9395A482144481A00614206 /* PlayerViewCell.swift */,
 				D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */,
+				D954B582220B868100F5B9BE /* PlayerNotesViewController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				D95D25DB203CFB75004F511C /* Constants.swift */,
 				D94543312048DC2600B8F585 /* MediaPlayer.swift */,
 				D9693B80208255DC002737ED /* TypingThrottler.swift */,
+				D9BC1ED8220B8D2C00365851 /* NotesStyle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				D9395A492144481A00614206 /* PlayerViewCell.swift in Sources */,
 				D969D25F2143313200258CE5 /* AudioPlayer+AVAudioPlayerDelegate.swift in Sources */,
 				D902B8752031046A0031B6F1 /* GCDBlackBox.swift in Sources */,
+				D9BC1ED9220B8D2C00365851 /* NotesStyle.swift in Sources */,
 				D9BAABB62103AC3700AA3ACD /* PlayerPresentationViewController.swift in Sources */,
 				D999B5AF20D5DCEA00E20076 /* MiniBarPlayerViewController.swift in Sources */,
 				D949BE652033B77E003D5989 /* NSData+imageFormat.swift in Sources */,
@@ -563,6 +570,7 @@
 				D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */,
 				D9DACF552120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift in Sources */,
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
+				D954B583220B868100F5B9BE /* PlayerNotesViewController.swift in Sources */,
 				D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */,
 				D9D9090A21A8807100CB5535 /* UIView+Shadows.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,

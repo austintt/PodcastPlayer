@@ -101,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-ku-Y4F">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-ku-Y4F">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TZC-Ef-MTu">
@@ -329,20 +329,39 @@
             </objects>
             <point key="canvasLocation" x="-1428" y="2023.5382308845578"/>
         </scene>
-        <!--View Controller-->
+        <!--Player Notes View Controller-->
         <scene sceneID="EEW-3K-erP">
             <objects>
-                <viewController restorationIdentifier="PlayerNotesView" storyboardIdentifier="PlayerNotesView" id="mOs-LN-hKT" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PlayerNotesView" storyboardIdentifier="PlayerNotesView" id="mOs-LN-hKT" customClass="PlayerNotesViewController" customModule="Podcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M3s-bQ-H2y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQV-Zo-jhZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Odin">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" red="0.99680021601885105" green="0.62922986475208575" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QQV-Zo-jhZ" firstAttribute="top" secondItem="M3s-bQ-H2y" secondAttribute="top" id="6jU-EA-IXt"/>
+                            <constraint firstItem="QQV-Zo-jhZ" firstAttribute="bottom" secondItem="5O7-VY-j73" secondAttribute="bottom" id="Ej7-C3-Jed"/>
+                            <constraint firstItem="QQV-Zo-jhZ" firstAttribute="trailing" secondItem="5O7-VY-j73" secondAttribute="trailing" id="Ibx-yz-GiY"/>
+                            <constraint firstItem="QQV-Zo-jhZ" firstAttribute="leading" secondItem="5O7-VY-j73" secondAttribute="leading" id="r9x-cN-jHp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5O7-VY-j73"/>
                     </view>
+                    <connections>
+                        <outlet property="notesView" destination="QQV-Zo-jhZ" id="eCM-ft-Itu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQv-CC-kOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-95" y="2024"/>
+            <point key="canvasLocation" x="-95.200000000000003" y="2023.5382308845578"/>
         </scene>
         <!--Podcasts-->
         <scene sceneID="hAW-eB-HL9">
@@ -352,7 +371,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMs-N8-Hma">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMs-N8-Hma">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="umJ-JX-7QL">

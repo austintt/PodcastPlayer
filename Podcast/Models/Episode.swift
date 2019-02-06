@@ -18,6 +18,7 @@ class Episode: Object {
     @objc dynamic var fileURL: String = ""
     @objc dynamic var subtitle: String = ""
     @objc dynamic var summary: String = ""
+    @objc dynamic var showNotes: String = ""
     @objc dynamic var pubDate: Date = Date()
     @objc dynamic var fileExtension: String = ""
     @objc dynamic var playPosition: Double = 0
@@ -36,6 +37,7 @@ class Episode: Object {
         summary = item.iTunes?.iTunesSummary ?? ""
         pubDate = item.pubDate ?? Date()
         fileURL = item.enclosure?.attributes?.url ?? ""
+        showNotes = item.content?.contentEncoded ?? ""
         podcastName = podcast.name
         podcastID = podcast.id
         playPosition = 0
