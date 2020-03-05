@@ -35,7 +35,7 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         if !hasScrolled && !pages.isEmpty {
             hasScrolled = true
-            self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.right, animated: false)
+            self.collectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionView.ScrollPosition.right, animated: false)
         }
     }
     
@@ -63,12 +63,12 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         // settings controlls
         let settingsController = storyboard!.instantiateViewController(withIdentifier: "PlayerSettingsView")
-        addChildViewController(settingsController)
+        addChild(settingsController)
         pages.append(settingsController.view)
         
         // player controlls
         let playerController = storyboard!.instantiateViewController(withIdentifier: "PlayerViewController")
-        addChildViewController(playerController)
+        addChild(playerController)
         if let playerView = playerController as? PlayerViewController {
             playerView.episode = episode
             pages.append(playerController.view)
@@ -76,7 +76,7 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         // notes controlls
         let notesController = storyboard!.instantiateViewController(withIdentifier: "PlayerNotesView") as! PlayerNotesViewController
-        addChildViewController(notesController)
+        addChild(notesController)
         pages.append(notesController.view)
         notesController.loadEpisodeShowNotes()
     }
@@ -96,13 +96,13 @@ class PlayerSwipeViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func swipeToDismiss(_ sender: UIPanGestureRecognizer) {
         let touchPoint = sender.location(in: self.view?.window)
         
-        if sender.state == UIGestureRecognizerState.began {
+        if sender.state == UIGestureRecognizer.State.began {
             initialTouchPoint = touchPoint
-        } else if sender.state == UIGestureRecognizerState.changed {
+        } else if sender.state == UIGestureRecognizer.State.changed {
             if touchPoint.y - initialTouchPoint.y > 0 {
                 self.view.frame = CGRect(x: 0, y: touchPoint.y - initialTouchPoint.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
             }
-        } else if sender.state == UIGestureRecognizerState.ended || sender.state == UIGestureRecognizerState.cancelled {
+        } else if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
             if touchPoint.y - initialTouchPoint.y > 100 {
                 self.dismiss(animated: true, completion: nil)
             } else {

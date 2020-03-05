@@ -1,20 +1,20 @@
 PODS:
   - Alamofire (4.7.3)
-  - FeedKit (8.1.1)
-  - Realm (3.21.0):
-    - Realm/Headers (= 3.21.0)
-  - Realm/Headers (3.21.0)
-  - RealmSwift (3.21.0):
-    - Realm (= 3.21.0)
+  - FeedKit (9.0.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7.3)
-  - FeedKit (~> 8.0)
-  - RealmSwift (~> 3.20)
-  - SDWebImage (~> 4.4.2)
+  - Alamofire (~> 4)
+  - FeedKit (~> 9.0)
+  - RealmSwift (~> 4.3)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -26,11 +26,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  FeedKit: 3418eed25f0b493b205b4de1b8511ac21d413fa9
-  Realm: 38e9dcb19104b58407167d99f70d4995f7c16023
-  RealmSwift: 3183cc1ad48378fbcd634311b22c0e6c44021152
+  FeedKit: 9ffa2434af293df73ac069129900498b3f89cb2e
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
 
-PODFILE CHECKSUM: 74ac55b5519885d89d076fe98419a9767846cd17
+PODFILE CHECKSUM: f1863ac3fea04f4820fd03bd8a5b2e88688d75b9
 
 COCOAPODS: 1.8.4

@@ -158,7 +158,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         player?.enableRate = true
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, mode: AVAudioSessionModeSpokenAudio, options: [])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode(rawValue: convertFromAVAudioSessionMode(AVAudioSession.Mode.spokenAudio)), options: [])
             debugPrint("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
             registerForRemoteCommands()
@@ -227,4 +227,9 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
     
     // MARK: Now Playing
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionMode(_ input: AVAudioSession.Mode) -> String {
+	return input.rawValue
 }

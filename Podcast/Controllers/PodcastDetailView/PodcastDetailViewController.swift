@@ -153,17 +153,22 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
             if let url = URL(string: self.podcast.feedUrl) {
                 let parser = FeedParser(URL: url)
                 let result = parser.parse()
-                if let feed = result.rssFeed {
-                    self.podcast.descriptionText = feed.description!
+                switch result {
+                case .success(let feed):
+                    guard let rssFeed = feed.rssFeed else { break }
+                    self.podcast.descriptionText = rssFeed.description! // TODO: Fix
 
                     // Reconcile episodes from feed with those saved
-                    self.reoncileEpisodes(Episode.episodeFromFeed(feed: feed, podcast: self.podcast))
+                    self.reoncileEpisodes(Episode.episodeFromFeed(feed: rssFeed, podcast: self.podcast))
 
                     // Save new episodes to podcast
                     if self.podcast.isSubscribed {
                         self.db.save(self.podcast)
                     }
+                case .failure(let error):
+                    print("Error parsing episodes from feed: \(error)")
                 }
+                
             }
         }
 
@@ -229,8 +234,8 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         return false
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
             
             var episode = episodes[indexPath.row]
             let episodeDB = DatabaseController<Episode>()

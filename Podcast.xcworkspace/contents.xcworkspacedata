@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Podcast/Models/Podcast+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Podcast/Models/Podcast+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Podcast/Models/Episode+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Podcast/Models/Episode+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:/Users/austin/Dropbox/Austin/Code/iPhone/Podcast/Podcast.xcodeproj">
    </FileRef>
    <FileRef

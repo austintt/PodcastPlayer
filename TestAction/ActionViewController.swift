@@ -22,7 +22,7 @@ class ActionViewController: UIViewController {
         // Replace this with something appropriate for the type[s] your extension supports.
         var imageFound = false
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
+            for provider in item.attachments! {
                 if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
                     // This is an image. We'll load it, then place it in our image view.
                     weak var weakImageView = self.imageView
