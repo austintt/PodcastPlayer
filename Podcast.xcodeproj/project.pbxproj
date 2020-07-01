@@ -60,6 +60,7 @@
 		D9D17A9020367116005FD6F1 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D17A8F20367116005FD6F1 /* FeedManager.swift */; };
 		D9D9090A21A8807100CB5535 /* UIView+Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9090921A8807100CB5535 /* UIView+Shadows.swift */; };
 		D9DACF552120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DACF542120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift */; };
+		D9F2E58A24576867006D6CC2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F2E58924576867006D6CC2 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		D9D17A8F20367116005FD6F1 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		D9D9090921A8807100CB5535 /* UIView+Shadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadows.swift"; sourceTree = "<group>"; };
 		D9DACF542120CA6200039B57 /* RemoteCommandCenter+AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteCommandCenter+AudioPlayer.swift"; sourceTree = "<group>"; };
+		D9F2E58924576867006D6CC2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F2E58A24576867006D6CC2 /* WebKit.framework in Frameworks */,
 				138123E337EACAE56BAED139 /* Pods_Podcast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +172,7 @@
 		2A5057DB5E3A596C2EC8C642 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9F2E58924576867006D6CC2 /* WebKit.framework */,
 				B6AC24B821C268B2B005D960 /* Pods_Podcast.framework */,
 			);
 			name = Frameworks;

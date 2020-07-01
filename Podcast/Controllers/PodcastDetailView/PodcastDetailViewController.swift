@@ -90,9 +90,9 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         // Order segment view
         episodesSegmentView.tintColor = Constants.shared.purple
-        episodesSegmentView.layer.borderColor = Constants.shared.purple.cgColor
-        episodesSegmentView.layer.borderWidth = 1
-        episodesSegmentView.layer.cornerRadius = 0
+//        episodesSegmentView.layer.borderColor = Constants.shared.purple.cgColor
+//        episodesSegmentView.layer.borderWidth = 1
+//        episodesSegmentView.layer.cornerRadius = 0
         
         // Art
         coverImageView.layer.cornerRadius = Constants.shared.cornerRadius
