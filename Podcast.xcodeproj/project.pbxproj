@@ -42,6 +42,7 @@
 		D97F5BAB2030EAC1004506B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAA2030EAC1004506B1 /* Assets.xcassets */; };
 		D97F5BAE2030EAC1004506B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */; };
 		D97F5BB62030EC34004506B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F5BB52030EC34004506B1 /* SearchViewController.swift */; };
+		D97FF8EB24B9FFC7000A9D0A /* SubscriptionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FF8EA24B9FFC7000A9D0A /* SubscriptionList.swift */; };
 		D98276E62125059400CF044C /* LargeTitleWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98276E52125059400CF044C /* LargeTitleWrapping.swift */; };
 		D994082E2144607D007A2A73 /* PlayerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */; };
 		D9940830214465A9007A2A73 /* UIButton+OutlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994082F214465A9007A2A73 /* UIButton+OutlineStyle.swift */; };
@@ -128,6 +129,7 @@
 		D97F5BAD2030EAC1004506B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D97F5BAF2030EAC1004506B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F5BB52030EC34004506B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D97FF8EA24B9FFC7000A9D0A /* SubscriptionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionList.swift; sourceTree = "<group>"; };
 		D98276E52125059400CF044C /* LargeTitleWrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleWrapping.swift; sourceTree = "<group>"; };
 		D994082D2144607D007A2A73 /* PlayerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSettingsViewController.swift; sourceTree = "<group>"; };
 		D994082F214465A9007A2A73 /* UIButton+OutlineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+OutlineStyle.swift"; sourceTree = "<group>"; };
@@ -342,8 +344,17 @@
 				D97F5BAA2030EAC1004506B1 /* Assets.xcassets */,
 				D97F5BAC2030EAC1004506B1 /* LaunchScreen.storyboard */,
 				D97F5BAF2030EAC1004506B1 /* Info.plist */,
+				D97FF8EC24B9FFD6000A9D0A /* SwiftUI */,
 			);
 			path = Podcast;
+			sourceTree = "<group>";
+		};
+		D97FF8EC24B9FFD6000A9D0A /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D97FF8EA24B9FFC7000A9D0A /* SubscriptionList.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		D999B5AD20D5CB8D00E20076 /* SearchView */ = {
@@ -586,6 +597,7 @@
 				D902B84C2030EF800031B6F1 /* RequestManager.swift in Sources */,
 				D954B583220B868100F5B9BE /* PlayerNotesViewController.swift in Sources */,
 				D999B5AA20D584F900E20076 /* SubscriptionArtCell.swift in Sources */,
+				D97FF8EB24B9FFC7000A9D0A /* SubscriptionList.swift in Sources */,
 				D9D9090A21A8807100CB5535 /* UIView+Shadows.swift in Sources */,
 				D902B8502030F0A70031B6F1 /* RequestManager+Constants.swift in Sources */,
 				D956EB9C209E2DEA00DCA0C7 /* AudioPlayer.swift in Sources */,
@@ -718,7 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -769,7 +781,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -786,7 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WNNJW9ZPQ;
 				INFOPLIST_FILE = Podcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tooley.Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -804,7 +816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WNNJW9ZPQ;
 				INFOPLIST_FILE = Podcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tooley.Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
