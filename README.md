@@ -1,9 +1,8 @@
 ## Simple Swift Podcast Player
 
+A simple podcast player in Swift. Search for shows, subscribe, download, play, view show notes, and even skip silences.
+
 ![subscriptions](Assets/subscriptions.PNG)
-
-I'm making a simple podcast player in Swift. Currently, the app can search iTunes' repository of podcasts, view available episodes in a podcast's feed, download, and play an episode.
-
 ![feed](Assets/feed.PNG)
 ![player](Assets/player.PNG)
 ![search](Assets/search.PNG)
